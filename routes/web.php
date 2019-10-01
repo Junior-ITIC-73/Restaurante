@@ -14,3 +14,61 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+<<<<<<< HEAD
+
+
+//-----------CRUD MESAS----------//
+//--LISTAR
+Route::get('mesas/','MesaController@index')->name('mesas.index');
+//--CREAR
+Route::get('mesas/create','MesaController@create')->name('mesas.create');
+Route::post('mesas/alta','MesaController@store')->name('mesas.store');
+//--ACTUALIZAR
+Route::get('mesas/{mesa}/editar','MesaController@edit')->name('mesas.edit');
+Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update');
+//---Eliminar
+Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy');
+Auth::routes();
+
+//-----------CRUD USUARIOS---------//
+//--LISTAR
+Route::get('usuarios/','UserController@index')->name('users.index');
+//--AGREGAR DATOS DEL USUARIO
+Route::get('/home', 'HomeController@index')->name('home');
+Route::put('usuarios/datos/{user}','UserController@updateDatos')->name('users.datos');
+//--ELIMINAR
+Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
+//--MODIFICAR
+Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
+Route::put('usuarios/{user}','UserController@update')->name('users.update');
+
+//-----------CRUD PEDIDO----------//
+//--LISTAR
+Route::get('pedidos/','PedidoController@index')->name('pedidos.index');
+//--CREAR
+Route::get('pedidos/create','PedidoController@create')->name('pedidos.create');
+Route::post('pedidos/alta','PedidoController@store')->name('pedidos.store');
+//--ACTUALIZAR
+Route::get('pedidos/{pedido}/editar','PedidoController@edit')->name('pedidos.edit');
+Route::put('pedidos/{pedido}','PedidoController@update')->name('pedidos.update');
+//---Eliminar
+Route::get('pedidos/elimiar/{pedido}','PedidoController@destroy')->name('pedidos.destroy');
+Auth::routes();
+
+Route::resource('menuplatillo','MenuPlatilloController');
+Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
+Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
+Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
+Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
+
+=======
+Route::resource('proveedor', 'ProveedorController');
+Route::get('/proveedor/{id}','ProveedorController@destroy');
+
+Route::resource('producto', 'ProductoController');
+Route::get('/producto/{id}','ProductoController@destroy');
+
+Route::resource('categoria', 'CategoriaProductoController');
+Route::get('/categoria/{id}','CategoriaController@destroy');
+>>>>>>> 444d5927b0776a848eb280f78485173637d98727

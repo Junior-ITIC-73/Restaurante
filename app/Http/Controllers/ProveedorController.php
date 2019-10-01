@@ -14,7 +14,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $proveedores = Proveedor::all();
+        return view('Proveedor/index',compact('proveedores'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('Proveedor.add');
     }
 
     /**
@@ -35,7 +36,10 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedor = new Proveedor($request->all());
+        $proveedor->save();
+      
+        return redirect('/proveedor')->with('mesage', 'El proveedor se ha agregado exitosamente!');
     }
 
     /**
@@ -55,9 +59,10 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(Request $request, $id) //Proveedor $proveedor
     {
-        //
+        $proveedor = Proveedor::findOrFail($id);
+        return view('Proveedor.edit', compact('proveedor'));
     }
 
     /**
@@ -67,9 +72,20 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request,$id ) //Proveedor $proveedor
     {
-        //
+        $proveedor = Proveedor::findorFail($id);
+        $proveedor->razon_social = $request->razon_social;
+        $proveedor->RFC = $request->RFC;
+        $proveedor->telefono_proveedor = $request->telefono_proveedor;
+        $proveedor->calle = $request->calle;
+        $proveedor->num_interior = $request->num_interior;
+        $proveedor->num_exterior = $request->num_exterior;
+        $proveedor->CP = $request->CP;
+        $proveedor->localidad = $request->localidad;
+
+        $proveedor->save();
+        return redirect('/proveedor')->with('mesage-update', 'El proveedor se ha modificado exitosamente!');
     }
 
     /**
@@ -78,8 +94,11 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy($id)// Proveedor $proveedor
     {
-        //
+        $proveedor=Proveedor::find($id);
+        $proveedor->delete();
+        
+        return redirect('/producto');
     }
 }

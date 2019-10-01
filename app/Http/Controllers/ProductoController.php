@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\Proveedor;
+use App\CategoriaProducto;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -14,7 +16,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('Producto/index',compact('productos'));
     }
 
     /**
@@ -24,7 +27,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $proveedores = Proveedor::all();
+        $categorias = CategoriaProducto::all();
+        return view('Producto.add',compact('proveedores','categorias'));
     }
 
     /**
@@ -35,7 +40,13 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+        $product = new Producto($request->all());
+        $product->categoria_id = $request['categoria_id'];
+        $product->proveedor_id = $request['proveedor_id'];
+        $product->save();
+        
+        return redirect('/producto')->with('mesage', 'El producto se ha agregado exitosamente!');
     }
 
     /**
@@ -55,9 +66,12 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit(Request $request, $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $proveedores = Proveedor::all();
+        $categorias = CategoriaProducto::all();
+        return view('Producto.edit', compact('producto','proveedores','categorias'));
     }
 
     /**
@@ -67,9 +81,20 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $id ) //Producto $producto
     {
-        //
+
+        $producto = Producto::findorFail($id);
+        $producto->nombre_producto = $request->nombre_producto;
+        $producto->cantidad = $request->cantidad;
+        $producto->costo = $request->costo;
+        $producto->categoria_id = $request->categoria_id;
+        $producto->proveedor_id = $request->proveedor_id;
+        $producto->fecha_ingreso = $request->fecha_ingreso;
+        $producto->activo = $request->activo;
+
+        $producto->save();
+        return redirect('/producto')->with('mesage-update', 'El producto se ha modificado exitosamente!');
     }
 
     /**
@@ -78,8 +103,11 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy($id)//Producto $producto
     {
-        //
+        $producto=Producto::find($id);
+        $producto->delete();
+        
+        return redirect('/producto');
     }
 }

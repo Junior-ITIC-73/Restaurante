@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mesa;
+use App\Http\Requests\FormMesa;
 use Illuminate\Http\Request;
 
 class MesaController extends Controller
@@ -14,7 +15,8 @@ class MesaController extends Controller
      */
     public function index()
     {
-        //
+        $mesas = Mesa::all();
+        return view('mesas.index',compact('mesas'));
     }
 
     /**
@@ -24,7 +26,7 @@ class MesaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mesas.create');
     }
 
     /**
@@ -33,9 +35,13 @@ class MesaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormMesa $request)
     {
-        //
+        Mesa::create([
+            'numero_mesa' => $request['numero_mesa'],
+            'descripcion_mesa' => $request['descripcion_mesa'],
+        ]);
+        return redirect()->route('mesas.index');
     }
 
     /**
@@ -57,7 +63,7 @@ class MesaController extends Controller
      */
     public function edit(Mesa $mesa)
     {
-        //
+        return view('mesas.edit',compact('mesa'));
     }
 
     /**
@@ -67,9 +73,12 @@ class MesaController extends Controller
      * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mesa $mesa)
+    public function update(FormMesa $request, Mesa $mesa)
     {
-        //
+        $mesa->numero_mesa = $request['numero_mesa'];
+        $mesa->descripcion_mesa = $request['descripcion_mesa'];
+        $mesa->save();
+        return redirect()->route('mesas.index');
     }
 
     /**
@@ -80,6 +89,7 @@ class MesaController extends Controller
      */
     public function destroy(Mesa $mesa)
     {
-        //
+        $mesa->delete();
+        return redirect()->route('mesas.index');
     }
 }
