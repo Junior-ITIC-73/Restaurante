@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('menuplatillo','MenuPlatilloController');
+    Route::resource('altamenu','MenuPlatillo@Create');
+    Route::resource('guardarmenu','MenuPlatillo@store');
+    Route::get('/eliminarplatillo/{id}','MenuPlatillo@eliminar');
+    Route::get('/modificarplatillo/{id}','MenuPlatillo@edit');
+    Route::POST('modificarplatillo','MenuPlatillo@updated')->name('modificarplatillo') ;

@@ -14,7 +14,8 @@ class MenuPlatilloController extends Controller
      */
     public function index()
     {
-        //
+        $menu_platillo=\App\MenuPlatillo::All();
+        return view('menuplatillos.index',compact('menu_platillo'));
     }
 
     /**
@@ -24,7 +25,7 @@ class MenuPlatilloController extends Controller
      */
     public function create()
     {
-        //
+        return view('menuplatillos.alta');
     }
 
     /**
@@ -35,7 +36,12 @@ class MenuPlatilloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\MenuPlatillo::create([
+            'nombre_platillo'=>($request['nombre_platillo']),
+            'precio_platillo'=>($request['descripcion_platillo']),
+            'fecha'=>($request['fecha']),
+            ]);
+            return redirect('menuplatillos.index');
     }
 
     /**
@@ -44,7 +50,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function show(MenuPlatillo $menuPlatillo)
+    public function show($id)
     {
         //
     }
@@ -55,7 +61,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function edit(MenuPlatillo $menuPlatillo)
+    public function edit($id)
     {
         //
     }
@@ -67,7 +73,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MenuPlatillo $menuPlatillo)
+    public function update($id)
     {
         //
     }
@@ -78,7 +84,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MenuPlatillo $menuPlatillo)
+    public function destroy($id)
     {
         //
     }
