@@ -7,6 +7,33 @@
                         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
                         <title>Alta Menu Platillos</title>
 
+                        <script text="javascript">
+
+
+        function sololetras(e) {
+	    key=e.keyCode || e.which;
+
+    	teclado=String.fromCharCode(key).toLowerCase();
+
+    	letras="qwertyuiopasdfghjklñzxcvbnm ";
+
+    	especiales="8-37-38-46-164";
+
+    	teclado_especial=false;
+
+	for(var i in especiales){
+		if(key==especiales[i]){
+			teclado_especial=true;
+			break;
+		}
+	}
+
+	if(letras.indexOf(teclado)==-1 && !teclado_especial){
+		return false;
+	}
+
+}
+                </script>
                     </head>
                     <body>
 
@@ -25,7 +52,7 @@
 
                                                 <p>
                                                     <label for="username" class="uname"  >Nombre del Platillo</label>
-                                                    <input id="username" name="nombre_platillo" required="required">
+                                                    <input name="nombre_platillo "class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/>
                                                 </p>
 
                                                 <p>
