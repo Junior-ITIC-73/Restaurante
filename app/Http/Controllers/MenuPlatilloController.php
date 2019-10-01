@@ -38,10 +38,11 @@ class MenuPlatilloController extends Controller
     {
         \App\MenuPlatillo::create([
             'nombre_platillo'=>($request['nombre_platillo']),
-            'precio_platillo'=>($request['descripcion_platillo']),
+            'precio_platillo'=>($request['precio_platillo']),
+            'descripcion_platillo'=>($request['descripcion_platillo']),
             'fecha'=>($request['fecha']),
             ]);
-            return redirect('menuplatillos.index');
+            return redirect('menuplatillo');
     }
 
     /**

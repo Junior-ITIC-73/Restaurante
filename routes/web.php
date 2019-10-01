@@ -16,8 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('menuplatillo','MenuPlatilloController');
-    Route::resource('altamenu','MenuPlatillo@Create');
-    Route::resource('guardarmenu','MenuPlatillo@store');
-    Route::get('/eliminarplatillo/{id}','MenuPlatillo@eliminar');
-    Route::get('/modificarplatillo/{id}','MenuPlatillo@edit');
-    Route::POST('modificarplatillo','MenuPlatillo@updated')->name('modificarplatillo') ;
+Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
+Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
+Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
+Route::POST('modificarplatillo','MenuPlatilloController@updated')->name('modificarplatillo') ;
