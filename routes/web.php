@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//-----------CRUD MESAS----------//
+//--LISTAR
+Route::get('mesas/','MesaController@index')->name('mesas.index');
+//--CREAR
+Route::get('mesas/create','MesaController@create')->name('mesas.create');
+Route::post('mesas/alta','MesaController@store')->name('mesas.store');
+//--ACTUALIZAR
+Route::get('mesas/{mesa}/editar','MesaController@edit')->name('mesas.edit');
+Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update');
+//---Eliminar
+Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy');
