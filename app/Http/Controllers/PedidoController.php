@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pedido;
 use Illuminate\Http\Request;
+use App\Http\Requests\FormPedido;
 
 class PedidoController extends Controller
 {
@@ -14,7 +15,8 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        $pedidos = Pedido::all();
+        return view('pedidos.index',compact('pedidos'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+    return view('pedidos.create');
     }
 
     /**
@@ -33,9 +35,16 @@ class PedidoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormPedido $request)
     {
-        //
+        Pedido::create([
+            'user_id' => $request['user_id'],
+            'fecha_pedido' => $request['fecha_pedido'],
+            'estado_pedido' => $request['estado_pedido'],
+            'total_pedido' => $request['total_pedido'],
+            'mesa_id' => $request['mesa_id']
+        ]);
+        return redirect()->route('pedidos.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        //
+        return view('pedidos.edit',compact('pedido'));
     }
 
     /**
@@ -67,9 +76,15 @@ class PedidoController extends Controller
      * @param  \App\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pedido $pedido)
+    public function update(FormPedido $request, Pedido $pedido)
     {
-        //
+        $pedido->user_id = $request['user_id'];
+        $pedido->fecha_pedido = $request['fecha_pedido'];
+        $pedido->estado_pedido = $request['estado_pedido'];
+        $pedido->total_pedido = $request['total_pedido'];
+        $pedido->mesa_id = $request['mesa_id'];
+        $pedido->save();
+        return redirect()->route('pedidos.index');
     }
 
     /**
@@ -80,6 +95,7 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
+        return redirect()->route('pedidos.index');
     }
 }

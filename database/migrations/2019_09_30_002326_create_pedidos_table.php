@@ -15,10 +15,10 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->binary('lista_platillo');
-            $table->dateTime('fecha_pedido');
+            $table->binary('lista_platillo')->nullable();
+            $table->dateTime('fecha_pedido')->nullable();
             $table->boolean('estado_pedido')->dafault(0);
-            $table->double('total_pedido');
+            $table->double('total_pedido')->nullable();
             $table->timestamps();
         });
     }

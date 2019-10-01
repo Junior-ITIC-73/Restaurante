@@ -14,7 +14,7 @@ class AddMesaIdToPedidos extends Migration
     public function up()
     {
         Schema::table('pedidos', function (Blueprint $table) {
-            $table->unsignedBigInteger('mesa_id')->after('total_pedido');
+            $table->unsignedBigInteger('mesa_id')->after('total_pedido')->nullable();
             $table->foreign('mesa_id')->references('id')->on('mesas');
         });
     }
