@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+
 
 //-----------CRUD MESAS----------//
 //--LISTAR
@@ -54,10 +54,10 @@ Route::put('pedidos/{pedido}','PedidoController@update')->name('pedidos.update')
 //---Eliminar
 Route::get('pedidos/elimiar/{pedido}','PedidoController@destroy')->name('pedidos.destroy');
 Auth::routes();
-=======
+
 Route::resource('menuplatillo','MenuPlatilloController');
 Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
 Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
 Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
 Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
->>>>>>> 3bf76b60fd54d5ab99927530c085f5144af06b70
+
