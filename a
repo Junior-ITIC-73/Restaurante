@@ -1,0 +1,120 @@
+[33mcommit e92a9010c439a847a6c5e5f256c8767edb308a0e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: d8a541b 444d592
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 15:19:46 2019 -0500
+
+    FUSION TODOS LOS CRUDS :V
+
+[33mcommit d8a541b8a5ef9abc7e852a84e318228a4e8ce780[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 15:18:45 2019 -0500
+
+    CRUD ANDRES Y VICTOR 2
+
+[33mcommit 3058132c4a6cedc223170caffa59595b6c4263f5[m
+Merge: 478fae5 3bf76b6
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 15:16:39 2019 -0500
+
+    FUSION CRUD ANDRES Y VICTOR
+
+[33mcommit 478fae55aa2d662cb4c4f8b7d72896c59a6e4adc[m
+Merge: 1b5f770 752c182
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 15:05:09 2019 -0500
+
+    Merge branch 'master' of https://github.com/Junior-ITIC-73/Restaurante
+
+[33mcommit 1b5f7706ab5b3c53848015484faa2b519ac6c1e3[m[33m ([m[1;31morigin/CRUDvictor[m[33m)[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 14:59:53 2019 -0500
+
+    CRUD DE USUARIOS Y DE PEDIDOS
+
+[33mcommit 3bf76b60fd54d5ab99927530c085f5144af06b70[m[33m ([m[1;31morigin/CRUDandres[m[33m)[m
+Author: unknown <al221874203@gmail.com>
+Date:   Tue Oct 1 14:35:56 2019 -0500
+
+    primeras validaciones
+
+[33mcommit 6d2a41d7e377151c69d086d3b317b2212e37cbbe[m
+Author: unknown <al221874203@gmail.com>
+Date:   Tue Oct 1 14:03:01 2019 -0500
+
+    Crud Completo
+
+[33mcommit b60a7d0596b89fbe87954012af8ecc2d23983e33[m
+Author: unknown <al221874203@gmail.com>
+Date:   Tue Oct 1 12:41:45 2019 -0500
+
+    Altas y consultas
+
+[33mcommit 3671c5c58ab2d2ddfdce3a00e77a27fb7f6ad470[m
+Author: unknown <al221874203@gmail.com>
+Date:   Tue Oct 1 11:39:06 2019 -0500
+
+    primera version del menu platillos
+
+[33mcommit 444d5927b0776a848eb280f78485173637d98727[m[33m ([m[1;31morigin/jr[m[33m)[m
+Author: B0nifaci0 <al221411699@gmail.com>
+Date:   Tue Oct 1 08:59:23 2019 -0500
+
+    Crud Junior
+
+[33mcommit a6c7d5b339cbc0ce108450303f7ac9181ff39d84[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 01:12:32 2019 -0500
+
+    CRUD DE MESAS
+
+[33mcommit 296592bf8b9fe37b7d750ab61d791d518a0a5dfb[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Tue Oct 1 00:36:07 2019 -0500
+
+    ARCHIVOS DE MESAS
+
+[33mcommit 8e10fc6e1d070ec9a64341fe3059087d9baaf91f[m
+Merge: a56d31b 2b8e66b
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Mon Sep 30 23:15:13 2019 -0500
+
+    ierge remote-tracking branch 'remotes/origin/CRUDandres' into CRUDvictor
+
+[33mcommit 752c182bc51db290975f51ea8737eb41e0ca5328[m
+Merge: 77440c5 2b8e66b
+Author: unknown <al221874203@gmail.com>
+Date:   Mon Sep 30 21:17:21 2019 -0500
+
+    TEST 001
+    
+     Please enter a commit message to explain why this merge is necessary,
+
+[33mcommit 77440c5d9b67af351dacaaa47b398afc1330e293[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Mon Sep 30 21:06:25 2019 -0500
+
+    Huevos andres
+
+[33mcommit a56d31b69e80683bfbf39ac12fcffb64b51b96f2[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Mon Sep 30 21:02:24 2019 -0500
+
+    Mensaje para andres
+
+[33mcommit 2b8e66b55ac21093790573c902f57bcf9e024c18[m
+Author: unknown <al221874203@gmail.com>
+Date:   Mon Sep 30 20:55:29 2019 -0500
+
+    Primer Commit
+
+[33mcommit ef6c50948b7f2471529712e4ef2221964fcf2080[m
+Author: Victor <victor.rivas.1999@gmail.com>
+Date:   Sun Sep 29 19:42:35 2019 -0500
+
+    Se agregaron migraciones de base de datos
+
+[33mcommit da8de4ac787b6c4599ddf46d4285a228ae30f280[m
+Author: B0nifaci0 <al221411699@gmail.com>
+Date:   Sat Sep 28 19:56:28 2019 -0500
+
+    Inicio

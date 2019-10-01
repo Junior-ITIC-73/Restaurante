@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+
 
 
 //-----------CRUD MESAS----------//
@@ -62,7 +62,7 @@ Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
 Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
 Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
 
-=======
+	
 Route::resource('proveedor', 'ProveedorController');
 Route::get('/proveedor/{id}','ProveedorController@destroy');
 
@@ -71,4 +71,3 @@ Route::get('/producto/{id}','ProductoController@destroy');
 
 Route::resource('categoria', 'CategoriaProductoController');
 Route::get('/categoria/{id}','CategoriaController@destroy');
->>>>>>> 444d5927b0776a848eb280f78485173637d98727
