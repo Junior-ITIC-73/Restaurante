@@ -19,4 +19,4 @@ Route::resource('menuplatillo','MenuPlatilloController');
 Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
 Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
 Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
-Route::POST('modificarplatillo','MenuPlatilloController@updated')->name('modificarplatillo') ;
+Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;

@@ -35,9 +35,9 @@
                 <td>{{$a1->descripcion_platillo}}</td>
                 <td>{{$a1->fecha}}</td>
 
-            <td><a href="#"><img src="img/eliminar.png" width="30" height="30"></a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="#"><img src="img/editar.png" width="30" height="30"></a>
+                <td><a href="{{URL::action('MenuPlatilloController@eliminar',['id'=>$a1->id])}}"><img src="img/eliminar.png" width="30" height="30"></a>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a href="{{URL::action('MenuPlatilloController@edit',['id'=>$a1->id])}}"><img src="img/editar.png" width="30" height="30"></a>
 
     </tr>
     @endforeach
