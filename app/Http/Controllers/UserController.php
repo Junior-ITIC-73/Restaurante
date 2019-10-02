@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\http\Requests\FormUser;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -68,7 +69,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, User $user)
+     public function update(FormUser $request, User $user)
     {
         $user->name = $request['name'];
         $user->sexo = $request['sexo'];
@@ -83,7 +84,7 @@ class UserController extends Controller
         return redirect()->route('users.index');
 
     }
-    public function updateDatos(Request $request, User $user)
+    public function updateDatos(FormUser $request, User $user)
     {
         $user->sexo = $request['sexo'];
         $user->calle = $request['calle'];

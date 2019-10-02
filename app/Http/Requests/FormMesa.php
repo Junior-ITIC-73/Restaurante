@@ -24,8 +24,8 @@ class FormMesa extends FormRequest
     public function rules()
     {
         return [
-            'numero_mesa' => 'required',
-            'descripcion_mesa' => 'required',
+            'numero_mesa' => 'required|numeric',
+            'descripcion_mesa' => 'required|alpha_dash',
         ];
     }
 }

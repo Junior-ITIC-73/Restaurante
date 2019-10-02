@@ -14,6 +14,13 @@
                         </div>
                     @endif
                     <h1>DATOS DEL CLIENTE</h1>
+                    @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
                 </div>
                 <form method="POST" action="{{route('users.datos',Auth::user()->id)}}">
                     {{method_field('PUT')}}
