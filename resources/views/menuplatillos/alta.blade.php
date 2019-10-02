@@ -52,20 +52,20 @@
 
                                                 <p>
                                                     <label for="username" class="uname"  >Nombre del Platillo</label>
-                                                    <input name="nombre_platillo "class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/>
+                                                    <input name="nombre_platillo "class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/ required>
                                                 </p>
 
                                                 <p>
-                                                    <label for="password" class="youpasswd" > Precio</label>
-                                                    <input id="password" name='precio_platillo' type="number" step="any" class='rounded nombre' required=''/>
+                                                    <label for="precio" class="precio" > Precio</label>
+                                                    <input id="precio" name='precio_platillo' type="number" step="any" class='rounded nombre' required=''/>
                                                 </p>
                                                  <p>
                                                     <label for="username" class="uname"  > Descripcion</label>
-                                                    <input id="descripcion"  name="descripcion_platillo" >
+                                                    <input id="descripcion"  name="descripcion_platillo" required>
                                                 </p>
                                                 <p>
-                                                        <label for="username" class="uname"  > Fecha</label>
-                                                        <input id="fecha"  name="fecha" type="date">
+                                                        <label for="username" class="uname"> Fecha</label>
+                                                        <input id="fecha"  name="fecha" type="date" required>
                                                     </p>
                                                 <p>
                                                     <input type="submit" name="submit" value="Enviar" />
