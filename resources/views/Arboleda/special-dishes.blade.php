@@ -79,16 +79,16 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex justify-content-between">
                 <li class="nav-item only-desktop">
-                    <a class="nav-link" id="side-nav-open" href="#">
+                    <a class="nav-link" id="side-nav-open" href="">
                         <span class="lnr lnr-menu"></span>
                     </a>
                 </li>
-                 <div class="d-flex flex-lg-row flex-column">
+                <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{{url('/')}}">Inicio<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">¿Quiénes somos?</a>
+                        <a class="nav-link" href="{{url('/about')}}">¿Quiénes somos?</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -96,8 +96,8 @@
                           Menú
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="special-dishes.html">Del día</a>
-                          <a class="dropdown-item" href="menu.html">Completo</a>
+                         <a class="dropdown-item" href="{{url('/especial')}}">Del día</a>
+                          <a class="dropdown-item" href="{{url('/menu')}}">Completo</a>
                         </div>
                     </li>
                 </div>
@@ -106,11 +106,9 @@
             <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
                 <img src="img/logo.png" alt="">
             </a>
-             <ul class="navbar-nav d-flex justify-content-between">
+            <ul class="navbar-nav d-flex justify-content-between">
                 <div class="d-flex flex-lg-row flex-column">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
+                   
 
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="reservation.html">Reservación</a>
@@ -122,37 +120,54 @@
             </ul>
         </div>
     </div>
-</nav>		<!-- Welcome Section -->
-<section id="gtco-welcome" class="bg-white section-padding">
+</nav>		<!-- Special Dishes Section -->
+<section id="gtco-special-dishes" class="bg-grey section-padding">
     <div class="container">
         <div class="section-content">
-            <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/logo1.jpeg);">
-                    
-                </div>
-                <div class="col-sm-7 py-5 pl-md-0 pl-4">
-                    <div class="heading-section pl-lg-5 ml-md-5">
-                        <h2>
-                            Bienvenido a la Arboleda 
-                        </h2>
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    Comienza bien tu día
+                </span>
+                <h2>
+                    Completos
+                </h2>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-6 align-self-center py-5">
+                    <h2 class="special-number">01.</h2>
+                    <div class="dishes-text">
+                        <h3><span>Desayuno completo </span><br>Elije: </h3>
+                        <p class="pt-3">Café de olla, americano o té<br>
+                            Jugo, fruta o cereal <br>
+                            Huevos al gusto, hot cakes, chilaquiles, enchiladas, huaraches, sincronizadas, molletes</p>
+                        <h3 class="special-dishes-price">$65.00</h3>
+                        <a href="#" class="btn-primary mt-3">Hacer pedido</a>
                     </div>
-                    <div class="pl-lg-5 ml-md-5">
-                        <p></p>
-                        <h3 class="mt-5">Dirección</h3>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15063.882950955562!2d-99.5434357!3d19.2836387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x367eeefae91b8fd8!2sRestaurante%20Caf%C3%A9%20Arboleda!5e0!3m2!1ses!2smx!4v1569968495795!5m2!1ses!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                                </a>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
+                    <img src="img/des.jpg" alt="" class="img-fluid shadow w-100">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
+                    <img src="img/e.jpg" alt="" class="img-fluid shadow w-100">
+                </div>
+                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
+                    <h2 class="special-number">02.</h2>
+                    <div class="dishes-text">
+                        <h3><span>Menú ejecutivo</span><br>Incluye:</h3>
+                        <p class="pt-3">Sopa del día ó consomé, sopa seca ó ensalada, guisado del día, agua y postre.<br>
+                        O convierte tu antojo de la carta  en comida completa por $30.00 adicionales (sopa ó consomé, sopa seca ó ensalada,agua y postre). </p>
+                        <h3 class="special-dishes-price">$60.00</h3>
+                        <a href="#" class="btn-primary mt-3">Hacer pedido <span><i class="fa fa-long-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End of Welcome Section -->		<footer class="mastfoot pb-5 bg-white section-padding pb-0">
+<!-- End of Special Dishes Section -->	
+	<footer class="mastfoot pb-5 bg-white section-padding pb-0">
     <div class="inner container">
          <div class="row">
             <div class="col-lg-4">

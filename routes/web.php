@@ -12,8 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Arboleda.index');
 });
+
+Route::get('/contacto', function () {
+    return view('Arboleda.contacto');
+});
+Route::get('/about', function () {
+    return view('Arboleda.about');
+});
+Route::get('/reservacion', function () {
+    return view('Arboleda.reservation');
+});
+Route::get('/especial', function () {
+    return view('Arboleda.special-dishes');
+});
+Route::get('/menu', function () {
+    return view('Arboleda.menu');
+});
+Route::get('/logueo', function () {
+    return view('Arboleda.login');
+});
+
+
+
 
 
 

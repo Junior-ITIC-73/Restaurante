@@ -84,10 +84,10 @@
                 </li>
                 <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{{url('/')}}">Inicio<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">¿Quiénes somos?</a>
+                        <a class="nav-link" href="{{url('/about')}}">¿Quiénes somos?</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -109,11 +109,11 @@
                 <div class="d-flex flex-lg-row flex-column">
                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="reservation.html">Reservación</a>
+                        <a class="nav-link" href="{{url('/reservacion')}}">Reservación</a>
                     </li>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Acceso de administrador</a>
+                    <a class="nav-link" href="{{url('/logueo')}}">Acceso de administrador</a>
                 </li>
             </ul>
         </div>

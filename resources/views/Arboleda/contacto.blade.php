@@ -9,7 +9,8 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resto - Restaurant Bootstrap 4 Template by GetTemplates.co</title>
+    <title>Arboleda Restaurante Café</title>
+    <link rel="ICON"  type="IMAGEN/PNG" href="img/logo.ico">
     <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -84,10 +85,10 @@
                 </li>
                  <div class="d-flex flex-lg-row flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio<span class="sr-only"></span></a>
+                        <a class="nav-link" href="{{url('/')}}">Inicio<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">¿Quiénes somos?</a>
+                        <a class="nav-link" href="{{url('/about')}}">¿Quiénes somos?</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -95,8 +96,8 @@
                           Menú
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="special-dishes.html">Del día</a>
-                          <a class="dropdown-item" href="menu.html">Completo</a>
+                         <a class="dropdown-item" href="{{url('/especial')}}">Del día</a>
+                          <a class="dropdown-item" href="{{url('/menu')}}">Completo</a>
                         </div>
                     </li>
                 </div>
@@ -107,6 +108,9 @@
             </a>
              <ul class="navbar-nav d-flex justify-content-between">
                 <div class="d-flex flex-lg-row flex-column">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="reservation.html">Reservación</a>
@@ -123,39 +127,22 @@
     <div class="container">
         <div class="section-content">
             <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/f.jpg);">
+                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/logo1.jpeg);">
                     
                 </div>
                 <div class="col-sm-7 py-5 pl-md-0 pl-4">
                     <div class="heading-section pl-lg-5 ml-md-5">
-                        <span class="subheading">
-                            ¿Quiénes somos?
-                        </span>
                         <h2>
                             Bienvenido a la Arboleda 
                         </h2>
                     </div>
                     <div class="pl-lg-5 ml-md-5">
-                        <p>Desayunos, Menú ejecutivo, Fines de semana (Pozole, Caldo de Camarón, Birria, Pancita, Cochinita Yucateca), Servicio de cafetería Gourmet y postres.<br> 
-                        Comida casera y variedad de caldos mexicanos los fines de semana (Pozole, Birria, Pancita y Caldo de Camarón)</p>
-                        <h3 class="mt-5">Especial de caldos mexicanos</h3>
+                        <p></p>
+                        <h3 class="mt-5">Dirección</h3>
                         <div class="row">
                             <div class="col-4">
                                 <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/fg.jpg" />
-                                    <h6>Pozole</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/c.jpg" />
-                                    <h6>Caldo de camarón</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/b.jpg"/>
-                                    <h6>Birria</h6>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15063.882950955562!2d-99.5434357!3d19.2836387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x367eeefae91b8fd8!2sRestaurante%20Caf%C3%A9%20Arboleda!5e0!3m2!1ses!2smx!4v1569968495795!5m2!1ses!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                                 </a>
                             </div>
                         </div>
