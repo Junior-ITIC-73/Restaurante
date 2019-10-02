@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Menu Platillos</title>
+@extends('admin.layout')
 
-    <link rel="stylesheet" href="datatables/bootstrap.css">
-        <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
-        <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
-        <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
-
-</head>
-
-<body>
+@section('content')
     <center> <h2>Menu Platillo</h2></center>
     <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
@@ -137,7 +124,6 @@
 
 
     </script>
-</body>
-
-</html>
+    <button onclick="window.location.href='/menuplatillo/create'"  >Agregar categoria</button>
+@endsection
 
