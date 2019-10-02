@@ -12,8 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Arboleda.index');
 });
+
+Route::get('/contacto', function () {
+    return view('Arboleda.contacto');
+});
+Route::get('/about', function () {
+    return view('Arboleda.about');
+});
+Route::get('/reservacion', function () {
+    return view('Arboleda.reservation');
+});
+Route::get('/especial', function () {
+    return view('Arboleda.special-dishes');
+});
+Route::get('/menu', function () {
+    return view('Arboleda.menu');
+});
+Route::get('/logueo', function () {
+    return view('Arboleda.login');
+});
+
+
+
+
 
 
 //-----------CRUD MESAS----------//
@@ -53,3 +76,18 @@ Route::put('pedidos/{pedido}','PedidoController@update')->name('pedidos.update')
 //---Eliminar
 Route::get('pedidos/elimiar/{pedido}','PedidoController@destroy')->name('pedidos.destroy');
 Auth::routes();
+
+Route::resource('menuplatillo','MenuPlatilloController');
+Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
+Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
+Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
+Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
+
+Route::resource('proveedor', 'ProveedorController');
+Route::get('/proveedor/{id}','ProveedorController@destroy');
+
+Route::resource('producto', 'ProductoController');
+Route::get('/producto/{id}','ProductoController@destroy');
+
+Route::resource('categoria', 'CategoriaProductoController');
+Route::get('/categoria/{id}','CategoriaController@destroy');
