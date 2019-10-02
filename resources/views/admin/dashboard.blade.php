@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h1>Dasboard</h1>
+<h1 align="center">Dasboard</h1>
     
 @endsection

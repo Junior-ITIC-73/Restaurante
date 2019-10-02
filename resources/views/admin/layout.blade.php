@@ -259,14 +259,14 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
+        <li class="active"><a href="/producto"><i class="fa fa-link"></i> <span>Producto</span></a></li>
+        <li><a href="/categoria"><i class="fa fa-link"></i> <span>Categoria Producto</span></a></li>
+        <li><a href="/proveedor"><i class="fa fa-link"></i> <span>Proveedor</span></a></li>
+        <li><a href="/mesas"><i class="fa fa-link"></i> <span>Mesas</span></a></li>
+        <li><a href="/usuarios"><i class="fa fa-link"></i> <span>Usuarios</span></a></li>
+        <li><a href="/pedidos"><i class="fa fa-link"></i> <span>Pedidos</span></a></li>
+        <li><a href="/menuplatillo"><i class="fa fa-link"></i> <span>Menu de platillos</span></a></li>
+
           <ul class="treeview-menu">
             <li><a href="#">Link in level 2</a></li>
             <li><a href="#">Link in level 2</a></li>
@@ -282,14 +282,10 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
+      <h1 align="center">
+        Panel de administracion.
+        <small>Administracion Restaurante "La arboleda"..</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
     </section>
 
     <!-- Main content -->
