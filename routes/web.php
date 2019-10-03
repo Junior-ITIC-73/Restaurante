@@ -91,3 +91,7 @@ Route::get('/producto/{id}','ProductoController@destroy');
 
 Route::resource('categoria', 'CategoriaProductoController');
 Route::get('/categoria/{id}','CategoriaController@destroy');
+
+Route::get('admin', function(){
+    return view('admin.dashboard');
+});
