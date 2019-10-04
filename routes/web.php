@@ -56,8 +56,8 @@ Auth::routes();
 //--LISTAR
 Route::get('usuarios/','UserController@index')->name('users.index');
 //--AGREGAR DATOS DEL USUARIO
-Route::get('/home', 'HomeController@index')->name('home');
-Route::put('usuarios/datos/{user}','UserController@updateDatos')->name('users.datos');
+Route::get('usuarios/create', 'UserController@create')->name('users.create');
+Route::post('usuarios/alta','UserController@store')->name('users.store');
 //--ELIMINAR
 Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
 //--MODIFICAR

@@ -17,7 +17,7 @@
 		</tr>
 		@foreach($pedidos as $pedido)
 		<tr>
-			<td>{{$pedido->user_id}}</td>
+			<td>{{$pedido->user->name}}</td>
 			<td>{{$pedido->fecha_pedido}}</td>
 			<td>{{$pedido->estado_pedido}}</td>
 			<td>{{$pedido->total_pedido}}</td>

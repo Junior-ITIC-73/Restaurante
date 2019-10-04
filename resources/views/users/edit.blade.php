@@ -19,7 +19,7 @@
 					<label for="name">Nombre</label>
                     <input type="num" name="name" id="name" value="{{old('name',$user->name)}}">
                     <br>
-			  		SEXO:
+			  	SEXO:
                     Hombre<input type="radio" name="sexo" value="0" checked="">
                     Mujer<input type="radio" name="sexo" value="1">
                     <br>
@@ -44,6 +44,7 @@
                     <button type="submit">GUARDAR</button>
 		</form>
 	</center>
+     <a href="{{route('users.index')}}">Regresar al listado</a>
 
 </body>
 </html>

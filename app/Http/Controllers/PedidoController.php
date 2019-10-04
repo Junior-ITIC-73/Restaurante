@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Pedido;
+use App\User;
+use App\Mesa;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\FormPedido;
 
@@ -15,6 +18,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
+
         $pedidos = Pedido::all();
         return view('pedidos.index',compact('pedidos'));
     }
@@ -26,7 +30,9 @@ class PedidoController extends Controller
      */
     public function create()
     {
-    return view('pedidos.create');
+    $mesas = Mesa::all();
+    $usuarios = User::all();
+    return view('pedidos.create',compact('usuarios','mesas'));
     }
 
     /**
@@ -66,7 +72,9 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        return view('pedidos.edit',compact('pedido'));
+        $mesas = Mesa::all();
+        $usuarios = User::all();
+        return view('pedidos.edit',compact('pedido','usuarios','mesas'));
     }
 
     /**

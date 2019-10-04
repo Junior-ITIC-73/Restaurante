@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\http\Requests\FormUser;
+use App\http\Requests\FormUserEdit;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -35,9 +36,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormUser $request)
     {
-        //
+       $prueba= User::create([
+            'name' => $request['name'],
+            'sexo' => $request['sexo'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+            'telefono_user' => $request['telefono_user'],
+            'calle' => $request['calle'],
+            'num_interior' => $request['num_interior'],
+            'num_exterior' => $request['num_exterior'],
+            'CP' => $request['CP'],
+            'localidad' => $request['localidad']
+        ]);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -69,7 +83,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function update(FormUser $request, User $user)
+     public function update(FormUserEdit $request, User $user)
     {
         $user->name = $request['name'];
         $user->sexo = $request['sexo'];
@@ -84,21 +98,6 @@ class UserController extends Controller
         return redirect()->route('users.index');
 
     }
-    public function updateDatos(FormUser $request, User $user)
-    {
-        $user->sexo = $request['sexo'];
-        $user->calle = $request['calle'];
-        $user->telefono_user = $request['telefono_user'];
-        $user->num_interior = $request['num_interior'];
-        $user->num_exterior = $request['num_exterior'];
-        $user->CP= $request['CP'];
-        $user->localidad= $request['localidad'];
-        $user->save();
-
-        return redirect()->route('users.index');
-
-    }
-
     /**
      * Remove the specified resource from storage.
      *

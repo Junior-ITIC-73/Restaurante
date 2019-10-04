@@ -260,11 +260,11 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/producto"><i class="fa fa-link"></i> <span>Producto</span></a></li>
-        <li><a href="/categoria"><i class="fa fa-link"></i> <span>Categoria Producto</span></a></li>
-        <li><a href="/proveedor"><i class="fa fa-link"></i> <span>Proveedor</span></a></li>
-        <li><a href="/mesas"><i class="fa fa-link"></i> <span>Mesas</span></a></li>
-        <li><a href="/usuarios"><i class="fa fa-link"></i> <span>Usuarios</span></a></li>
-        <li><a href="/pedidos"><i class="fa fa-link"></i> <span>Pedidos</span></a></li>
+        <li><a href="/categoria"><i class="fa fa-link"></i><span>Categoria Producto</span></a></li>
+        <li><a href="/proveedor"><i class="fa fa-link"></i><span>Proveedor</span></a></li>
+        <li><a href="/mesas"><i class="fa fa-link"></i><span>Mesas</span></a></li>
+        <li><a href="/usuarios"><i class="fa fa-link"></i><span>Usuarios</span></a></li>
+        <li><a href="/pedidos"><i class="fa fa-link"></i><span>Pedidos</span></a></li>
         <li><a href="/menuplatillo"><i class="fa fa-link"></i> <span>Menu de platillos</span></a></li>
 
           <ul class="treeview-menu">
