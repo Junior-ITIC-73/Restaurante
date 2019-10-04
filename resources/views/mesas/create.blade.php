@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ALTA MESAS</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 	<center>
 		<h1>ALTA MESAS</h1>
 		@if($errors->any())
@@ -25,5 +22,4 @@
 		</form>
 	</center>
 
-</body>
-</html>
+@endsection

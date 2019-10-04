@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lista de proveedores</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
+
     <h1 align="center">Listado de proveedores</h1>
     <table border="1" align="center">
         <thead>
@@ -66,5 +61,5 @@
     </table>
     <button onclick="window.location.href='/proveedor/create'"  >Agregar proveedor</button>
     
-</body>
-</html>
+    
+@endsection

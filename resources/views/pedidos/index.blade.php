@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>LISTA DE PEDIDO</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 
 <center>
 	<a href="{{route('pedidos.create')}}">ALTA PEDIDOS</a>
@@ -31,5 +28,4 @@
 		@endforeach
 	</table>
 </center>
-</body>
-</html>
+@endsection
