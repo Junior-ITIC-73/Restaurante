@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>LISTA DE MESAS</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 
 <center>
 	<a href="{{route('mesas.create')}}">ALTA MESA</a>
@@ -25,5 +22,4 @@
 		@endforeach
 	</table>
 </center>
-</body>
-</html>
+@endsection

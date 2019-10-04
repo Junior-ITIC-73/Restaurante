@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Agregar categoria/producto</title>
-</head>
-<body>
-        <h1>Registra una Categoria de Producto</h1>
-        <form method="POST" action="{{url('categoria')}}">
-            {{ csrf_field() }}
-            <div class="form-group ">
-                <input type="text" id="nombre_categoria" name="nombre_categoria" required> Nombre de la categoria del producto
-                <br>
-                <input type="submit">
-            </div>
-        </form>
+@extends('admin.layout')
+@section('content')
+<section class="content">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="box box-warning">
+              <div class="box-header with-border">
+                <center>  
+                    <h3 class="box-title">Agregar categoria de producto</h3>
+                </center>
+              </div>
+              <!-- /.box-header -->
+              <!-- form start -->
+              <form role="form" method="POST" action="{{url('categoria')}}">
+                    {{ csrf_field() }}
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="InputName">Nombre Categoria</label>
+                    <input type="text" class="form-control" id="nombre_categoria" name="nombre_categoria" placeholder="Ejemplo: Lacteos">
+                  </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Añadir</button>
+                </div>
+              </form>
               <script>	
                     
                     let inputNombre = document.querySelector('#nombre_categoria');
@@ -35,6 +45,10 @@
                     }
             
                 </script>
-    
-</body>
-</html>
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>
+</section>
+     
+@endsection

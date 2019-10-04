@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>HOLA</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 	<center>
 		<h1>LISTADO DE USUARIOS</h1>
 	<table border="4">
@@ -23,5 +20,4 @@
 		@endforeach
 	</table>
 	</center>
-</body>
-</html>
+@endsection

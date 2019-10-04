@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+
     <h1 align="center">Listado de categorias de producto</h1>
     <table border="1" align="center">
         <thead>
@@ -24,8 +25,7 @@
                 <tr id="row{{$categoria->id}}">
                         <td>{{ $categoria->id }}</td>
                         <td>{{ $categoria->nombre_categoria }}</td>
-                        <td><a href="/categoria/{{$categoria->id}}/edit"<button>Editar</button>
-                        </a>
+                        <td><button onclick="window.location.href='/categoria/{{$categoria->id}}/edit'">Editar</button>
                         <form action="{{route('categoria.destroy', $categoria->id)}}" method="POST">
                                 {{method_field('DELETE')}}
                                 {{ csrf_field() }}
@@ -37,4 +37,5 @@
           </tbody>  
     </table>  
     <button onclick="window.location.href='/categoria/create'"  >Agregar categoria</button>
+
 @endsection
