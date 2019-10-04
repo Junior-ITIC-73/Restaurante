@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ALTA PEDIDOS</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 	<center>
 		<h1>ALTA PEDIDO</h1>
 		@if($errors->any())
@@ -47,6 +44,4 @@
 			<button type="submit">GUARDAR</button>
 		</form>
 	</center>
-
-</body>
-</html>
+@endsection

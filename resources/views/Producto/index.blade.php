@@ -2,9 +2,10 @@
 
 @section('content')
 
-
+    <center>
     <h1 align="center">Listado de productos</h1>
-    <table border="1" align="center">
+    <button onclick="window.location.href='/producto/create'" type="button" class="btn btn-success" >New producto</button>
+    <table border="1" align="center" class="table table-striped table-bordered" style="width:80%">
         <thead>
             <tr>  
                 <th>Clave</th>
@@ -19,7 +20,7 @@
             </tr>
         </thead>
            
-          <tfoot>
+{{--           <tfoot>
             <tr>  
                 <th>Clave</th>
                 <th>Nombre Producto</th>
@@ -31,7 +32,7 @@
                 <th>Activo</th>
                 <th>Opciones</th>
             </tr>
-        </tfoot>
+        </tfoot> --}}
               
           <tbody>
                 @foreach ($productos as $i => $producto)
@@ -45,12 +46,12 @@
                         <td>{{ $producto->proveedor->razon_social }}</td> 
                         <td>{{ $producto->activo }}</td>
                         <td>
-                            <a href="/producto/{{$producto->id}}/edit"<button>Editar</button>
+                            <a href="/producto/{{$producto->id}}/edit"><button><img src="{{asset('img/editar.png')}}" width="30" height="30"></button>
                         </a>
                         <form action="{{route('producto.destroy', $producto->id)}}" method="POST">
                             {{method_field('DELETE')}}
                             {{ csrf_field() }}
-                            <button type="submit">Eliminar</button>
+                            <button type="submit"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></button>
                         </form>
                         </td>
                 </tr>
@@ -58,7 +59,7 @@
           </tbody>  
 
     </table>
-    <button onclick="window.location.href='/producto/create'"  >Agregar producto</button>
-
+    
+</center>
 
 @endsection

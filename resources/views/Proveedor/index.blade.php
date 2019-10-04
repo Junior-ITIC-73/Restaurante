@@ -1,9 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
-
+<center>
     <h1 align="center">Listado de proveedores</h1>
-    <table border="1" align="center">
+    <button onclick="window.location.href='/proveedor/create'" type="button" class="btn btn-success" >Agregar proveedor</button>
+    <table border="1" align="center" class="table table-striped table-bordered" style="width:80%">
         <thead>
             <tr>  
                 <th>Clave</th>
@@ -47,11 +48,11 @@
                         <td>{{ $proveedor->CP }}</td> 
                         <td>{{ $proveedor->localidad }}</td>
                         <td>
-                            <a href="/proveedor/{{$proveedor->id}}/edit"<button>Editar</button></a>
+                            <a href="/proveedor/{{$proveedor->id}}/edit"><button><img src="{{asset('img/editar.png')}}" width="30" height="30"></button></a>
                             <form action="{{route('proveedor.destroy', $proveedor->id)}}" method="POST">
                                     {{method_field('DELETE')}}
                                     {{ csrf_field() }}
-                                    <button type="submit">Eliminar</button>
+                                    <button type="submit"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></button>
                                 </form>
                         </td> 
                 </tr>
@@ -59,7 +60,7 @@
           </tbody>  
 
     </table>
-    <button onclick="window.location.href='/proveedor/create'"  >Agregar proveedor</button>
+</center>
     
     
 @endsection

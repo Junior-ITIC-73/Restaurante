@@ -3,16 +3,18 @@
 @section('content')
 
 
-<center> <h2>Menu Platillo</h2></center>
+<center> <h2>Menu Platillo</h2>
+<button onclick="window.location.href='/menuplatillo/create'" type="button" class="btn btn-success" >NUEVO PLATILLO</button></center>
 <div class="container">
-    <table id="a1" class="table table-striped table-bordered" style="width:100%">
+    <table id="a1" class="table table-striped table-bordered" style="width:80%">
         <thead>
             <th>id</th>
             <th>Nombre del Platillo</th>
             <th>Precio</th>
             <th>Descripcion</th>
             <th>Fecha</th>
-            <th>Opciones</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
 
         </tr>
     </thead>
@@ -23,10 +25,9 @@
         <td>{{$a1->precio_platillo}}</td>
         <td>{{$a1->descripcion_platillo}}</td>
         <td>{{$a1->fecha}}</td>
-
-        <td><a href="{{URL::action('MenuPlatilloController@eliminar',['id'=>$a1->id])}}"><img src="img/eliminar.png" width="30" height="30"></a>
+        <td><a href="{{URL::action('MenuPlatilloController@eliminar',['id'=>$a1->id])}}"><img src="img/eliminar.png" width="30" height="30"></a></td>
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="{{URL::action('MenuPlatilloController@edit',['id'=>$a1->id])}}"><img src="img/editar.png" width="30" height="30"></a>
+         <td><a href="{{URL::action('MenuPlatilloController@edit',['id'=>$a1->id])}}"><img src="img/editar.png" width="30" height="30"></a></td>
 
         </tr>
         @endforeach
@@ -35,8 +36,7 @@
 </div>
 
 
-
-<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+{{-- <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 <script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
 <script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>
 <script src="{{{ asset('datatables/js/dataTables.buttons.min.js')}}}"></script>
@@ -126,7 +126,7 @@
 
 
 </script>
-<button onclick="window.location.href='/menuplatillo/create'"  >Agregar categoria</button>
+<button onclick="window.location.href='/menuplatillo/create'"  >Agregar categoria</button> --}}
 
 
 @endsection

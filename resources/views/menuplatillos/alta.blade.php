@@ -9,20 +9,20 @@
                     <h1>Alta Menu</h1>
 
                     <p>
-                        <label for="username" class="uname"  >Nombre del Platillo</label>
-                        <input name="nombre_platillo "class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/>
+                        <label for="nombre_platillo"  >Nombre del Platillo</label>
+                        <input name="nombre_platillo" type="text" id="nombre_platillo">
                     </p>
 
                     <p>
-                        <label for="password" class="youpasswd" > Precio</label>
-                        <input id="password" name='precio_platillo' type="number" step="any" class='rounded nombre' required=''/>
+                        <label for="precio_platillo"  > Precio</label>
+                        <input name='precio_platillo' type="number" id="precio_platillo" />
                     </p>
                     <p>
-                        <label for="username" class="uname"  > Descripcion</label>
-                        <input id="descripcion"  name="descripcion_platillo" >
+                        <label for="descripcion_platillo"  > Descripcion</label>
+                        <input id="descripcion_platillo"  name="descripcion_platillo" >
                     </p>
                     <p>
-                        <label for="username" class="uname"  > Fecha</label>
+                        <label for="fecha"> Fecha</label>
                         <input id="fecha"  name="fecha" type="date">
                     </p>
                     <p>

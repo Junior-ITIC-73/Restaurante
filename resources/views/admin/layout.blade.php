@@ -259,13 +259,15 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/producto"><i class="fa fa-link"></i> <span>Producto</span></a></li>
-        <li><a href="/categoria"><i class="fa fa-link"></i><span>Categoria Producto</span></a></li>
+        
+        <li  class="active"><a href="/usuarios"><i class="fa fa-link"></i><span>Usuarios</span></a></li>
         <li><a href="/proveedor"><i class="fa fa-link"></i><span>Proveedor</span></a></li>
+        <li><a href="/categoria"><i class="fa fa-link"></i><span>Categoria Producto</span></a></li>
+        <li><a href="/producto"><i class="fa fa-link"></i> <span>Producto</span></a></li>
+         <li><a href="/menuplatillo"><i class="fa fa-link"></i> <span>Menu de platillos</span></a></li>
         <li><a href="/mesas"><i class="fa fa-link"></i><span>Mesas</span></a></li>
-        <li><a href="/usuarios"><i class="fa fa-link"></i><span>Usuarios</span></a></li>
         <li><a href="/pedidos"><i class="fa fa-link"></i><span>Pedidos</span></a></li>
-        <li><a href="/menuplatillo"><i class="fa fa-link"></i> <span>Menu de platillos</span></a></li>
+       
 
           <ul class="treeview-menu">
             <li><a href="#">Link in level 2</a></li>
@@ -393,11 +395,11 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="/adminlte/bower_components/jquery/adminlte/jquery.min.js"></script>
+<script src="{{asset('/adminlte/bower_components/jquery/adminlte/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="/adminlte/bower_components/bootstrap/adminlte/js/bootstrap.min.js"></script>
+<script src="{{asset('/adminlte/bower_components/bootstrap/adminlte/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/js/adminlte.min.js"></script>
+<script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

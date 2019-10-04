@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Agregar Proveedor</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
     <h1>Registra un Proveedor</h1>
         <form method="POST" action="{{url('proveedor')}}">
             {{ csrf_field() }}
             <div class="form-group ">
-                <input type="text" id="razon_social" name="razon_social"> Razon Social
+                <input type="text" id="razon_social" name="razon_social" required> Razon Social
                 <br>
-                <input type="text" id="RFC" name="RFC"> RFC 
+                <input type="text" id="RFC" name="RFC" required> RFC 
                 <br>
-                <input type="text" id="telefono_proveedor" name="telefono_proveedor"> Telefono
+                <input type="text" id="telefono_proveedor" name="telefono_proveedor" required> Telefono
                 <br>
-                <input type="text" id="calle" name="calle"> Calle
+                <input type="text" id="calle" name="calle" required> Calle
                 <br>
-                <input type="text" id="num_interior" name="num_interior"> Numero interior
+                <input type="text" id="num_interior" name="num_interior" required> Numero interior
                 <br>
-                <input type="text" id="num_exterior" name="num_exterior"> Numero exterior
+                <input type="text" id="num_exterior" name="num_exterior" required> Numero exterior
                 <br>
-                <input type="text" id="CP" name="CP"> Codigo postal
+                <input type="text" id="CP" name="CP" required> Codigo postal
                 <br>
-                <input type="text" id="localidad" name="localidad"> Localidad
+                <input type="text" id="localidad" name="localidad" required> Localidad
                 <br>
                 <input type="submit">
             </div>
@@ -80,5 +74,4 @@
                 }
 
             </script>
-</body>
-</html>
+@endsection
