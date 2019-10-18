@@ -1,83 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <title></title>
+	<title></title>
 </head>
 <body>
 
+	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+	rel = "stylesheet">
+	<script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
+	<script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
+	<script src="{{asset('js/jquery.validate.min.js')}}"></script>
+	<script src="{{asset('js/messages_es.js')}}"></script>  
+	<style type="text/css">
+		.error {
+			border: 2px solid #f00;
+		}
 
- 
-  <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
-  rel = "stylesheet">
-  <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
-  <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
-  <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-  <script src="{{asset('js/messages_es.js')}}"></script>  
-<style type="text/css">
-.error {
-    border: 2px solid #f00;
-}
+		.valid {
+			border: 2px solid #0ff;
+		}
 
-.valid {
-    border: 2px solid #0ff;
-}
+		form, input {
+			margin: 10px;
+		}
+		#docs {
+			display: block;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+		}
+		.uitooltip{
+			padding: 8px;
+			background:#00D500;
+			position: absolute;
+			max-width: 300px;
+			-webkit-box-shadow: 0 0 5px #aaa;
+			box-shadow: 0 0 5px #aaa;
+			font-size: 13px;
+			white-space: pre-line;
+			border-radius: 10px;
+		}
+	</style>
 
-form, input {
-    margin: 10px;
-}
-#docs {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-}
-.uitooltip{
-     padding: 8px;
-     background:#00D500;
-     position: absolute;
-     max-width: 300px;
-     -webkit-box-shadow: 0 0 5px #aaa;
-     box-shadow: 0 0 5px #aaa;
-     font-size: 13px;
-     white-space: pre-line;
-     border-radius: 10px;
-   }
-</style>
+	<script type="text/javascript"> 
+		$(document).ready(function () {
+    	// --------------VALIDACIONES PERSONALIZADAS---------------------
+    	$.validator.addMethod("alpha", function(value, element) {
+    		return /^[a-z]*$/i.test(value);
+    	});
+    	$.validator.addMethod("password", function(value, element) {
+    		return /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/i.test(value);
+    	});
 
-  <script type="text/javascript"> 
-    $(document).ready(function () {
+    	//---------------END VALIDACIONES PERSONALIZADAS
 
-    $('#name').tooltip({
-        tooltipClass: "uitooltip",
-        position: {
-          my: "left top",
-          at: "right+5 top-5"
-        }
-      });
+    //----ACTIVAR TOOLTIP EN TODAS LOS INPUT 
+    $(document).tooltip({
+    	tooltipClass: "uitooltip",
+    	position: {
+    		my: "left top",
+    		at: "right+5 top-5"
+    	}
+    });
 
+    //------FORMULARIO A VALIDAR CON JQUERY
     $('#usuarios').validate({ // initialize the plugin
-      rules: {
-        name: {
-          required: true,
-          minlength: 4,
-          digits : true
-        },
-        email: {
-          required: true
-        }
-      },
-      errorPlacement: function(){
-        return false;
-      },
-      // messages:{
-      //   required: "Hey vamos, por favor, dános tu nombre"
-      // }
-      submitHandler: function (form) { // for demo
-            alert('valid form submitted'); // for demo
-            return false; // for demo
-      }
-      });
-  });
+    	rules: {
+    		name: {
+    			required: true,
+    			alpha: false,
+    			minlength: 4
+    		},
+    		email: {
+    			required: true,
+    			email: true
+    		},
+    		password:{
+    			required:true,
+    			password: true
+    		},
+    		telefono_user: {
+    			required: true,
+    			number: true,
+    			minlength: 10,
+    			maxlength:10
+    		},
+    		calle:{
+    			required: true,
+    			alpha: false
+    		},
+    		num_interior:{
+    			required: true,
+    			number: true,
+    		},
+    		num_exterior:{
+    			required: true,
+    			number: true,
+    		},
+    		CP:{
+    			required: true,
+    			minlength:5
+    		},
+    		localidad:{
+    			required: true,
+    			minlength: 4
+    		}
+    	},
+    	errorPlacement: function(){
+    		return false;
+    	}
+    });
+});
 </script>
 
 
@@ -95,21 +128,23 @@ form, input {
 		@endif<br>
 
 		<label for="email">Email</label>
-		<input type="email" name="email" id="email" value="{{old('email')}}" required>
+		<input type="email" name="email" id="email" value="{{old('email')}}" required title="Introduce tu email">
 		<br>
 		@if($errors->has('email'))
 		<label style="color:red">{{$errors->first('email')}}</label>
 		@endif<br>
 
 		<label for="password">Password</label>
-		<input type="password" name="password" id="password" required>
+		<input type="password" name="password" id="password" required title="Introduce una Contraseña
+		1.-Debe ser mayor a 8 caracteres
+		2.-Debe contener numeros y letras">
 		<br>
 		@if($errors->has('password'))
 		<label style="color:red">{{$errors->first('password')}}</label>
 		@endif<br>
 
 		<label for="password_confirmation">Confirma tu Password</label>
-		<input type="password" name="password_confirmation" id="password_confirmation" required>
+		<input type="password" name="password_confirmation" id="password_confirmation" required title="Confirma tu contraseña">
 		<br>
 		@if($errors->has('password_confirmation'))
 		<label style="color:red">{{$errors->first('password_confirmation')}}</label>
@@ -118,6 +153,7 @@ form, input {
 		<hr>
 
 		<h2>DATOS DEL CLIENTE</h2>
+
 		<label>Sexo</label>
 		<label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
 		<label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
@@ -127,42 +163,42 @@ form, input {
 		@endif<br>
 
 		<label for="telefono">Telefono</label>
-		<input type="num" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required>
+		<input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono">
 		<br>
 		@if($errors->has('telefono_user'))
 		<label style="color:red">{{$errors->first('telefono_user')}}</label>
 		@endif<br>
 
 		<label for="calle">Calle</label>
-		<input type="text" name="calle" id="calle" value="{{old('calle')}}">
+		<input type="text" name="calle" id="calle" value="{{old('calle')}}" title="Nombre de la Calle">
 		<br>
 		@if($errors->has('calle'))
 		<label style="color:red">{{$errors->first('calle')}}</label>
 		@endif<br>
 
 		<label for="num_interior">Numero Interior</label>
-		<input type="num" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required>
+		<input type="text" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required>
 		<br>
 		@if($errors->has('num_interior'))
 		<label style="color:red">{{$errors->first('num_interior')}}</label>
 		@endif<br>
 
 		<label for="num_exterior">Numero Exterior</label>
-		<input type="num" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required>
+		<input type="text" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required>
 		<br>
 		@if($errors->has('num_exterior'))
 		<label style="color:red">{{$errors->first('num_exterior')}}</label>
 		@endif<br>
 
 		<label for="CP">CP</label>
-		<input type="num" name="CP" id="CP" value="{{old('CP')}}" required> 
+		<input type="text" name="CP" id="CP" value="{{old('CP')}}" required title="Introduzca su Codigo Postal"> 
 		<br>
 		@if($errors->has('CP'))
 		<label style="color:red">{{$errors->first('CP')}}</label>
 		@endif<br>
 
 		<label for="localidad">Localidad</label>
-		<input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required>
+		<input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required title="Introduzca su localidad">
 		<br>
 		@if($errors->has('localidad'))
 		<label style="color:red">{{$errors->first('localidad')}}</label>

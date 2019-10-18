@@ -1,6 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-@section('content')
+
 
 <center>
 	<a href="{{route('pedidos.create')}}"><button type="button" class="btn btn-success">New Pedido</button></a>
@@ -28,4 +33,6 @@
 		@endforeach
 	</table>
 </center>
-@endsection
+
+</body>
+</html>

@@ -1,6 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-@section('content')
+
 <center>
 	<a href="{{route('mesas.create')}}"><button type="button" class="btn btn-success">New Mesa</button></a>
 	<h1>LISTADO DE MESAS</h1>
@@ -21,4 +26,5 @@
 		@endforeach
 	</table>
 </center>
-@endsection
+</body>
+</html>

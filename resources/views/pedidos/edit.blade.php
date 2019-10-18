@@ -1,6 +1,85 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-@section('content')
+
+
+	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+	rel = "stylesheet">
+	<script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
+	<script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
+	<script src="{{asset('js/jquery.validate.min.js')}}"></script>
+	<script src="{{asset('js/messages_es.js')}}"></script>  
+	<style type="text/css">
+		.error {
+			border: 2px solid #f00;
+		}
+
+		.valid {
+			border: 2px solid #0ff;
+		}
+
+		form, input {
+			margin: 10px;
+		}
+		#docs {
+			display: block;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+		}
+		.uitooltip{
+			padding: 8px;
+			background:#00D500;
+			position: absolute;
+			max-width: 300px;
+			-webkit-box-shadow: 0 0 5px #aaa;
+			box-shadow: 0 0 5px #aaa;
+			font-size: 13px;
+			white-space: pre-line;
+			border-radius: 10px;
+		}
+	</style>
+
+	<script type="text/javascript"> 
+		$(document).ready(function () {
+    //----ACTIVAR TOOLTIP EN TODAS LOS INPUT 
+    $(document).tooltip({
+    	tooltipClass: "uitooltip",
+    	position: {
+    		my: "left top",
+    		at: "right+5 top-5"
+    	}
+    });
+
+    //------FORMULARIO A VALIDAR CON JQUERY
+    $('#pedidos').validate({ // initialize the plugin
+    	rules: {
+    		user_id: {
+    			required: true,
+    		},
+    		total_pedido:{
+    			required: true,
+    			number:true
+    		},
+    		mesa_id:{
+    			required:true,
+    		},
+    		fecha_pedido:{
+    			required : true,
+    			date: true
+    		}
+    	},
+    	errorPlacement: function(){
+    		return false;
+    	}
+    });
+});
+</script>
+
 	<center>
 		<h1>ALTA PEDIDO</h1>
 		@if($errors->any())
@@ -10,7 +89,7 @@
 				@endforeach
 			</ul>
 		@endif
-		<form method="POST" action="{{route('pedidos.update',$pedido)}}">
+		<form method="POST" action="{{route('pedidos.update',$pedido)}}" id="pedidos">
 			{{csrf_field()}}
 			{{method_field('PUT')}}
 			<label>Usuario Anterior</label>
@@ -35,7 +114,7 @@
 			<input type="text" name="total_pedido" id="total_pedido" value="{{old('total_pedido',$pedido->total_pedido)}}">
 			<br>
 			<label>Numero de Mesa Anterior</label>
-			<input type="text" name="mesa_id" value="{{old('mesa_id',$pedido->mesa->numero_mesa)}}">
+			<input type="text" name="mesa_id" value="{{old('mesa_id',$pedido->mesa->numero_mesa)}}" readonly>
 			<label>Numero de Mesa Nueva</label>
 			<select id="mesa_id" name="mesa_id">
 				@foreach($mesas as $mesa)
@@ -65,4 +144,5 @@
 		</form>
 	</center>
 
-@endsection
+</body>
+</html 	
