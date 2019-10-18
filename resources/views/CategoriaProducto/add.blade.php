@@ -18,8 +18,14 @@
             
             
                     function validar(input,patron,idInput){
-                        input.addEventListener('keydown', event => {
-                            if(!patron.test(event.key)) {
+                        input.addEventListener('keyup', event => {
+                            var val = document.getElementById(idInput).value;
+                            var tam = val.length;
+                            for(i = 0; i < tam; i++) {
+                                if(!isNaN(val[i]))
+                                    document.getElementById(idInput).value = '';
+                            }
+                            if(!patron.test(event.key)){
                                 document.getElementById(idInput).style.border = '1px solid #FF0000';
                             }else{
                                 document.getElementById(idInput).style.border = '1px solid #00cc00';

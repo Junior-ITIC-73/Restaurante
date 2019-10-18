@@ -30,7 +30,7 @@ class FormUser extends FormRequest
                'password_confirmation' =>'required|min:6|same:password',
                'sexo'=>'required|boolean',
                'telefono_user'=>'required|numeric',
-               'calle'=>'required|alpha_dash',
+               'calle'=>'required',
                'num_interior'=>'required|numeric',
                'num_exterior'=>'required|numeric',
                'CP'=>'required|numeric',
