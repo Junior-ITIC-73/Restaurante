@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\menuplatillosRequest;
 use App\MenuPlatillo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,7 @@ class MenuPlatilloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(menuplatillosRequest $request)
     {
      MenuPlatillo::create([
             'nombre_platillo'=>$request['nombre_platillo'],
@@ -78,7 +79,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(menuplatillosRequest $request)
     {
 
             $id = $request['id'];
