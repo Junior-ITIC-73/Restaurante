@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('menuplatillo','MenuPlatilloController');
 Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
 Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');

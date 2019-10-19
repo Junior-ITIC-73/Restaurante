@@ -45,7 +45,7 @@
                                     <div id="wrapper">
                                         <div id="login" class="animate form">
 
-                                            <form action="{{route('alta_menu') }}" method="POST">
+                                            <form action="{{route('alta_menu')}}" method="POST">
                                                 {{csrf_field()}}
 
                                                 <h1>Alta Menu</h1>
