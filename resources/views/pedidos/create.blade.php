@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('admin.layout')
 
+@section('content')
 
 
 	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
@@ -124,5 +120,4 @@
 			<button type="submit">GUARDAR</button>
 		</form>
 	</center>
-</body>
-</html>
+@endsection

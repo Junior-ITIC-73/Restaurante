@@ -24,10 +24,10 @@ class menuplatillosRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_platilo' => 'required',
+            'nombre_platillo' => 'required',
             'precio_platillo' => 'required',
             'descripcion_platillo' => 'required',
-            'fecha_platillo' => 'required',
+            'fecha' => 'required',
         ];
     }
 }

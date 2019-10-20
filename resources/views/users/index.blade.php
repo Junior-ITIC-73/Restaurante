@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('admin.layout')
 
+@section('content')
 
 
 	<center>
 		<h1>LISTADO DE USUARIOS</h1>
-		<a href="{{route('users.create')}}"><button type="button" class="btn btn-success">New User</button></BUTTON></a>
+		<a href="{{route('users.create')}}"><button type="button" class="btn btn-success">New User</button></BUTTON></a><br>
+		<div align="lefth">Buscar:<input type="text" name=""></div>
 	<table border="4" class="table table-striped table-bordered" style="width:80%">
 		<tr>
-			<td>NAME</td>
-			<td>EMAIL</td>
-			<td>DATOS DEL CLIENTE</
-			<td>MODIFICAR</td>
-			<td>ELIMINAR</td>
+			<td><b>NAME</b></td>
+			<td><b>EMAIL</b></td>
+			<td><b>DATOS DEL CLIENTE</b></td>
+			<td><b>MODIFICAR</b></td>
+			<td><b>ELIMINAR</b></td>
 		</tr>
 		@foreach($users as $user)
 		<tr>
@@ -34,8 +31,14 @@
 			<td><a href="{{route('users.destroy',$user)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
 		</tr>
 		@endforeach
+		<tr>
+			<td>{{ $users->links() }}</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</table>
 	</center>
 
-</body>
-</html>
+@endsection

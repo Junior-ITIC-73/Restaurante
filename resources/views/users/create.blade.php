@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('admin.layout')
 
-	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
-	rel = "stylesheet">
-	<script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
-	<script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
-	<script src="{{asset('js/jquery.validate.min.js')}}"></script>
-	<script src="{{asset('js/messages_es.js')}}"></script>  
+@section('content')
+
+
+{{-- 	 <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+    rel = "stylesheet">
+    <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
+    <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
+    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('js/messages_es.js')}}"></script>  
 	<style type="text/css">
 		.error {
 			border: 2px solid #f00;
@@ -42,9 +40,9 @@
 		}
 	</style>
 
-	<script type="text/javascript"> 
+	<script type="text/javascript">
 		$(document).ready(function () {
-    	// --------------VALIDACIONES PERSONALIZADAS---------------------
+    	// VALIDACIONES PERSONALIZADAS
     	$.validator.addMethod("alpha", function(value, element) {
     		return /^[a-z]*$/i.test(value);
     	});
@@ -52,9 +50,9 @@
     		return /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/i.test(value);
     	});
 
-    	//---------------END VALIDACIONES PERSONALIZADAS
+    	//-END VALIDACIONES PERSONALIZADAS
 
-    //----ACTIVAR TOOLTIP EN TODAS LOS INPUT 
+    //-ACTIVAR TOOLTIP EN TODAS LOS INPUT 
     $(document).tooltip({
     	tooltipClass: "uitooltip",
     	position: {
@@ -63,12 +61,12 @@
     	}
     });
 
-    //------FORMULARIO A VALIDAR CON JQUERY
+    //-FORMULARIO A VALIDAR CON JQUERY
     $('#usuarios').validate({ // initialize the plugin
     	rules: {
     		name: {
     			required: true,
-    			alpha: false,
+    			alpha: true,
     			minlength: 4
     		},
     		email: {
@@ -111,102 +109,100 @@
     	}
     });
 });
-</script>
+</script> --}}
 
 
 
 <a href="{{route('users.index')}}"><button type="button" class="btn btn-primary">Regresar</button></a>
 <center>
+
 	<h1>ALTA DE USUARIOS</h1>
-	<form method="POST" action="{{route('users.store')}}" id="usuarios">
+<form method="POST" action="{{route('users.store')}}" id="usuarios">
 		{{csrf_field()}}
-		<label for="name">Nombre</label>
-		<input type="text" name="name" id="name" value="{{old('name')}}" required title="Introduce tu nombre">
-		<br>
+  <div class="form-group">
+    	<label for="name">Nombre</label>
+		<input type="text" name="name" id="name" value="{{old('name')}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control">
 		@if($errors->has('name'))
 		<label style="color:red">{{$errors->first('name')}}</label>
-		@endif<br>
-
-		<label for="email">Email</label>
-		<input type="email" name="email" id="email" value="{{old('email')}}" required title="Introduce tu email">
-		<br>
+		@endif
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+		<input type="email" name="email" id="email" value="{{old('email')}}" required title="Introduce tu email" placeholder="Email" class="form-control">
 		@if($errors->has('email'))
 		<label style="color:red">{{$errors->first('email')}}</label>
-		@endif<br>
-
-		<label for="password">Password</label>
+		@endif
+  </div>
+  <div class="form-group">
+  	<label for="password">Password</label>
 		<input type="password" name="password" id="password" required title="Introduce una Contraseña
 		1.-Debe ser mayor a 8 caracteres
-		2.-Debe contener numeros y letras">
-		<br>
+		2.-Debe contener numeros y letras" class="form-control" placeholder="Password">
 		@if($errors->has('password'))
 		<label style="color:red">{{$errors->first('password')}}</label>
-		@endif<br>
-
-		<label for="password_confirmation">Confirma tu Password</label>
-		<input type="password" name="password_confirmation" id="password_confirmation" required title="Confirma tu contraseña">
-		<br>
+		@endif
+  </div>
+  <div class="form-group">
+  		<label for="password_confirmation">Confirma tu Password</label>
+		<input type="password" name="password_confirmation" id="password_confirmation" required title="Confirma tu contraseña" placeholder="Confirma tu Contraseña" class="form-control">
 		@if($errors->has('password_confirmation'))
 		<label style="color:red">{{$errors->first('password_confirmation')}}</label>
-		@endif<br>
-
+		@endif
+  </div>
 		<hr>
-
 		<h2>DATOS DEL CLIENTE</h2>
-
-		<label>Sexo</label>
+	<div class="form-group" align="left">
+		<label><b>SEXO</b></label>
 		<label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
 		<label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
-		<br>
 		@if($errors->has('sexo'))
 		<label style="color:red">{{$errors->first('sexo')}}</label>
-		@endif<br>
-
+		@endif
+	</div>
+	<div class="form-group">
 		<label for="telefono">Telefono</label>
-		<input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono">
-		<br>
+		<input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono">
 		@if($errors->has('telefono_user'))
 		<label style="color:red">{{$errors->first('telefono_user')}}</label>
-		@endif<br>
-
+		@endif
+	</div>
+	<div class="form-group">	
 		<label for="calle">Calle</label>
-		<input type="text" name="calle" id="calle" value="{{old('calle')}}" title="Nombre de la Calle">
-		<br>
+		<input type="text" name="calle" id="calle" value="{{old('calle')}}" title="Nombre de la Calle" class="form-control" placeholder="Calle">
 		@if($errors->has('calle'))
 		<label style="color:red">{{$errors->first('calle')}}</label>
-		@endif<br>
-
+		@endif
+	</div>
+	<div class="form-group">
 		<label for="num_interior">Numero Interior</label>
-		<input type="text" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required>
-		<br>
+		<input type="text" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required class="form-control" placeholder="Numero Interior" >
 		@if($errors->has('num_interior'))
 		<label style="color:red">{{$errors->first('num_interior')}}</label>
-		@endif<br>
-
+		@endif
+	</div>
+	<div class="form-group">
 		<label for="num_exterior">Numero Exterior</label>
-		<input type="text" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required>
-		<br>
+		<input type="text" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required class="form-control" placeholder="Numero Exterior">
 		@if($errors->has('num_exterior'))
 		<label style="color:red">{{$errors->first('num_exterior')}}</label>
-		@endif<br>
-
-		<label for="CP">CP</label>
-		<input type="text" name="CP" id="CP" value="{{old('CP')}}" required title="Introduzca su Codigo Postal"> 
-		<br>
+		@endif
+	</div>
+	<div class="form-group">
+		<label for="CP">Codigo Postal</label>
+		<input type="text" name="CP" id="CP" value="{{old('CP')}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP"> 
 		@if($errors->has('CP'))
 		<label style="color:red">{{$errors->first('CP')}}</label>
-		@endif<br>
-
+		@endif
+	</div>
+	<div class="form-group">
 		<label for="localidad">Localidad</label>
-		<input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required title="Introduzca su localidad">
-		<br>
+		<input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required title="Introduzca su localidad" class="form-control" placeholder="Localidad">
 		@if($errors->has('localidad'))
 		<label style="color:red">{{$errors->first('localidad')}}</label>
-		@endif<br>
-
-		<button type="submit">GUARDAR</button><br>	
-	</form>
+		@endif
+	</div>
+  <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
+</form>
 </center>
 
-</body>
-</html>
+@endsection

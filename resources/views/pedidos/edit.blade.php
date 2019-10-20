@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('admin.layout')
 
+@section('content')
 
 
 	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
@@ -81,7 +77,7 @@
 </script>
 
 	<center>
-		<h1>ALTA PEDIDO</h1>
+		<h1>MODIFICAR PEDIDO</h1>
 		@if($errors->any())
 			<ul>
 				@foreach($errors->all() as $error)
@@ -144,5 +140,4 @@
 		</form>
 	</center>
 
-</body>
-</html 	
+@endsection

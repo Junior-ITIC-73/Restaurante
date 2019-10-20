@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
 
 
 
@@ -34,5 +31,4 @@
 	</table>
 </center>
 
-</body>
-</html>
+@endsection
