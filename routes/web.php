@@ -34,6 +34,9 @@ Route::get('/logueo', function () {
     return view('Arboleda.login');
 });
 
+Route::get('/a2', function () {
+    return view('admin.layout');
+});
 
 
 
