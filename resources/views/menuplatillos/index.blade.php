@@ -2,6 +2,15 @@
 
 @section('content')
 
+<head>
+        <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
+
+</head>
+
+<body>
 <center> <h2>Menu Platillo</h2></center>
 <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
@@ -32,6 +41,26 @@
     </tbody>
 </table>
 </div>
+
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.buttons.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jszip.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/pdfmake.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/vfs_fonts.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.html5.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.colVis.min.js')}}}"></script>
+<script src="{{{ asset('js/datatables.js')}}}"></script>
+
+
+
+
+</body>
+
+
 
 @endsection
 
