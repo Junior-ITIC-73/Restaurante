@@ -151,7 +151,7 @@
   </div>
 		<hr>
 		<h2>DATOS DEL CLIENTE</h2>
-	<div class="form-group" align="left">
+	<div class="form-control" >
 		<label><b>SEXO</b></label>
 		<label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
 		<label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">

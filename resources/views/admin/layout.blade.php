@@ -143,6 +143,9 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
+                  <a href="{{url('categoria/')}}">ALTA DE CATEGORIA</a>
+                </li>
+                <li>
                   <a href="{{url('producto/')}}">MOSTRA PRODUCTOS</a>
                 </li>
                 <li>

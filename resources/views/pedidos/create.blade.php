@@ -86,38 +86,49 @@
 				@endforeach
 			</ul>
 		@endif
+
+
+
+
+
 		<form method="POST" action="{{route('pedidos.store')}}" id="pedidos">
 			{{csrf_field()}}
-
-
-			 <label>Seleccion Usuario</label>
-                    <select id="user_id"   name="user_id" title="Seleccione un Usuario">
+		<div class="form-group">
+			 <label>Seleccione el Usuario</label>
+                    <select id="user_id"   name="user_id" title="Seleccione un Usuario" class="custom-select">
                         @foreach($usuarios as $usuario)            
                         <option value="{{ $usuario->id}}">{{$usuario->name}}</option>
                         @endforeach
                     </select>
-              <br>
-            <label>PEDIDO:</label><input type="file" name="lista_pedido"><br>
+        </div>
+        	<div class="custom-file">
+        		<label class="custom-file-label" for="customFileLang">ELIGE EL PEDIDO:</label><input type="file" name="lista_pedido" class="custom-file-input" id="customFileLang" >
+        	</div>
+        <div class="form-group">
+        	<br>
 			<label for="fecha_pedido">Fecha del Pedido</label>
-			<input type="date" name="fecha_pedido" id="fecha_pedido" value="{{old('fecha_pedido')}}">
-			<br>
+			<input type="date" name="fecha_pedido" id="fecha_pedido" value="{{old('fecha_pedido')}}" class="form-control">
+		</div>
+		<div class="form-control">
 			<label>Estado del Pedido:</label><br>
 			<label for="camino">En Camino</label><input type="radio" name="estado_pedido" value="0" checked id="camino">
 			<label for="entregado">Ya entregado</label><input type="radio" name="estado_pedido" value="1" id="entregado">
+		</div>
+		<div class="form-group">
 			<br>
-
 			<label for="total_pedido">Total del Pedido</label>
-			<input type="text" name="total_pedido" id="total_pedido" value="{{old('total_pedido')}}">
-			<br>
-			<label>Numero de Mesa</label><br>
-			<select id="mesa_id" name="mesa_id">
+			<input type="text" name="total_pedido" id="total_pedido" value="{{old('total_pedido')}}" class="form-control" placeholder="Ingresa una cantidad">
+		</div>
+		<div class="form-group">
+			<label>Numero de Mesa</label>
+			<select id="mesa_id" name="mesa_id" class="form-control">
 				@foreach($mesas as $mesa)
 				<option value="{{$mesa->id}}">{{$mesa->numero_mesa}}</option>
 				@endforeach
 			</select>
-
+		</div>
 			<br>
-			<button type="submit">GUARDAR</button>
+			<button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
 		</form>
 	</center>
 @endsection
