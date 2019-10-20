@@ -1,22 +1,25 @@
 @extends('admin.layout')
 
 @section('content')
-
+        <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
 
 	<center>
 		<h1>LISTADO DE USUARIOS</h1>
 		<a href="{{route('users.create')}}"><button type="button" class="btn btn-success">New User</button></BUTTON></a><br>
-		<div align="lefth">Buscar:<input type="text" name=""></div>
-	<table border="4" class="table table-striped table-bordered" style="width:80%">
-		<tr>
-			<td><b>NAME</b></td>
-			<td><b>EMAIL</b></td>
-			<td><b>DATOS DEL CLIENTE</b></td>
-			<td><b>MODIFICAR</b></td>
-			<td><b>ELIMINAR</b></td>
+	<table border="4" class="table table-striped table-bordered" style="width:80%" id="a1">
+		<thead>
+			<th><b>NAME</b></th>
+			<th><b>EMAIL</b></th>
+			<th><b>DATOS DEL CLIENTE</b></th>
+			<th><b>MODIFICAR</b></th>
+			<th><b>ELIMINAR</b></th>
 		</tr>
+		</thead>
+		<tbody>
 		@foreach($users as $user)
-		<tr>
 			<td>{{$user->name}}</td>
 			<td>{{$user->email}}</td>
 			<td>
@@ -31,14 +34,20 @@
 			<td><a href="{{route('users.destroy',$user)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
 		</tr>
 		@endforeach
-		<tr>
-			<td>{{ $users->links() }}</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
+	</tbody>
 	</table>
 	</center>
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.buttons.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jszip.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/pdfmake.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/vfs_fonts.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.html5.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.colVis.min.js')}}}"></script>
+<script src="{{{ asset('js/datatables.js')}}}"></script>
 
 @endsection

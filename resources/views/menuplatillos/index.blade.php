@@ -2,15 +2,13 @@
 
 @section('content')
 
-<head>
+
         <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
         <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
         <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
         <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
 
-</head>
 
-<body>
 <center> <h2>Menu Platillo</h2></center>
 <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
@@ -58,7 +56,7 @@
 
 
 
-</body>
+
 
 
 

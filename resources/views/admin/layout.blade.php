@@ -5,10 +5,9 @@
   <title>ARBOLEDA ADMIN</title>
 
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'><link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-
-  <link rel='stylesheet' href='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css') }}>
-<link rel='stylesheet' href='{{ asset('https://use.fontawesome.com/releases/v5.0.13/css/all.css') }}'><link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
 </head>
@@ -224,6 +223,7 @@
 </div>
 <!-- page-wrapper -->
 <!-- partial -->
+{{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script> --}}
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js'></script><script  src="{{asset('js/script.js')}}"></script>
 
