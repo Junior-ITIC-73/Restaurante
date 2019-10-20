@@ -10,7 +10,7 @@
 
 <center>
     <h1 align="center">Listado de proveedores</h1>
-    <button onclick="window.location.href='/proveedor/create'" type="button" class="btn btn-success" >Agregar proveedor</button>
+    <button onclick="window.location.href='/proveedor/create'" type="button" class="btn btn-info btn-lg" >Agregar proveedor</button>
     <table border="1" align="center" class="table table-striped table-bordered" style="width:100%" id="a1">
         <thead>
             <tr>  

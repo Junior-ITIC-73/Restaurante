@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
 
 <center>
-	<a href="{{route('pedidos.create')}}"><button type="button" class="btn btn-success">New Pedido</button></a>
 	<h1>LISTADO DE PEDIDO</h1>
+	<a href="{{route('pedidos.create')}}"><button type="button" class="btn btn-info btn-lg">Nuevo Pedido</button></a>
 	<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
 		<thead>
 			<th>USER</th>

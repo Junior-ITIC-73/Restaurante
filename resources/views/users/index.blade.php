@@ -8,9 +8,10 @@
 
 	<center>
 		<h1>LISTADO DE USUARIOS</h1>
-	</center>
+	
 
-		<a href="{{route('users.create')}}"><button type="button" class="btn btn-success">New User</button></BUTTON></a><br>
+		<a href="{{route('users.create')}}"><button type="button" class="btn btn-info btn-lg">Agregar Usuario</button></BUTTON></a><br>
+		</center>
 
 <div class="container">
 	<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">

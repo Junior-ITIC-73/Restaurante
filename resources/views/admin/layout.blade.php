@@ -210,7 +210,7 @@
         <i class="fa fa-cog"></i>
         <span class="badge-sonar"></span>
       </a>
-      <a href="#">
+      <a href="{{route('arboleda.index')}}">
         <i class="fa fa-power-off"></i>
       </a>
     </div>

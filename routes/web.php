@@ -13,33 +13,44 @@
 
 Route::get('/', function () {
     return view('Arboleda.index');
+})->name('arboleda.index');
+
+Route::get('/logueo', function () {
+    return view('Arboleda.Login');
 });
 
-Route::get('/contacto', function () {
-    return view('Arboleda.contacto');
+Route::get('/registro', function () {
+    return view('Arboleda.registro');
 });
-Route::get('/about', function () {
-    return view('Arboleda.about');
-});
-Route::get('/reservacion', function () {
-    return view('Arboleda.reservation');
-});
-Route::get('/especial', function () {
-    return view('Arboleda.special-dishes');
-});
+
 Route::get('/menu', function () {
     return view('Arboleda.menu');
 });
-Route::get('/logueo', function () {
-    return view('Arboleda.login');
+
+Route::get('/specialties', function () {
+    return view('Arboleda.specialties');
 });
 
-Route::get('/a2', function () {
-    return view('admin.layout');
+Route::get('/reservation', function () {
+    return view('Arboleda.reservation');
+});
+
+Route::get('/blog', function () {
+    return view('Arboleda.blog');
+});
+
+Route::get('/about', function () {
+    return view('Arboleda.about');
+});
+
+Route::get('/contact', function () {
+    return view('Arboleda.contact');
 });
 
 
-
+Route::get('/services', function () {
+    return view('Arboleda.services');
+});
 
 
 //-----------CRUD MESAS----------//
@@ -56,6 +67,7 @@ Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy
 Auth::routes();
 
 //-----------CRUD USUARIOS---------//
+Route::post('usuarios/alta/login','UserController@altaLogin')->name('users.altaLogin');
 //--LISTAR
 Route::get('usuarios/','UserController@index')->name('users.index');
 //--AGREGAR DATOS DEL USUARIO
@@ -97,4 +109,4 @@ Route::get('/categoria/{id}','CategoriaController@destroy');
 
 Route::get('/admin', function(){
     return view('admin.dashboard');
-});
+})->name('admin.index');

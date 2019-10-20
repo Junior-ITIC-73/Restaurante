@@ -36,6 +36,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function altaLogin(Request $request){
+
+        $request->validate([
+               'name'=>'required|not_regex:/[0-9]/',
+               'email' => 'required|email|unique:users',
+               'password' => 'required|min:6|confirmed', 
+               'password_confirmation' =>'required|min:6|same:password',
+        ]);
+
+        $user = New User(request()->all());
+        $user->password = bcrypt($user->password);
+        $user->save();
+
+        return redirect()->route('admin.index');
+
+    }
     public function store(FormUser $request)
     {
        $prueba= User::create([
