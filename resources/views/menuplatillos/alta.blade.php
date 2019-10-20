@@ -2,86 +2,96 @@
 <html lang="en">
 <head>
 
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                         <meta charset="UTF-8" />
                         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
                         <title>Alta Menu Platillos</title>
 
-                        <script text="javascript">
 
-
-        function sololetras(e) {
-	    key=e.keyCode || e.which;
-
-    	teclado=String.fromCharCode(key).toLowerCase();
-
-    	letras="qwertyuiopasdfghjklñzxcvbnm ";
-
-    	especiales="8-37-38-46-164";
-
-    	teclado_especial=false;
-
-	for(var i in especiales){
-		if(key==especiales[i]){
-			teclado_especial=true;
-			break;
-		}
-	}
-
-	if(letras.indexOf(teclado)==-1 && !teclado_especial){
-		return false;
-	}
-
-}
-                </script>
                     </head>
                     <body>
 
 
-                                <div id="container_demo" >
-                                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-                                    <a class="hiddenanchor" id="toregister"></a>
-                                    <a class="hiddenanchor" id="tologin"></a>
-                                    <div id="wrapper">
-                                        <div id="login" class="animate form">
 
                                             <form action="{{route('alta_menu')}}" method="POST">
                                                 {{csrf_field()}}
 
-                                                <h1>Alta Menu</h1>
+                                                   <center> <h1>Alta Menu</h1> </center>
+                                                    <form>
+                                                            <div class="form-group row">
+                                                              <label for="nombre_platillo" class="col-sm-2 col-form-label">Nombre del Platillo</label>
+                                                              <div class="col-sm-5">
+                                                             <input id="ta" name="nombre_platillo"  class="form-control" size="20" type="text" placeholder="Nombre del Platillo"  onkeypress="return sololetras(event)"required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                                <label for="precio" class="col-sm-2 col-form-label">precio</label>
+                                                                <div class="col-sm-10">
+                                                        <input id="cantidad" min="1" class="form-cotrol" size="20" name='precio_platillo' type="text"  placeholder="precio" required=>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                            <label for="descripcion" class="col-sm-2 col-form-label">Descripcio</label>
+                                                            <div class="col-sm-5">
+                                                        <input id="descripcion_platillo" class="form-control" size="20"  placeholder="Una breve descripcion" name="descripcion_platillo" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                                <label for="descripcion" class="col-sm-2 col-form-label">Fecha</label>
+                                                                <div class="col-sm-2">
+                                                            <input id="fecha" class="form-control" name="fecha" type="date" required>
+                                                        <br>
 
-                                                <p>
-                                                    <label for="username" class="uname"  >Nombre del Platillo</label>
-                                                    <input name="nombre_platillo "class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/ required>
-                                                </p>
+                                                        <button  type="submit"   class="btn btn-primary" name="submit" value="Enviar"> Guardar</button>
+                                                    <br>
 
-                                                <p>
-                                                    <label for="precio" class="precio" > Precio</label>
-                                                    <input id="precio" name='precio_platillo' type="number" step="any" class='rounded nombre' required=''/>
-                                                </p>
-                                                 <p>
-                                                    <label for="username" class="uname"  > Descripcion</label>
-                                                    <input id="descripcion"  name="descripcion_platillo" required>
-                                                </p>
-                                                <p>
-                                                        <label for="username" class="uname"> Fecha</label>
-                                                        <input id="fecha"  name="fecha" type="date" required>
-                                                    </p>
-                                                <p>
-                                                    <input type="submit" name="submit" value="Enviar" />
-                                                </p>
+                                                </form>
 
-                                            </form>
+                                            </div>
+
+
 
                                         </div>
-
-
-
                                     </div>
-                                </div>
-                            </section>
+                                </section>
 
-                <head>
+                                <script>
 
+                                             function el(el) {
+                                          return document.getElementById(el);
+                                                                }
+
+                                    el('cantidad').addEventListener('input',function() {
+                                     var val = this.value;
+                                        this.value = val.replace(/\D|\-/,'');
+                                                });
+                                    // creamos el evento para cada tecla pulsada
+                                    document.getElementById("ta").addEventListener("keypress",verificar);
+                                    function verificar(e) {
+
+                                        // comprovamos con una expresion regular que el caracter pulsado sea
+                                        // una letra, numero o un espacio
+                                        if(e.key.match(/[a-z0-9ñçáéíóú\s]/i)===null) {
+
+                                            // Si la tecla pulsada no es la correcta, eliminado la pulsación
+                                            e.preventDefault();
+                                        }
+                                    }
+                                            /////////////////////////////
+                                    // creamos el evento para cada tecla pulsada
+                                    document.getElementById("descripcion_platillo").addEventListener("keypress",check);
+                                    function check(e) {
+
+                                        // comprovamos con una expresion regular que el caracter pulsado sea
+                                        // una letra, numero o un espacio
+                                        if(e.key.match(/[a-z0-9ñçáéíóú\s]/i)===null) {
+
+                                            // Si la tecla pulsada no es la correcta, eliminado la pulsación
+                                            e.preventDefault();
+                                        }
+                                    }
+
+                                    </script>
 </body>
 </html>

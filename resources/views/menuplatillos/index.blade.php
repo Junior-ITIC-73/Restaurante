@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>iNDEX</title>
+    <title>Menu Platillos</title>
     <link rel="stylesheet" href="datatables/bootstrap.css">
     <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
     <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
@@ -17,7 +17,7 @@
 <body>
 
     <a href="{{ URL('/menuplatillo/create')}}" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
-        New
+        Alta
     </a>
 
         <center> <h2>Menu Platillo</h2></center>
@@ -50,6 +50,7 @@
         </tbody>
           </table>
           </div>
+
 </body>
 
 </html>
