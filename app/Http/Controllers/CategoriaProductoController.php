@@ -14,7 +14,8 @@ class CategoriaProductoController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = CategoriaProducto::all();
+        return view('CategoriaProducto/index',compact('categorias'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoriaProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('CategoriaProducto.add');
     }
 
     /**
@@ -35,7 +36,10 @@ class CategoriaProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new CategoriaProducto($request->all());
+        $product->save();
+        
+        return redirect('/categoria')->with('mesage', 'La categoria se ha agregado exitosamente!');
     }
 
     /**
@@ -55,9 +59,11 @@ class CategoriaProductoController extends Controller
      * @param  \App\CategoriaProducto  $categoriaProducto
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoriaProducto $categoriaProducto)
+    public function edit(CategoriaProducto $categoriaProducto, $id)
     {
-        //
+        $categoria = CategoriaProducto::findOrFail($id);
+        return view('CategoriaProducto.edit', compact('categoria'));
+    
     }
 
     /**
@@ -67,9 +73,13 @@ class CategoriaProductoController extends Controller
      * @param  \App\CategoriaProducto  $categoriaProducto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoriaProducto $categoriaProducto)
+    public function update(Request $request, CategoriaProducto $categoriaProducto , $id)
     {
-        //
+        $categoria = CategoriaProducto::findOrFail($id);
+        $categoria->nombre_categoria = $request->nombre_categoria;
+        
+        $categoria->save();
+        return redirect('/categoria')->with('mesage-update', 'La categoria se ha modificado exitosamente!');
     }
 
     /**
@@ -78,8 +88,11 @@ class CategoriaProductoController extends Controller
      * @param  \App\CategoriaProducto  $categoriaProducto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoriaProducto $categoriaProducto)
+    public function destroy($id) //CategoriaProducto $categoriaProducto
     {
-        //
+       $categoria = CategoriaProducto::find($id);
+       $categoria->delete();
+
+       return redirect('/categoria');
     }
 }

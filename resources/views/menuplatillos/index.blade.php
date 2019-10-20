@@ -11,10 +11,63 @@
     <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
     <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
     <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
+    @extends('layouts.template')
+
+    @section('MDB')
+    @endsection
 
 </head>
 
 <body>
+
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h4 class="modal-title w-100 font-weight-bold">Platillos</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="{{ route('menuplatillo.store') }}" method="POST">
+            @csrf
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <i class="fas fa-utensils prefix grey-text"></i>
+                <input type="text" id="cantidad" name="nombre_platillo" class="form-control validate"  required>
+                <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
+              </div>
+              <div class="md-form mb-5">
+                <i class="fas fa-envelope prefix grey-text"></i>
+                <input type="text" id="orangeForm-email" name="precio_platillo" class="form-control validate" onKeyPress="return soloNumeros(event)" required>
+                <label data-error="wrong" data-success="right" for="orangeForm-email">Precio</label>
+              </div>
+
+              <div class="md-form mb-4">
+                <i class="fas fa-lock prefix grey-text"></i>
+                <input type="text" id="orangeForm-pass" name="descripcion_platillo" class="form-control validate">
+                <label data-error="wrong" data-success="right" for="orangeForm-pass">Descripcion</label>
+              </div>
+
+              <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="date" id="orangeForm-pass" name="fecha" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Fecha</label>
+                  </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button class="btn btn-deep-orange">Registrar</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Alta</a>
+      </div>
 
     <a href="{{ URL('/menuplatillo/create')}}" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
         Alta
@@ -133,6 +186,52 @@ $(document).ready(function() {
     } );
 } );
 
+
+</script>
+
+<script>
+function soloNumeros(e)
+{
+  var key = window.Event ? e.which : e.keyCode
+  return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
+
+<script>
+
+        function el(el) {
+     return document.getElementById(el);
+                           }
+
+el('cantidad').addEventListener('input',function() {
+var val = this.value;
+   this.value = val.replace(/\D|\-/,'');
+           });
+// creamos el evento para cada tecla pulsada
+document.getElementById("ta").addEventListener("keypress",verificar);
+function verificar(e) {
+
+   // comprovamos con una expresion regular que el caracter pulsado sea
+   // una letra, numero o un espacio
+   if(e.key.match(/[a-z0-9ñçáéíóú\s]/i)===null) {
+
+       // Si la tecla pulsada no es la correcta, eliminado la pulsación
+       e.preventDefault();
+   }
+}
+       /////////////////////////////
+// creamos el evento para cada tecla pulsada
+document.getElementById("descripcion_platillo").addEventListener("keypress",check);
+function check(e) {
+
+   // comprovamos con una expresion regular que el caracter pulsado sea
+   // una letra, numero o un espacio
+   if(e.key.match(/[a-z0-9ñçáéíóú\s]/i)===null) {
+
+       // Si la tecla pulsada no es la correcta, eliminado la pulsación
+       e.preventDefault();
+   }
+}
 
 </script>
 
