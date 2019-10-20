@@ -1,16 +1,21 @@
 @extends('admin.layout')
 
 @section('content')
-        <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
-        <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
-        <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
+        <link rel="stylesheet" href="{{asset('datatables/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('datatables/bootstrap4.min.css')}}">
+        <link rel="stylesheet" href="{{asset('datatables/css/jquery.dataTables.min.css')}}">
+        <link rel="stylesheet" href="{{asset('datatables/css/estilos.css')}}">
 
 	<center>
 		<h1>LISTADO DE USUARIOS</h1>
+	</center>
+
 		<a href="{{route('users.create')}}"><button type="button" class="btn btn-success">New User</button></BUTTON></a><br>
-	<table border="4" class="table table-striped table-bordered" style="width:80%" id="a1">
+
+<div class="container">
+	<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
 		<thead>
+		<tr>
 			<th><b>NAME</b></th>
 			<th><b>EMAIL</b></th>
 			<th><b>DATOS DEL CLIENTE</b></th>
@@ -20,6 +25,7 @@
 		</thead>
 		<tbody>
 		@foreach($users as $user)
+		<tr>
 			<td>{{$user->name}}</td>
 			<td>{{$user->email}}</td>
 			<td>
@@ -36,7 +42,8 @@
 		@endforeach
 	</tbody>
 	</table>
-	</center>
+</div>
+
 <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 <script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
 <script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>

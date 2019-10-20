@@ -10,4 +10,7 @@
                     <br>
                 <button type="submit" name="button" class="btn btn-primary">Guardar</button>
         </form>
+
+        
+        <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 @endsection

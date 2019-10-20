@@ -29,6 +29,7 @@
                 <label class="form-control-label"> Localidad:</label>
                     <input type="text" class="form-control" value="{{$proveedor->localidad}}" name="localidad">
                     <br>
-                <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+                  <button type="submit" class="btn btn-success btn-lg btn-block">MODIFICAR</button>
         </form>
+                        <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>   
 @endsection

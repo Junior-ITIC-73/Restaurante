@@ -28,8 +28,7 @@
 
 }
 </script>
-</head>
-<body>
+
 
 
     <div id="container_demo" >
@@ -83,6 +82,5 @@
     </div>
 </section>
 
-<head>
-
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
     @endsection

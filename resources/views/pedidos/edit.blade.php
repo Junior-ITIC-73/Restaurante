@@ -171,5 +171,5 @@
 			<button type="submit" class="btn btn-success btn-lg btn-block">MODIFICAR</button>
 		</form>
 	</center>
-
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 @endsection

@@ -9,7 +9,7 @@
 <center>
     <h1 align="center">Listado de categorias de producto</h1>
      <button onclick="window.location.href='/categoria/create'" type="button" class="btn btn-success" >Agregar categoria</button>
-    <table border="1" align="center" class="table table-striped table-bordered" style="width:80%" id="a1">
+    <table border="1" align="center" class="table table-striped table-bordered" style="width:100%" id="a1">
         <thead>
             <tr>  
                 <th>Clave</th>

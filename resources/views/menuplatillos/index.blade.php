@@ -10,6 +10,7 @@
 
 
 <center> <h2>Menu Platillo</h2></center>
+
 <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
         <thead>

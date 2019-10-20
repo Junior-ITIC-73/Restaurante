@@ -10,7 +10,7 @@
 <center>
 	<a href="{{route('pedidos.create')}}"><button type="button" class="btn btn-success">New Pedido</button></a>
 	<h1>LISTADO DE PEDIDO</h1>
-	<table border="4" class="table table-striped table-bordered" style="width:80%" id="a1">
+	<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
 		<thead>
 			<th>USER</th>
 			<th>FECHA</th>
