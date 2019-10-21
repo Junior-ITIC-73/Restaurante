@@ -7,7 +7,7 @@
    <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
    <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-   <script src="{{asset('js/messages_es.js')}}"></script>  
+   <script src="{{asset('js/messages_es.js')}}"></script>
    <style type="text/css">
      .error {
       border: 2px solid #f00;
@@ -39,7 +39,7 @@
 }
 </style>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
  $(document).ready(function () {
     //VALIDACIONES PERSONALIZADAS-
      $.validator.addMethod("alpha", function(value, element) {
@@ -51,7 +51,7 @@
 
      //-END VALIDACIONES PERSONALIZADAS
 
-    //-ACTIVAR TOOLTIP EN TODAS LOS INPUT 
+    //-ACTIVAR TOOLTIP EN TODAS LOS INPUT
     $(document).tooltip({
        tooltipClass: "uitooltip",
        position: {
@@ -109,6 +109,9 @@
 </script>
  --}}
 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
 <center>
   <div align="left"><a href="{{route('users.index')}}"><button type="button" class="btn btn-primary">Regresar</button></a></div>
    <h1>MODIFICAR USUARIO</h1>
@@ -124,8 +127,8 @@
   {{method_field('PUT')}}
   {{csrf_field()}}
   <div class="form-group">
-      <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" value="{{old('name',$user->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control">
+      <label for="name" class="col-sm-0 col-form-label">Nombre</label>
+    <input type="text" class="form-control" name="name" id="name" value="{{old('name',$user->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control">
     @if($errors->has('name'))
     <label style="color:red">{{$errors->first('name')}}</label>
     @endif
@@ -145,7 +148,7 @@
     <label style="color:red">{{$errors->first('telefono_user')}}</label>
     @endif
   </div>
-  <div class="form-group">  
+  <div class="form-group">
     <label for="calle">Calle</label>
     <input type="text" name="calle" id="calle" value="{{old('calle',$user->calle)}}" title="Nombre de la Calle" class="form-control" placeholder="Calle">
     @if($errors->has('calle'))
@@ -168,7 +171,7 @@
   </div>
   <div class="form-group">
     <label for="CP">Codigo Postal</label>
-    <input type="text" name="CP" id="CP" value="{{old('CP',$user->telefono_user)}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP"> 
+    <input type="text" name="CP" id="CP" value="{{old('CP',$user->telefono_user)}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP">
     @if($errors->has('CP'))
     <label style="color:red">{{$errors->first('CP')}}</label>
     @endif
