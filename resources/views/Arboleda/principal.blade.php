@@ -1,207 +1,189 @@
 <!DOCTYPE html>
-<!--
-	Resto by GetTemplates.co
-	URL: https://gettemplates.co
--->
 <html lang="en">
+  <head> 
 
-<head>
-
+    <title>Arboleda-Restaurante cafe</title> 
+    <link rel="ICON"  type="IMAGEN/PNG" href="{{asset('tasty/images/logo1.ico')}}">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Arboleda Restaurante Café</title>
-    <link rel="ICON"  type="IMAGEN/PNG" href="img/logo.ico">
-    <meta name="description" content="Resto">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/brands.css">
+    <link rel="stylesheet" href="{{asset('tasty/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{asset('tasty/css/animate.css') }}">
+    
+    <link rel="stylesheet" href="{{asset('tasty/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('tasty/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('tasty/css/magnific-popup.css')}}">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Josefin+Sans:300,400,700">
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('tasty/css/aos.css')}}">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="{{asset('tasty/css/ionicons.min.css')}}">
 
-    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <link rel="stylesheet" href="{{asset('tasty/css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('tasty/css/jquery.timepicker.css')}}">
 
-</head>
-<body data-spy="scroll" data-target="#navbar" class="static-layout">
-	<div id="side-nav" class="sidenav">
-	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
-	
-	<div class="sidenav-content">
-		<p>
-			Hacienda San Diego de Los Padres 48, Santa Elena, 52100 Toluca de Lerdo, Méx.
-		</p>
-		<p>
-			<span class="fs-16 primary-color">(+68) 120034509</span>
-		</p>
-		<p>info@yourdomain.com</p>
-	</div>
-</div>	<div id="side-search" class="sidenav">
-	<a href="javascript:void(0)" id="side-search-close">&times;</a>
-	<div class="sidenav-content">
-		<form action="">
-
-			<div class="input-group md-form form-sm form-2 pl-0">
-			  <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-			  <div class="input-group-append">
-			    <button class="input-group-text red lighten-3" id="basic-text1">
-			    	<i class="fas fa-search text-grey" aria-hidden="true"></i>
-			    </button>
-			  </div>
-			</div>
-
-		</form>
-	</div>
-	
- 	
-</div>	<div id="canvas-overlay"></div>
-	<div class="boxed-page">
-		<nav id="navbar-header" class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
-            <img src="img/logo.PNG" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="lnr lnr-menu"></span>
+    
+    <link rel="stylesheet" href="{{asset('tasty/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('tasty/css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('tasty/css/style.css')}}">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{{url('/logueo')}}">Accede</a>
+         <a class="navbar-brand" href="{{url('/registro')}}">Registrate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex justify-content-between">
-                <li class="nav-item only-desktop">
-                    <a class="nav-link" id="side-nav-open" href="">
-                        <span class="lnr lnr-menu"></span>
-                    </a>
-                </li>
-                <div class="d-flex flex-lg-row flex-column">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{url('/')}}">Inicio<span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/about')}}">¿Quiénes somos?</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Menú
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{url('/especial')}}">Del día</a>
-                          <a class="dropdown-item" href="{{url('/menu')}}">Completo</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            
-            <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                <img src="img/logo.png" alt="">
-            </a>
-            <ul class="navbar-nav d-flex justify-content-between">
-                <div class="d-flex flex-lg-row flex-column">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{url('/contacto')}}">contacto</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="{{url('/reservacion')}}">Reservación</a>
-                    </li>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/logueo')}}">Acceso de administrador</a>
-                </li>
-            </ul>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{url('/menu')}}" class="nav-link">Menu completo</a></li>
+            <li class="nav-item"><a href="{{url('/specialties')}}" class="nav-link">Especiales</a></li>
+            <li class="nav-item"><a href="{{url('/reservation')}}" class="nav-link">Reservación</a></li>
+            <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">Nosotros</a></li>
+            <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contacto</a></li>
+          </ul>
         </div>
-    </div>
-</nav>	
-
-
+      </div>
+    </nav>
+    <!-- END nav -->
 
 
 <center>
 <div id = 'Contenido'>
+
 @yield('contenido')
+
+
 </div>
 </center>
 
 
 
-<!-- End of Reservation Section -->     
-<footer class="mastfoot pb-5 bg-white section-padding pb-0">
-    <div class="inner container">
-         <div class="row">
-            <div class="col-lg-4">
-                <div class="footer-widget pr-lg-5 pr-0">
-                    <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
-                    <p>Comienza bien tu día con nosotros en Arboleda restaurante café, con nuestros desayunos, menú ejecutivo, fines de semana (pozole, caldo de camarón, birria, pancita, cochinita yucateca), servicio de cafetería gourmet y postres. </p>
-                    <nav class="nav nav-mastfoot justify-content-start">
-                        <a class="nav-link" href="https://www.facebook.com/CafeArboleda/">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </nav>
-                </div>
-                
-            </div>
-            <div class="col-lg-4">
-                <div class="footer-widget px-lg-5 px-0">
-                    <h4>Horario</h4>
-                    <ul class="list-unstyled open-hours">
-                        <li class="d-flex justify-content-between"><span>Lunes</span><span>07:00 – 21:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Martes</span><span>07:00 – 21:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Miercoles</span><span>07:00 – 21:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Jueves</span><span>07:00 – 21:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Viernes</span><span>07:00 – 21:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Sabado</span><span>08:00 – 19:00</span></li>
-                        <li class="d-flex justify-content-between"><span>Domingo</span><span>08:00 – 18:00</span></li>
-                      </ul>
-                </div>
-                
-            </div>
-
-            <div class="col-lg-4">
-                <div class="footer-widget pl-lg-5 pl-0">
-                    <h4>Para mas información</h4>
-                    <p>mandanos tu email y nosotros nos comunicamos contigo</p>
-                    <form id="newsletter">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="emailNewsletter" aria-describedby="emailNewsletter" placeholder="Email">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
-                    </form>
-                </div>
-            </div>
+    <section class="instagram">
+      <div class="container-fluid">
+        <div class="row no-gutters justify-content-center pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2><span>Instagram</span></h2>
+          </div>
         </div>
-    </div>
-</footer>
-    </div>
-</div>
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="vendor/bootstrap/popper.min.js"></script>
-    <script src="vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js "></script>
-    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-    <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
-    <script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+        <div class="row no-gutters">
+          <div class="col-sm-12 col-md ftco-animate">
+            <a href="tasty/images/cafe.jpg" class="insta-img image-popup" style="background-image: url(tasty/images/cafe.jpg);">
+              <div class="icon d-flex justify-content-center">
+                <span class="icon-instagram align-self-center"></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md ftco-animate">
+            <a href="tasty/images/hua.jpg" class="insta-img image-popup" style="background-image: url(tasty/images/hua.jpg);">
+              <div class="icon d-flex justify-content-center">
+                <span class="icon-instagram align-self-center"></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md ftco-animate">
+            <a href="tasty/images/logo1.jpeg" class="insta-img image-popup" style="background-image: url(tasty/images/logo1.jpeg);">
+              <div class="icon d-flex justify-content-center">
+                <span class="icon-instagram align-self-center"></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md ftco-animate">
+            <a href="tasty/images/sx.jpg" class="insta-img image-popup" style="background-image: url(tasty/images/sx.jpg);">
+              <div class="icon d-flex justify-content-center">
+                <span class="icon-instagram align-self-center"></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-12 col-md ftco-animate">
+            <a href="tasty/images/lic.jpg" class="insta-img image-popup" style="background-image: url(tasty/images/lic.jpg);">
+              <div class="icon d-flex justify-content-center">
+                <span class="icon-instagram align-self-center"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Main JS -->
-    <script src="js/app.min.js "></script>
-</body>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Arboleda-Restaurante Cafe</h2>
+              <p>Arboleda Restaurante Café nace del deseo por hacer comunidad, basada en un comercio justo y sustentable, cuidando cada uno de los detalles, desde el productor, el grano y la taza.<br>
+                        Amamos el buen café y la buena comida. Buscamos conectar, crear y lograr.</p>
+          
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Horario</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Lunes: <span>07:00 - 21:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Martes: <span>07:00 - 21:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Miercoles: <span>07:00 - 21:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Jueves: <span>07:00 - 21:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Viernes: <span>07:00 - 21:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Sabado: <span>08:00 - 19:00</span></a></li>
+                <li><a href="#" class="py-2 d-block">Domingo: <span>08:00 - 18:00</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Contacto</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Hacienda San Diego de Los Padres 48, Santa Elena, 52100 Toluca de Lerdo, Méx.</a></li>
+                <li><a href="#" class="py-2 d-block">+52 1 5518465917</a></li>
+                <li><a href="#" class="py-2 d-block">arboledarestaurante.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Redes sociales</h2>
+               <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://www.facebook.com/CafeArboleda/"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{{asset('tasty/js/jquery.min.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{asset('tasty/js/popper.min.js') }}"></script>
+  <script src="{{asset('tasty/js/bootstrap.min.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.stellar.min.js') }}"></script>
+  <script src="{{asset('tasty/js/owl.carousel.min.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{asset('tasty/js/aos.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.animateNumber.min.js') }}"></script>
+  <script src="{{asset('tasty/js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{asset('tasty/js/jquery.timepicker.min.js') }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{{asset('tasty/js/google-map.js') }}"></script>
+  <script src="{{asset('tasty/js/main.js') }}"></script>
+    
+  </body>
 </html>

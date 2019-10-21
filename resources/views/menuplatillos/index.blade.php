@@ -2,16 +2,16 @@
 
 @section('content')
 
-<head>
+
         <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
         <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
         <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
         <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
 
-</head>
 
-<body>
-<center> <h2>Menu Platillo</h2></center>
+<center> <h2>Menu Platillo</h2>
+    <a href="{{url('menuplatillo/create')}}"><button type="button" class="btn btn-info btn-lg">Agregar Plantillo</button></BUTTON></a></center>
+
 <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -58,7 +58,7 @@
 
 
 
-</body>
+
 
 
 

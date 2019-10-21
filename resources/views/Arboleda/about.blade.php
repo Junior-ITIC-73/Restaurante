@@ -1,30 +1,38 @@
 @extends('Arboleda.principal')
 
 @section('contenido')
-<!-- Welcome Section -->
-<section id="gtco-welcome" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/f.jpg);">
-                    
-                </div>
-                <div class="col-sm-7 py-5 pl-md-0 pl-4">
-                    <div class="heading-section pl-lg-5 ml-md-5">
-                        <span class="subheading">
-                            ¿Quiénes somos?
-                        </span>
-                        <h2>
-                            Bienvenido a la Arboleda 
-                        </h2>
-                    </div>
-                    <div class="pl-lg-5 ml-md-5">
-                        <p>Arboleda Restaurante Café nace en el 2016 de un deseo por servir la mejor taza de café y la mejor comida posible en un ambiente bonito y relajado.<br><br> Nace del deseo por hacer comunidad, basada en un comercio justo y sustentable, cuidando cada uno de los detalles, desde el productor, el grano y la taza.<br><br>
-                        Amamos el buen café y la buena comida. Buscamos conectar, crear y lograr.</p>
-                    </div>
-                </div>
+    <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
+    
+    
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url('tasty/images/sx.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center">
+            <div class="col-md-10 col-sm-12 ftco-animate text-center">
+              <p class="breadcrumbs"><span class="mr-2"><a href="{{url('/')}}">Home</a></span> <span>Nosotros</span></p>
+              <h1 class="mb-3">¿Quiénes somos?</h1>
             </div>
+          </div>
         </div>
-    </div>
-</section>
- @stop
+      </div>
+    </section>
+    
+    <section class="ftco-section-2">
+      <div class="container d-flex">
+        <div class="section-2-blocks-wrapper row">
+         <div class="img col-sm-12 col-lg-6" style="background-image: url('tasty/images/logo1.jpeg');">
+          </div>
+          <div class="text col-lg-6 ftco-animate">
+            <div class="text-inner align-self-start">
+              <span class="subheading">Bienvenido a la Arboleda</span>
+              <h3 class="heading">Arboleda Restaurante Café nace en el 2016 de un deseo por servir la mejor taza de café y la mejor comida posible en un ambiente bonito y relajado.<br><br> Nace del deseo por hacer comunidad, basada en un comercio justo y sustentable, cuidando cada uno de los detalles, desde el productor, el grano y la taza.<br><br>
+                        Amamos el buen café y la buena comida. Buscamos conectar, crear y lograr.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+@stop

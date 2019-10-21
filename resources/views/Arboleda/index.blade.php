@@ -1,464 +1,588 @@
 @extends('Arboleda.principal')
 
-@section('contenido')	
-<div class="hero">
-  <div class="container">
-	<div class="row d-flex align-items-center">
-		<div class="col-lg-6 hero-left">
-		    <h1 class="display-4 mb-5">ARBOLEDA <br>un lugar para compartir </h1>
-		    <div class="mb-2">
-		    	<a class="btn btn-primary btn-shadow btn-lg" href="#" role="button">Explorar Menú</a>
-			    <a class="btn btn-icon btn-lg" href="https://player.vimeo.com/video/33110953" data-featherlight="iframe" data-featherlight-iframe-allowfullscreen="true">
-			    	<span class="lnr lnr-film-play"></span>
-			    	Play Video
-			    </a>
-		    </div>
-		   
-		    <ul class="hero-info list-unstyled d-flex text-center mb-0">
-		    	<li class="border-right">
-		    		<span class="lnr lnr-rocket"></span>
-		    		<h5>
-		    			Pedido a domicilio
-		    		</h5>
-		    	</li>
-		    </ul>
+@section('contenido')
 
-	    </div>
-	    <div class="col-lg-6 hero-right">
-	    	<div class="owl-carousel owl-theme hero-carousel">
-			    <div class="item">
-			    	<img class="img-fluid" src="img/descarga.jpg" alt="">
-			    </div>
-			    <div class="item">
-			    	<img class="img-fluid" src="img/w.jpg" alt="">
-			    </div>
-			    <div class="item">
-			    	<img class="img-fluid" src="img/cafe.jpg" alt="">
-			    </div>
-			</div>
-	    </div>
-	</div>
-  </div>
-</div>		<!-- Welcome Section -->
-<section id="gtco-welcome" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/f.jpg);">
-                    
-                </div>
-                <div class="col-sm-7 py-5 pl-md-0 pl-4">
-                    <div class="heading-section pl-lg-5 ml-md-5">
-                        <span class="subheading">
-                            ¿Quiénes somos?
-                        </span>
-                        <h2>
-                            Bienvenido a la Arboleda 
-                        </h2>
-                    </div>
-                    <div class="pl-lg-5 ml-md-5">
-                        <p>Desayunos, Menú ejecutivo, Fines de semana (Pozole, Caldo de Camarón, Birria, Pancita, Cochinita Yucateca), Servicio de cafetería Gourmet y postres.<br> 
-                        Comida casera y variedad de caldos mexicanos los fines de semana (Pozole, Birria, Pancita y Caldo de Camarón)</p>
-                        <h3 class="mt-5">Especial de caldos mexicanos</h3>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/fg.jpg" />
-                                    <h6>Pozole</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/c.jpg" />
-                                    <h6>Caldo de camarón</h6>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <a href="#" class="thumb-menu">
-                                    <img class="img-fluid img-cover" src="img/b.jpg"/>
-                                    <h6>Birria</h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Welcome Section -->		<!-- Special Dishes Section -->
-<section id="gtco-special-dishes" class="bg-grey section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    Comienza bien tu día
-                </span>
-                <h2>
-                    Completos
-                </h2>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center py-5">
-                    <h2 class="special-number">01.</h2>
-                    <div class="dishes-text">
-                        <h3><span>Desayuno completo </span><br>Elije: </h3>
-                        <p class="pt-3">Café de olla, americano o té<br>
-                            Jugo, fruta o cereal <br>
-                            Huevos al gusto, hot cakes, chilaquiles, enchiladas, huaraches, sincronizadas, molletes</p>
-                        <h3 class="special-dishes-price">$65.00</h3>
-                        <a href="#" class="btn-primary mt-3">Hacer pedido</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="img/des.jpg" alt="" class="img-fluid shadow w-100">
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-                    <img src="img/e.jpg" alt="" class="img-fluid shadow w-100">
-                </div>
-                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
-                    <h2 class="special-number">02.</h2>
-                    <div class="dishes-text">
-                        <h3><span>Menú ejecutivo</span><br>Incluye:</h3>
-                        <p class="pt-3">Sopa del día ó consomé, sopa seca ó ensalada, guisado del día, agua y postre.<br>
-                        O convierte tu antojo de la carta  en comida completa por $30.00 adicionales (sopa ó consomé, sopa seca ó ensalada,agua y postre). </p>
-                        <h3 class="special-dishes-price">$60.00</h3>
-                        <a href="#" class="btn-primary mt-3">Hacer pedido <span><i class="fa fa-long-arrow-right"></i></span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Special Dishes Section -->		<!-- Menu Section -->
-<section id="gtco-menu" class="section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="row mb-5">
-                <div class="col-md-12">
-                    <div class="heading-section text-center">
-                        <span class="subheading">
-                            Especiales
-                        </span>
-                        <h2>
-                            Nuestro Menú
-                        </h2>
-                    </div>  
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">Desayunos desde $65.00</h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Huevos Arboleda (los de la casa)</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$65.00</h4>
-                                </div>
-                            </div>
-                            <p>Base mexicana revueltos con chilorio, machaca ó camarón </p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Omelette</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$60.00</h4>
-                                </div>
-                            </div>
-                            <p>Con 2 ingredientes a elegir jamon,tocino, champiñones, longaniza, manchego, oaxaca ó panela</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Omelette</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$50.00</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Molletes Arboleda</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$65.00</h4>
-                                </div>
-                            </div>
-                            <p>Preparados con arracherade la casa y queso philadelphia</p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">Más de nuestro sabor </h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Arrachera</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$85.00</h4>
-                                </div>
-                            </div>
-                            <p>Acompañada de ensalada ó papas a la francesa y frijoles refritos</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Chilaquiles, enchiladas o huaraches Arboleda</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$70.00</h4>
-                                </div>
-                            </div>
-                            <p>Con salsa verde ó roja con arrachera de la casa</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Burritos</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$60.00</h4>
-                                </div>
-                            </div>
-                            <p>Arrachera, bistec, longaniza, champiñones ó huevo</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Tacos o quesadillas</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$20.00</h4>
-                                </div>
-                            </div>
-                            <p>Bistec, pollo, longaniza, champiñones, cecina ó arrachera (Con queso y en tortilla de harina agrega $10.00)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 menu-wrap">
-                    <div class="heading-menu">
-                        <h3 class="text-center mb-5">¿Antojo de algo diferente?</h3>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Club sandwich</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$65.00</h4>
-                                </div>
-                            </div>
-                            <p>El tradicional acompañada de papas a la francesa</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Hamburguesa Arboleda</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$85.00</h4>
-                                </div>
-                            </div>
-                            <p>220grs de carne de rib eye, servida con tocino, jamon de pavo,queso manchego y papas a la francessa</p>
-                        </div>
-                    </div>
-                    <div class="menus d-flex align-items-center">
-                        <div class="menu-img rounded-circle">
-                            <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                        </div>
-                        <div class="text-wrap">
-                            <div class="row align-items-start">
-                                <div class="col-8">
-                                    <h4>Hamburgueesa tradicional</h4>
-                                </div>
-                                <div class="col-4">
-                                    <h4 class="text-muted menu-price">$65.00</h4>
-                                </div>
-                            </div>
-                            <p>150 grs. de carne angus servida con jamonde pavo, queso manchego y papas a la francesa</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- End of Testimonial Section-->		<!-- Team Section -->
-<section id="gtco-team" class="bg-white section-padding">
-    <div class="container">
-        <div class="section-content">
-            <div class="heading-section text-center">
-                <span class="subheading">
-                    Postres
-                </span>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        
-                        <div class="team-desc">
-                            <h4 class="mb-0">Crepas</h4>
-                            <p class="mb-1">Lechera, cajeta, mermelada ó jamon y queso</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                       
-                        <div class="team-desc">
-                            <h4 class="mb-0">Postres de la casa</h4>
-                            <p class="mb-1">panques, studel y más</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-5">
-                        
-                        <div class="team-desc">
-                            <h4 class="mb-0">Orden de fruta</h4>
-                            <p class="mb-1">250grs de fruta</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Team Section -->		<!-- Reservation Section -->
-<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(img/sx.jpg);">
+    <title>Arboleda-Restaurante cafe</title> 
+     
     
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="section-content bg-white p-5 shadow" align="center">
-                    <div class="heading-section text-center">
-                        <span class="subheading">
-                            Reservación
-                        </span>
-                        <h2>
-                            Reserva ahora
-                        </h2>
-                    </div>
-                    <form method="post" name="contact-us" action="">
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Telefono">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="llegada" />
-                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <span class="lnr lnr-calendar-full"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="salida" />
-                                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <span class="lnr lnr-clock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 form-group">
-                                <select class="form-control" id="selectPerson">
-                                    <option></option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>+5</option>
-                                </select>
-                            </div>
-                 
-                            <div class="col-md-12 form-group">
-                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tu mensaje ..."></textarea>
-                            </div>
-                            <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Enviar reservación</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url('tasty/images/sx.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center text-center">
+            <div class="col-md-10 col-sm-12 ftco-animate">
+              <h1 class="mb-3">Revisa y pide nuestro menu del día  </h1>
+              <p><a href="{{url('/menu')}}" class="btn btn-primary btn-outline-white px-5 py-3">Checar menu del día</a></p>
             </div>
+          </div>
         </div>
-        
-    </div>
-</section>
- @stop
+      </div>
 
+
+
+      <div class="slider-item" style="background-image: url('tasty/images/des.png');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center text-center">
+            <div class="col-md-10 col-sm-12 ftco-animate">
+              <h1 class="mb-3">Desayuno completo $65</h1>
+              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Pedir ahora</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url('tasty/images/eje.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center text-center">
+            <div class="col-md-10 col-sm-12 ftco-animate">
+              <h1 class="mb-3">Comida ejecutiva $60 </h1>
+              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Pedir ahora</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+     <section class="ftco-section-2">
+      <div class="container d-flex">
+        <div class="section-2-blocks-wrapper row">
+          <div class="img col-sm-12 col-lg-6" style="background-image: url('tasty/images/logo1.jpeg');">
+          </div>
+          <div class="text col-lg-6 ftco-animate">
+            <div class="text-inner align-self-start">
+              <span class="subheading">Bienvenido a la Arboleda</span>
+              <h3 class="heading">Un lugar para compartir </h3>
+              <p>Cocina rica, hecha con mucha ilusión, para gente que le gusta comer y disfrutar cada bocado de la vida... <br>
+
+              Buscas un sitio íntimo para poder saborear con gusto y conversar de forma relajada. Pensando en ti creamos este espacio.
+              <br>Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras disfrutas con todos tus sentidos la experiencia que vives. </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Nuestro menu</span>
+            <h2>Disfruta de nuestro gran menu</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 dish-menu">
+
+            <div class="nav nav-pills justify-content-center ftco-animate" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link py-3 px-4 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span class="flaticon-meat"></span>  Màs de nuestro sabor</a>
+              <a class="nav-link py-3 px-4" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span class="flaticon-cutlery"></span> ¿Antojo de algo diferente?</a>
+              <a class="nav-link py-3 px-4" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span> Bebidas</a>
+            </div>
+
+            <div class="tab-content py-5" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/salmon.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Salmón</h3>
+                          <p><span>Sellado en aceite de oliva acompañado de ensalada</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$110</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/carnitasatun.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Carnitas de atún</h3>
+                          <p><span>Sellado en aceite de oliva acompañado de ensalada</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$90</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/arrachera.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Arrachera</h3>
+                          <p><span>Acompañada de ensala ó papas a la francesa y frijoles refritos</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$85</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/pechuga.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Bistec,pechuga ó filetes de pescado</h3>
+                          <p><span>Acompañada de ensala ó papas a la francesa y frijoles refritos</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$60</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/chila.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Chilaquiles, enchiladas ó huaraches arboleda</h3>
+                          <p><span>Con salsa roja ó verde con arrachera de la casa</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$70</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/hua.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Huarache de masa ó nopal</h3>
+                          <p><span>Pollo</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Champiñones</span>,<span>Huevo</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$60</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/chila.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Chilaquiles o enchiladas verdes o rojas</h3>
+                          <p><span>Pollo</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Champiñones</span>,<span>Huevo</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$60</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/sui.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Enchiladas suizas ó enmoladas</h3>
+                          <p><span>Pollo</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Champiñones</span>,<span>Huevo</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$70</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/bur.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Burritos</h3>
+                          <p><span>Arrachera</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Pollo</span>, <span>Huevo ó Cecina</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$60</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/dor.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Tacos dorados de pollo (4)</h3>
+                          
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$50</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- END -->
+
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/club.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Club sandwich</h3>
+                          <p><span>El tradicional acompañado de papas a la francesa</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$65</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/alitas.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Alitas</h3>
+                          <p><span>BBQ ó tradicional</span>p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$70</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/h1.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Hamburguesa Arboleda</h3>
+                          <p><span>220grs de carne de rib eye, servida con tocino, jamon de pavo,queso manchego y papas a la francesa</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$85</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/h2.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Hamburguesa tradicional</h3>
+                          <p><span>150 grs. de carne angus servida con jamonde pavo, queso manchego y papas a la francesa</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$65</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/hf.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Hamburguesa infantil</h3>
+                          <p><span>60 grs. servida con jamón de pavo, queso manchego y papas a la francesa </span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$45</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/nug.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Nuggets de pollo (6)</h3>
+                          <p><span>Tradicionales con papas a la francesa</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$45</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/extra.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Extras para tu hamburguesa</h3>
+                          <p><span>Jamón</span>, <span>Salchicha</span>, <span>Longaniza</span>, <span>Manchego ó Oaxaca</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$15c/u</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- END -->
+
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/ref.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Refresco</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$18</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/jugo.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Jugo</h3>
+                          <p><span>Grande</span>, <span>Chico</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$25 </span> <br> <span class="price">$15 </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/lic.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Licuados</h3>
+                          <p><span>Grande</span>, <span>Chico</span></p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$25</span> <br> <span class="price">$15</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/mal.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Malteada</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$40</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/f.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Café de olla, americano ó te</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$20</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/lat.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Capuchino, latte ó chocolate</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$30</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/agua.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Agua de sabor (1L)</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$35</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/cer.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Cerveza</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$30</span> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/mic.jpg);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Micheladas</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$35</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 pt-4 text-center ftco-animate">
+                <p>Quieres conocer más de nuestro menu...</p>
+                <span><a href="{{url('/menu')}}" class="btn btn-primary btn-outline-primary p-3">Menu completo</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section parallax-img" style="background-image: url('tasty/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+            <h2>Desayunos completos desde $65</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ftco-section bg-light">
+      <div class="container special-dish">
+        <div class="row d-flex no-gutters">
+          <div class="col-lg-6">
+            <div class="block-3 d-md-flex ftco-animate">
+              <div class="image order-last" style="background-image: url(tasty/images/hu.jpg);"></div>
+              <div class="text text-center order-first">
+                <h2 class="heading">Huevos Arboleda (los de la casa)</h2>
+                <p>Base mexicana revueltos con chilorio, machaca ó camarón</p>
+                <span class="price"> $65.00</span>
+              </div>
+            </div>
+            <div class="block-3 d-md-flex ftco-animate">
+              <div class="image order-first" style="background-image: url(tasty/images/omelette1.jpg);"></div>
+              <div class="text text-center order-first">
+                <h2 class="heading">Omelette</h2>
+                <p>Con 2 ingredientes a elegir jamon,tocino, champiñones, longaniza, manchego, oaxaca ó panela</p>
+                <span class="price"> $60.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="block-3 d-md-flex ftco-animate">
+              <div class="image order-last" style="background-image: url(tasty/images/mollete.jpg);"></div>
+              <div class="text text-center order-first">
+                <h2 class="heading">Molletes Arboleda</h2><br>
+                <p>Preparados con arracherade la casa y queso philadelphia</p>
+                <span class="price"> $65.00</span>
+              </div>
+            </div>
+            <div class="block-3 d-md-flex ftco-animate">
+              <div class="image order-first" style="background-image: url(tasty/images/hot.jpg);"></div>
+              <div class="text text-center order-first">
+                <h2 class="heading">Hot cakes ó waffles</h2><br>
+                <p>Con mermelada, lechera, chocolate o miel</p><br>
+                <span class="price">$45.00</span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Nuestros clientes</span>
+            <h2>Nuestros clientes satisfechos</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="carousel owl-carousel ftco-owl">
+            <div class="item text-center">
+              <div class="testimony-wrap p-4 pb-5">
+                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
+                <div class="text">
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+                  <p class="mb-5">
+                    
+                  </p>
+                  <p class="name">
+                    
+                  </p>
+                  <span class="position">
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="item text-center">
+              <div class="testimony-wrap p-4 pb-5">
+                <div class="user-img mb-4" style="background-image: url(tasty/images/person_2.jpg)" style="border: 1px solid red;"></div>
+                <div class="text">
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+                  <p class="mb-5">
+                    
+                  </p>
+                  <p class="name">
+                    
+                  </p>
+                  <span class="position">
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="item text-center">
+              <div class="testimony-wrap p-4 pb-5">
+                <div class="user-img mb-4" style="background-image: url(tasty/images/person_3.jpg)" style="border: 1px solid red;"></div>
+                <div class="text">
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+                  <p class="mb-5">
+                    
+                  </p>
+                  <p class="name">
+                    
+                  </p>
+                  <span class="position">
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="item text-center">
+              <div class="testimony-wrap p-4 pb-5">
+                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
+                <div class="text">
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+                  <p class="mb-5">
+                    
+                  </p>
+                  <p class="name">
+                    
+                  </p>
+                  <span class="position">
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="item text-center">
+              <div class="testimony-wrap p-4 pb-5">
+                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
+                <div class="text">
+                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
+                  <p class="mb-5">
+                    
+                  </p>
+                  <p class="name">
+                    
+                  </p>
+                  <span class="position">
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+@stop

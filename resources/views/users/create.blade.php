@@ -155,7 +155,7 @@
   </div>
 		<hr>
 		<h2>DATOS DEL CLIENTE</h2>
-	<div class="form-group" align="left">
+	<div class="form-control" >
 		<label><b>SEXO</b></label>
 		<label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
 		<label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
@@ -208,6 +208,7 @@
   <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
 </form>
 </center>
+<<<<<<< HEAD
 <script>
         function validar(e) {
         tecla = (document.all) ? e.keyCode : e.which;
@@ -224,3 +225,7 @@
         </script>
 
 @endsection
+=======
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+@endsection
+>>>>>>> 7332ca93a94811e7db2499b52f1d474a2498d2e3

@@ -17,7 +17,7 @@ class CreateProveedorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('razon_social');
             $table->string('RFC');
-            $table->integer('telefono_proveedor');
+            $table->string('telefono_proveedor');
             $table->string('calle');
             $table->string('num_interior');
             $table->string('num_exterior');

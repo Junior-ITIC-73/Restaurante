@@ -5,10 +5,9 @@
   <title>ARBOLEDA ADMIN</title>
 
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'><link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-
-  <link rel='stylesheet' href='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css') }}>
-<link rel='stylesheet' href='{{ asset('https://use.fontawesome.com/releases/v5.0.13/css/all.css') }}'><link rel="stylesheet" href="{{asset('css/style.css')}}">
 
 
 </head>
@@ -32,8 +31,9 @@
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Andres
-            <strong>Sanchez</strong>
+          <span class="user-name">
+            {{auth()->user()->name}}
+            {{-- Andres<strong>Sanchez</strong> --}}            
           </span>
           <span class="user-role">Administrador</span>
           <span class="user-status">
@@ -144,7 +144,10 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="{{url('producto/')}}">MOSTRA PRODUCTOS</a>
+                  <a href="{{url('categoria/')}}">MOSTRAR CATEGORIAS</a>
+                </li>
+                <li>
+                  <a href="{{url('producto/')}}">MOSTRAR PRODUCTOS</a>
                 </li>
                 <li>
                   <a href="{{url('producto/create')}}">ALTA PRODUCTO</a>
@@ -209,7 +212,10 @@
         <span class="badge-sonar"></span>
       </a>
       <a href="#">
-        <i class="fa fa-power-off"></i>
+        <form method="POST" action="{{route('logout')}}">
+          {{csrf_field()}}
+          <button><i class="fa fa-power-off"></i></button>
+        </form>
       </a>
     </div>
   </nav>
@@ -221,8 +227,10 @@
 </div>
 <!-- page-wrapper -->
 <!-- partial -->
+{{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script> --}}
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js'></script><script  src="{{asset('js/script.js')}}"></script>
+
 
 
 

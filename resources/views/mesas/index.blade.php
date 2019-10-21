@@ -9,7 +9,7 @@
 <center>
 	<a href="{{route('mesas.create')}}"><button type="button" class="btn btn-success">New Mesa</button></a>
 	<h1>LISTADO DE MESAS</h1>
-	<table border="4" class="table table-striped table-bordered" style="width:80%">
+	<table border="4" class="table table-striped table-bordered" style="width:100%">
 		<tr>
 			<td>NUMERO</td>
 			<td>DESCRIPCION</td>

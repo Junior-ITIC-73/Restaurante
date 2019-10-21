@@ -88,36 +88,68 @@
 		<form method="POST" action="{{route('pedidos.update',$pedido)}}" id="pedidos">
 			{{csrf_field()}}
 			{{method_field('PUT')}}
-			<label>Usuario Anterior</label>
-			<input type="text" name="user_id" value="{{old('user_id',$pedido->user->name)}}" readonly>
-			<label>Seleccion Usuario Nuevo</label>
-                    <select id="user_id"   name="user_id">
-                        @foreach($usuarios as $usuario)            
-                        <option value="{{$usuario->id}}">{{$usuario->name}}</option>
-                        @endforeach
-                    </select>
-              <br>
-            <label>PEDIDO:</label><input type="file" name="lista_pedido"><br>
-			<label for="fecha_pedido">Fecha del Pedido</label>
-			<input type="text" name="fecha_pedido" id="fecha_pedido" value="{{old('fecha_pedido',$pedido->created_at)}}">
-			<br>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Usuario Anterior</label>
+						<input type="text" name="user_id" value="{{old('user_id',$pedido->user->name)}}" readonly class="form-control">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-control">
+						<label>Seleccion Usuario Nuevo</label><br>
+	                    <select id="user_id"   name="user_id" class="form-control">
+	                        @foreach($usuarios as $usuario)            
+	                        <option value="{{$usuario->id}}">{{$usuario->name}}</option>
+	                        @endforeach
+	                    </select>
+                    </div>
+				</div>
+			</div>
+
+
+
+		
+			<div class="custom-file">
+        		<label class="custom-file-label" for="customFileLang">ELIGE EL PEDIDO:</label><input type="file" name="lista_pedido" class="custom-file-input" id="customFileLang" >
+        	</div>
+
+
+        	<div class="form-group">
+        		<br>
+				<label for="fecha_pedido">Fecha del Pedido</label>
+				<input type="text" name="fecha_pedido" id="fecha_pedido" value="{{old('fecha_pedido',$pedido->created_at)}}" class="form-control">
+			</div>
+		<div class="form-control">
 			<label>Estado del Pedido:</label><br>
 			<label for="camino">En Camino</label><input type="radio" name="estado_pedido" value="0" checked id="camino">
 			<label for="entregado">Ya entregado</label><input type="radio" name="estado_pedido" value="1" id="entregado">
+		</div>
+		<div class="form-group">
 			<br>
-
 			<label for="total_pedido">Total del Pedido</label>
-			<input type="text" name="total_pedido" id="total_pedido" value="{{old('total_pedido',$pedido->total_pedido)}}">
-			<br>
-			<label>Numero de Mesa Anterior</label>
-			<input type="text" name="mesa_id" value="{{old('mesa_id',$pedido->mesa->numero_mesa)}}" readonly>
-			<label>Numero de Mesa Nueva</label>
-			<select id="mesa_id" name="mesa_id">
-				@foreach($mesas as $mesa)
-				<option value="{{$mesa->id}}">{{$mesa->numero_mesa}}</option>
-				@endforeach
+			<input type="text" name="total_pedido" id="total_pedido" value="{{old('total_pedido',$pedido->total_pedido)}}" class="form-control">
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Numero de Mesa Anterior</label>
+					<input type="text" name="mesa_id" value="{{old('mesa_id',$pedido->mesa->numero_mesa)}}" readonly class="form-control">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-control">
+					<label>Numero de Mesa Nueva</label>
+					<select id="mesa_id" name="mesa_id" class="form-control">
+					@foreach($mesas as $mesa)
+					<option value="{{$mesa->id}}">{{$mesa->numero_mesa}}</option>
+					@endforeach
 			</select>
-
+				</div>
+			</div>
+		
+		</div>
 			<br>
 
 {{-- 
@@ -136,8 +168,8 @@
 			<label for="mesa_id">Numero de Mesa</label>
 			<input type="text" name="mesa_id" id="mesa_id" value="{{old('mesa_id',$pedido->mesa_id)}}">
 			<br> --}}
-			<button type="submit">GUARDAR</button>
+			<button type="submit" class="btn btn-success btn-lg btn-block">MODIFICAR</button>
 		</form>
 	</center>
-
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 @endsection

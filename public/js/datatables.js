@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
     $('#a1').DataTable( {
+        "lengthMenu": [4],
         dom: 'Bfrtip',
         buttons: [
             {
@@ -31,14 +32,15 @@ $(document).ready(function() {
             'colvis'
         ],
         "language": {
-            "decimal": "",
+        "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
         "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "lengthMenu": "Mostrar _MENU_ Entradas",  
+        // "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]  
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscar:",
@@ -47,7 +49,7 @@ $(document).ready(function() {
             "first": "Primero",
             "last": "Ultimo",
             "next": "Siguiente",
-            "previous": "Anterior"
+            "previous": "Anterior",
         },
         "buttons":{
             "copy" : 'Copiar',
