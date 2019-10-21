@@ -39,19 +39,19 @@
                 <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
               </div>
               <div class="md-form mb-5">
-                <i class="fas fa-dollar-sign prefix grey-text"></i>
+                <i class="fas fa-envelope prefix grey-text"></i>
                 <input type="text" id="orangeForm-email" name="precio_platillo" class="form-control validate" onKeyPress="return soloNumeros(event)" required>
                 <label data-error="wrong" data-success="right" for="orangeForm-email">Precio</label>
               </div>
 
               <div class="md-form mb-4">
-                    <i class="fas fa-pencil-alt prefix grey-text"></i>
+                <i class="fas fa-lock prefix grey-text"></i>
                 <input type="text" id="orangeForm-pass" name="descripcion_platillo" class="form-control validate">
                 <label data-error="wrong" data-success="right" for="orangeForm-pass">Descripcion</label>
               </div>
 
               <div class="md-form mb-4">
-                    <i class="fas fa-calendar-alt prefix grey-text"></i>
+                    <i class="fas fa-lock prefix grey-text"></i>
                     <input type="date" id="orangeForm-pass" name="fecha" class="form-control validate">
                     <label data-error="wrong" data-success="right" for="orangeForm-pass">Fecha</label>
                   </div>
@@ -69,9 +69,9 @@
         <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Alta</a>
       </div>
 
-   <!-- <a href="{{ URL('/menuplatillo/create')}}" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
+    <a href="{{ URL('/menuplatillo/create')}}" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
         Alta
-    </a>-->
+    </a>
 
         <center> <h2>Menu Platillo</h2></center>
         <div class="container">
