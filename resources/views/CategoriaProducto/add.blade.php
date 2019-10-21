@@ -2,7 +2,6 @@
 
 @section('content')
       <script>
-
                     function soloLetras(e){
                         key = e.keyCode || e.which;
                         teclado = String.fromCharCode(key).toLowerCase();
@@ -27,9 +26,10 @@
                 <form name="formulariocategoria" method="POST" action="{{url('categoria')}}" onsubmit="return validarFormulario();">
                 {{ csrf_field() }}
                     <div class="form-group ">
-                        <input type="text" id="nombre_categoria" name="nombre_categoria" onkeypress="return soloLetras(event)" onpaste="return false;"> Nombre de la categoria del producto
+                        Nombre de la categoria del producto
+                        <input type="text" id="nombre_categoria" name="nombre_categoria" onkeypress="return soloLetras(event)" onpaste="return false;" class="form-control">
                         <br>
-                        <input type="submit" value="Enviar"/>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
                     </div>
                 </form>
 

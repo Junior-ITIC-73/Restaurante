@@ -41,29 +41,52 @@
                 }
 
         </script>
-   <h1>Registra un Proveedor</h1>
+   <center><h1>Registra un Proveedor</h1></center>
         <div id="info"></div>
             <form name="formularioproveedor" method="POST" action="{{url('proveedor')}}" onsubmit="return validarFormulario();">
                 {{ csrf_field() }}
                 <div class="form-group ">
-                    <input type="text" id="razon_social" name="razon_social" onkeypress="return soloLetras(event)" onpaste="return false;"> Razon Social
+                     Razon Social
+                    <input requiredtype="text" id="razon_social" name="razon_social" onkeypress="return soloLetras(event)" onpaste="return false;" class="form-control">
                     <br>
-                    <input type="text" id="RFC" name="RFC" onkeypress="return soloLetras(event)" onpaste="return false;"> RFC 
-                    <br>
-                    <input type="text" id="telefono_proveedor" name="telefono_proveedor" onkeypress="return solonumeros(event)" onpaste="return false;"> Telefono
-                    <br>
-                    <input type="text" id="calle" name="calle" onkeypress="return soloLetras(event)" onpaste="return false;"> Calle
-                    <br>
-                    <input type="text" id="num_interior" name="num_interior" onkeypress="return solonumeros(event)" onpaste="return false;"> Numero interior
-                    <br>
-                    <input type="text" id="num_exterior" name="num_exterior" onkeypress="return solonumeros(event)" onpaste="return false;"> Numero exterior
-                    <br>
-                    <input type="text" id="CP" name="CP" onkeypress="return solonumeros(event)" onpaste="return false;"> Codigo postal
-                    <br>
-                    <input type="text" id="localidad" name="localidad" onkeypress="return soloLetras(event)" onpaste="return false;"> Localidad
-                    <br>
-                    <input type="submit" value="Enviar"/>
                 </div>
+                <div class="form-group ">
+                    RFC
+                    <input required class="form-control" type="text" id="RFC" name="RFC" onkeypress="return soloLetras(event)" onpaste="return false;">  
+                    <br>
+                </div>
+                <div class="form-group ">
+                    Telefono
+                    <input required class="form-control" type="text" id="telefono_proveedor" name="telefono_proveedor" onkeypress="return solonumeros(event)" onpaste="return false;"> 
+                    <br>
+                </div>
+                <div class="form-group ">
+                    Calle
+                    <input required class="form-control" type="text" id="calle" name="calle" onkeypress="return soloLetras(event)" onpaste="return false;"> 
+                    <br>
+                </div>
+                <div class="form-group ">
+                     Numero interior
+                    <input required class="form-control" type="text" id="num_interior" name="num_interior" onkeypress="return solonumeros(event)" onpaste="return false;">
+                    <br>
+                </div>
+                <div class="form-group ">
+                     Numero exterior
+                    <input required class="form-control" type="text" id="num_exterior" name="num_exterior" onkeypress="return solonumeros(event)" onpaste="return false;">
+                    <br>
+                </div>
+                <div class="form-group ">
+                    Codigo postal
+                    <input required class="form-control" type="text" id="CP" name="CP" onkeypress="return solonumeros(event)" onpaste="return false;"> 
+                    <br>
+                </div>
+                <div class="form-group">
+                Localidad
+                    <input required class="form-control" type="text" id="localidad" name="localidad" onkeypress="return soloLetras(event)" onpaste="return false;"> 
+                    <br>
+                </div>
+
+                     <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
             </form>
 
             <script type="text/javascript">

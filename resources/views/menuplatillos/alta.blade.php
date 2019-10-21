@@ -41,7 +41,7 @@
                 <form action="{{route('alta_menu') }}" method="POST">
                     {{csrf_field()}}
 
-                    <h1>Alta Menu</h1>
+                  <center><h1>Alta Menu</h1></center>
                     @if($errors->any())
                     <ul>
                       @foreach($errors->all() as $error)
@@ -50,26 +50,33 @@
                   </ul>
                   @endif
 
-
+                  <div class="form-group">
                     <p>
                         <label for="username" class="uname"  >Nombre del Platillo</label>
-                        <input name="nombre_platillo"class="w50" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/ required>
+                        <input name="nombre_platillo"class="form-control" type="text" size="20" id="txtNombre"  onkeypress="return sololetras(event)" onpaste="return false"/ required>
                     </p>
-
+                  </div>
+                  <div class="form-group">
                     <p>
                         <label for="precio" class="precio" > Precio</label>
-                        <input id="precio" name='precio_platillo' type="number" step="any" class='rounded nombre' required=''/>
+                        <input id="precio" name='precio_platillo' type="number" step="any" class="form-control" required=''/>
                     </p>
-                    <p>
+                  </div>
+               <div class="form-group">
+                  <p>
                         <label for="username" class="uname"  > Descripcion</label>
-                        <input id="descripcion"  name="descripcion_platillo" required>
+                        <input id="descripcion"  name="descripcion_platillo" required class="form-control">
                     </p>
+               </div>
+               <div class="form-group">              
                     <p>
                         <label for="username" class="uname"> Fecha</label>
-                        <input id="fecha"  name="fecha" type="date" required>
+                        <input id="fecha"  name="fecha" type="date" required class="form-control">
                     </p>
+               </div>
+
                     <p>
-                        <input type="submit" name="submit" value="Enviar" />
+                         <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>  
                     </p>
 
                 </form>

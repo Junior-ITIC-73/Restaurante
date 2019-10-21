@@ -45,14 +45,26 @@
         <form name="formularioproducto" method="POST" action="{{url('producto')}}" onsubmit="return validarFormulario();">
             {{ csrf_field() }}
             <div class="form-group ">
-                <input type="text" id="nombre_producto" name="nombre_producto" onkeypress="return soloLetras(event)" onpaste="return false;"> Nombre del producto
+                 Nombre del producto
+                <input class="form-control" type="text" id="nombre_producto" name="nombre_producto" onkeypress="return soloLetras(event)" onpaste="return false;">
                 <br>
-                <input type="num" id="cantidad" name="cantidad" onkeypress="return solonumeros(event)" onpaste="return false;"> Cantidad 
+            <div>   
+            <div class="form-group ">
+                Cantidad 
+                <input class="form-control" type="num" id="cantidad" name="cantidad" onkeypress="return solonumeros(event)" onpaste="return false;"> 
                 <br>
-                <input type="num" id="costo" name="costo" onkeypress="return solonumeros(event)" onpaste="return false;"> Costo
+            <div>  
+            <div class="form-group ">
+                Costo
+                <input class="form-control" type="num" id="costo" name="costo" onkeypress="return solonumeros(event)" onpaste="return false;"> 
                 <br>
-                <input type="date" id="fecha_ingreso" name="fecha_ingreso" > Fecha de Ingreso
+            <div>
+            <div class="form-group ">
+                 Fecha de Ingreso
+                <input class="form-control" type="date" id="fecha_ingreso" name="fecha_ingreso" >
                 <br>
+            <div>
+            <div class="form-group ">
                 <label  class="control-label">Seleccione Categoria</label>
                     <select id="categoria_id"   name="categoria_id"  class="form-control round">
                         @foreach($categorias as $categoria)            
@@ -60,6 +72,9 @@
                         @endforeach
                     </select>
               <br>
+            <div>
+
+            <div class="form-group ">
               <label  class="control-label">Seleccione Proveedor</label>
                     <select id="proveedor_id"   name="proveedor_id"  class="form-control round">
                         @foreach($proveedores as $proveedor)            
@@ -67,13 +82,16 @@
                         @endforeach
                     </select>
                 <br>
+            <div>
+            <div class="form-control ">
                 <label>Activo</label>
                     <br>
                 <input type="radio" id="activo" name="activo" value="1" checked>Si
                 <input type='radio' name='activo' value="0" >No
                 <br>
-                <input type="submit" value="Enviar"/>
             </div>
+
+                <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
         </form>
 
         <script type="text/javascript">

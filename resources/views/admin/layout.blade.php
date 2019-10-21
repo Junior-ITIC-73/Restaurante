@@ -144,10 +144,10 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="{{url('categoria/')}}">ALTA DE CATEGORIA</a>
+                  <a href="{{url('categoria/')}}">MOSTRAR CATEGORIAS</a>
                 </li>
                 <li>
-                  <a href="{{url('producto/')}}">MOSTRA PRODUCTOS</a>
+                  <a href="{{url('producto/')}}">MOSTRAR PRODUCTOS</a>
                 </li>
                 <li>
                   <a href="{{url('producto/create')}}">ALTA PRODUCTO</a>
