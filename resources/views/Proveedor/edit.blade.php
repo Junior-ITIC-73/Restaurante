@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Actualizar proveedor</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
+<h1>ACTUALIZAR PROVEEDOR</h1>
         <form action="{{ route('proveedor.update', ['id' => $proveedor->id]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -34,7 +29,7 @@
                 <label class="form-control-label"> Localidad:</label>
                     <input type="text" class="form-control" value="{{$proveedor->localidad}}" name="localidad">
                     <br>
-                <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+                  <button type="submit" class="btn btn-success btn-lg btn-block">MODIFICAR</button>
         </form>
-</body>
-</html>
+                        <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>   
+@endsection

@@ -1,35 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>LISTA DE PEDIDO</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
+
+        <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{{ asset('datatables/bootstrap4.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/jquery.dataTables.min.css')}}}">
+        <link rel="stylesheet" href="{{{ asset('datatables/css/estilos.css')}}}">
 
 <center>
-	<a href="{{route('pedidos.create')}}">ALTA PEDIDOS</a>
 	<h1>LISTADO DE PEDIDO</h1>
-	<table border="4">
-		<tr>
-			<td>USER</td>
-			<td>FECHA</td>
-			<td>ESTADO</td>
-			<td>TOTAL</td>
-			<td>MESA</td>
-			<td>ACCION</td>
-			<td>ACCION</td>
+	<a href="{{route('pedidos.create')}}"><button type="button" class="btn btn-info btn-lg">Nuevo Pedido</button></a>
+	<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
+		<thead>
+			<th>USER</th>
+			<th>FECHA</th>
+			<th>ESTADO</th>
+			<th>TOTAL</th>
+			<th>MESA</th>
+			<th>ACCION</th>
+			<th>ACCION</th>
 		</tr>
+		</thead>
+		<tbody>
 		@foreach($pedidos as $pedido)
 		<tr>
-			<td>{{$pedido->user_id}}</td>
+			<td>{{$pedido->user->name}}</td>
 			<td>{{$pedido->fecha_pedido}}</td>
 			<td>{{$pedido->estado_pedido}}</td>
 			<td>{{$pedido->total_pedido}}</td>
 			<td>{{$pedido->mesa_id}}</td>
-			<td><a href="{{route('pedidos.edit',$pedido)}}">Modificar</a></td>
-			<td><a href="{{route('pedidos.destroy',$pedido)}}">Eliminar</a></td>
+			<td><a href="{{route('pedidos.edit',$pedido)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
+			<td><a href="{{route('pedidos.destroy',$pedido)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
 		</tr>
 		@endforeach
+		</tbody>
 	</table>
 </center>
-</body>
-</html>
+<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/dataTables.buttons.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/jszip.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/pdfmake.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/vfs_fonts.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.html5.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
+<script src="{{{ asset('datatables/js/buttons.colVis.min.js')}}}"></script>
+<script src="{{{ asset('js/datatables.js')}}}"></script>
+@endsection

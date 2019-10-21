@@ -24,11 +24,11 @@ class FormPedido extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
-            'fecha_pedido' => 'required',
-            'estado_pedido' => 'required',
-            'total_pedido' => 'required',
-            'mesa_id' => 'required',
+            'user_id' => 'required|numeric',
+            'fecha_pedido' => 'required|date|',
+            'estado_pedido' => 'required|boolean',
+            'total_pedido' => 'required|numeric',
+            'mesa_id' => 'required|numeric',
         ];
     }
 }

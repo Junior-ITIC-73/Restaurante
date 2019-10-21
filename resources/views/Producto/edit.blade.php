@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Actualizar producto</title>
-</head>
-<body>
+@extends('admin.layout')
+
+@section('content')
+    <h1>ACTUALIZAR PRODUCTO</h1>
         <form action="{{ route('producto.update', ['id' => $producto->id]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -40,5 +35,6 @@
                     <input type="radio" class="form-control" value="{{$producto->activo}}" name="activo">
                 <button type="submit" name="button" class="btn btn-primary">Guardar</button>
         </form>
-</body>
-</html>
+
+        <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
+@endsection

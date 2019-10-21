@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\menuplatillosRequest;
 use App\MenuPlatillo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class MenuPlatilloController extends Controller
      */
     public function index()
     {
-        $menu_platillo=\App\MenuPlatillo::All();
+        $menu_platillo=MenuPlatillo::All();
         return view('menuplatillos.index',compact('menu_platillo'));
     }
 
@@ -36,15 +37,16 @@ class MenuPlatilloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(menuplatillosRequest $request)
     {
-        \App\MenuPlatillo::create([
-            'nombre_platillo'=>($request['nombre_platillo']),
-            'precio_platillo'=>($request['precio_platillo']),
-            'descripcion_platillo'=>($request['descripcion_platillo']),
-            'fecha'=>($request['fecha']),
+     MenuPlatillo::create([
+            'nombre_platillo'=>$request['nombre_platillo'],
+            'precio_platillo'=>$request['precio_platillo'],
+            'descripcion_platillo'=>$request['descripcion_platillo'],
+            'fecha'=>$request['fecha'],
             ]);
-            return redirect('menuplatillo');
+
+    return redirect('menuplatillo');
     }
 
     /**
@@ -77,7 +79,7 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(menuplatillosRequest $request)
     {
 
             $id = $request['id'];
