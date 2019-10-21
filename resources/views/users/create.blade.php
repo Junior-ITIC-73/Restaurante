@@ -208,7 +208,6 @@
   <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
 </form>
 </center>
-<<<<<<< HEAD
 <script>
         function validar(e) {
         tecla = (document.all) ? e.keyCode : e.which;
@@ -225,7 +224,3 @@
         </script>
 
 @endsection
-=======
-<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-@endsection
->>>>>>> 7332ca93a94811e7db2499b52f1d474a2498d2e3

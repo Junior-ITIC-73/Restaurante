@@ -37,7 +37,7 @@ class MenuPlatilloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(menuplatillosRequest $request)
+    public function store(Request $request)
     {
      MenuPlatillo::create([
             'nombre_platillo'=>$request['nombre_platillo'],
@@ -79,16 +79,15 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function update(menuplatillosRequest $request)
+    public function update(Request $request, $a1)
     {
 
-            $id = $request['id'];
-            $nombre_platillo=$request['nombre_platillo'];
-            $precio_platillo=$request['precio_platillo'];
-            $descripcion_platillo=$request['descripcion_platillo'];
-            $fecha=$request['fecha'];
-            DB::SELECT("CALL modifica_platillo('$nombre_platillo','$precio_platillo','$descripcion_platillo',
-            '$fecha','$id')");
+            $a1->id = $request['id'];
+            $a1->nombre_platillo=$request['nombre_platillo'];
+            $a1->precio_platillo=$request['precio_platillo'];
+           $a1->descripcion_platillo=$request['descripcion_platillo'];
+            $a1->fecha=$request['fecha'];
+            $a1->save();
              return redirect('menuplatillo');
         }
     /**
