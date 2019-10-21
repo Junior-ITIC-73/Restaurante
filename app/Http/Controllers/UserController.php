@@ -49,7 +49,7 @@ class UserController extends Controller
         $user->password = bcrypt($user->password);
         $user->save();
 
-        return redirect()->route('admin.index');
+        return redirect()->route('arboleda.login');
 
     }
     public function store(FormUser $request)

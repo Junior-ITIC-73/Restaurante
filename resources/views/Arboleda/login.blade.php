@@ -29,6 +29,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
+
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
 	<a class="navbar-brand" href="{{url('/')}}">Regresar</a>
@@ -36,23 +37,33 @@
 </nav>
 	<div class="container-login100" style="background-image: url('login/images/sx.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			@if(session()->has('flash'))
+			<div class="alert alert-info">{{session('flash')}}</div>
+			@endif
+			<form class="login100-form validate-form" method="POST" action="{{route('ingreso')}}">
+				{{csrf_field()}}
 				<span class="login100-form-title p-b-37">
 					Inicia sesión
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="Email">
+					<input class="input100" type="text" name="email" placeholder="Email" value="{{old('email')}}">
 					<span class="focus-input100"></span>
+					@if($errors->has('email'))
+						<label style="color:red">{{$errors->first('email')}}</label>
+					@endif
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+					<input class="input100" type="password" name="password" placeholder="password">
 					<span class="focus-input100"></span>
+						@if($errors->has('password'))
+						<label style="color:red">{{$errors->first('password')}}</label>
+					@endif
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn">
+					<button class="login100-form-btn" type="submit">
 						Entrar
 					</button>
 				</div>

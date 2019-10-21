@@ -31,8 +31,9 @@
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Andres
-            <strong>Sanchez</strong>
+          <span class="user-name">
+            {{auth()->user()->name}}
+            {{-- Andres<strong>Sanchez</strong> --}}            
           </span>
           <span class="user-role">Administrador</span>
           <span class="user-status">
@@ -210,8 +211,11 @@
         <i class="fa fa-cog"></i>
         <span class="badge-sonar"></span>
       </a>
-      <a href="{{route('arboleda.index')}}">
-        <i class="fa fa-power-off"></i>
+      <a href="#">
+        <form method="POST" action="{{route('logout')}}">
+          {{csrf_field()}}
+          <button><i class="fa fa-power-off"></i></button>
+        </form>
       </a>
     </div>
   </nav>

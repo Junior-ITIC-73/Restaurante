@@ -15,9 +15,13 @@ Route::get('/', function () {
     return view('Arboleda.index');
 })->name('arboleda.index');
 
-Route::get('/logueo', function () {
-    return view('Arboleda.Login');
-});
+// Route::get('/logueo', function () {
+//     return view('Arboleda.Login');
+// })->name('arboleda.login');
+
+Route::get('/logueo','Auth\LoginController@showLoginForm')
+->name('arboleda.login');
+// ->middleware('guest');
 
 Route::get('/registro', function () {
     return view('Arboleda.registro');
@@ -53,60 +57,72 @@ Route::get('/services', function () {
 });
 
 
-//-----------CRUD MESAS----------//
-//--LISTAR
-Route::get('mesas/','MesaController@index')->name('mesas.index');
-//--CREAR
-Route::get('mesas/create','MesaController@create')->name('mesas.create');
-Route::post('mesas/alta','MesaController@store')->name('mesas.store');
-//--ACTUALIZAR
-Route::get('mesas/{mesa}/editar','MesaController@edit')->name('mesas.edit');
-Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update');
-//---Eliminar
-Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy');
-Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
 
 //-----------CRUD USUARIOS---------//
-Route::post('usuarios/alta/login','UserController@altaLogin')->name('users.altaLogin');
 //--LISTAR
-Route::get('usuarios/','UserController@index')->name('users.index');
+    Route::get('usuarios/','UserController@index')->name('users.index');
 //--AGREGAR DATOS DEL USUARIO
-Route::get('usuarios/create', 'UserController@create')->name('users.create');
-Route::post('usuarios/alta','UserController@store')->name('users.store');
+    Route::get('usuarios/create', 'UserController@create')->name('users.create');
+    Route::post('usuarios/alta','UserController@store')->name('users.store');
 //--ELIMINAR
-Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
+    Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
 //--MODIFICAR
-Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
-Route::put('usuarios/{user}','UserController@update')->name('users.update');
+    Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
+    Route::put('usuarios/{user}','UserController@update')->name('users.update');
+//-----------CRUD MESAS----------//
+//--LISTAR
+    Route::get('mesas/','MesaController@index')->name('mesas.index');
+//--CREAR
+    Route::get('mesas/create','MesaController@create')->name('mesas.create');
+    Route::post('mesas/alta','MesaController@store')->name('mesas.store');
+//--ACTUALIZAR
+    Route::get('mesas/{mesa}/editar','MesaController@edit')->name('mesas.edit');
+    Route::put('mesas/{mesa}','MesaController@update')->name('mesas.update');
+//---Eliminar
+    Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy');
+    Auth::routes();
+
 
 //-----------CRUD PEDIDO----------//
 //--LISTAR
-Route::get('pedidos/','PedidoController@index')->name('pedidos.index');
+    Route::get('pedidos/','PedidoController@index')->name('pedidos.index');
 //--CREAR
-Route::get('pedidos/create','PedidoController@create')->name('pedidos.create');
-Route::post('pedidos/alta','PedidoController@store')->name('pedidos.store');
+    Route::get('pedidos/create','PedidoController@create')->name('pedidos.create');
+    Route::post('pedidos/alta','PedidoController@store')->name('pedidos.store');
 //--ACTUALIZAR
-Route::get('pedidos/{pedido}/editar','PedidoController@edit')->name('pedidos.edit');
-Route::put('pedidos/{pedido}','PedidoController@update')->name('pedidos.update');
+    Route::get('pedidos/{pedido}/editar','PedidoController@edit')->name('pedidos.edit');
+    Route::put('pedidos/{pedido}','PedidoController@update')->name('pedidos.update');
 //---Eliminar
-Route::get('pedidos/elimiar/{pedido}','PedidoController@destroy')->name('pedidos.destroy');
-Auth::routes();
+    Route::get('pedidos/elimiar/{pedido}','PedidoController@destroy')->name('pedidos.destroy');
+    Auth::routes();
 
-Route::resource('menuplatillo','MenuPlatilloController');
-Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
-Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
-Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
-Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
+    Route::resource('menuplatillo','MenuPlatilloController');
+    Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
+    Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
+    Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
+    Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
 
-Route::resource('proveedor', 'ProveedorController');
-Route::get('/proveedor/{id}','ProveedorController@destroy');
+    Route::resource('proveedor', 'ProveedorController');
+    Route::get('/proveedor/{id}','ProveedorController@destroy');
 
-Route::resource('producto', 'ProductoController');
-Route::get('/producto/{id}','ProductoController@destroy');
+    Route::resource('producto', 'ProductoController');
+    Route::get('/producto/{id}','ProductoController@destroy');
 
-Route::resource('categoria', 'CategoriaProductoController');
-Route::get('/categoria/{id}','CategoriaController@destroy');
+    Route::resource('categoria', 'CategoriaProductoController');
+    Route::get('/categoria/{id}','CategoriaController@destroy');
 
-Route::get('/admin', function(){
-    return view('admin.dashboard');
-})->name('admin.index');
+    Route::get('/admin', function(){
+        return view('admin.dashboard');
+    })->name('admin.index');
+// ->middleware('auth');
+
+});
+
+Route::post('usuarios/alta/login','UserController@altaLogin')->name('users.altaLogin');//para la alta en la pagina presencial
+
+Route::post('ingreso','Auth\LoginController@login')->name('ingreso');//iniciar sesion
+
+Route::post('logout','Auth\LoginController@logout')->name('logout');
+//salir de la sesion
