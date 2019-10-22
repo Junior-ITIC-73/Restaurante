@@ -21,6 +21,8 @@
                     }
 
             </script>
+
+<a href="{{url('/categoria')}}"><button type="button" class="btn btn-primary">Regresar</button></a>
         <h1>Registra una Categoria de Producto</h1>
             <div id="info"></div>
                 <form name="formulariocategoria" method="POST" action="{{url('categoria')}}" onsubmit="return validarFormulario();">

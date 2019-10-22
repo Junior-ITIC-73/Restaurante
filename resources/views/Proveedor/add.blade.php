@@ -41,6 +41,8 @@
                 }
 
         </script>
+
+<a href="{{url('/proveedor')}}"><button type="button" class="btn btn-primary">Regresar</button></a>
    <center><h1>Registra un Proveedor</h1></center>
         <div id="info"></div>
             <form name="formularioproveedor" method="POST" action="{{url('proveedor')}}" onsubmit="return validarFormulario();">

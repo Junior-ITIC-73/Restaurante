@@ -40,6 +40,8 @@
                 }
 
     </script>  
+
+<a href="{{url('/producto')}}"><button type="button" class="btn btn-primary">Regresar</button></a> 
 <h1>Registra un Producto</h1>
     <div id="info"></div>
         <form name="formularioproducto" method="POST" action="{{url('producto')}}" onsubmit="return validarFormulario();">

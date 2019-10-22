@@ -125,7 +125,7 @@
   {{csrf_field()}}
   <div class="form-group">
       <label for="name">Nombre</label>
-    <input type="text" name="name" id="name" value="{{old('name',$user->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control">
+    <input type="text" name="name" id="name" value="{{old('name',$user->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control" onkeypress="return validar(event)">
     @if($errors->has('name'))
     <label style="color:red">{{$errors->first('name')}}</label>
     @endif
@@ -140,7 +140,7 @@
   </div>
   <div class="form-group">
     <label for="telefono">Telefono</label>
-    <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user',$user->telefono_user)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono">
+    <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user',$user->telefono_user)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return validarNumeros(event)">
     @if($errors->has('telefono_user'))
     <label style="color:red">{{$errors->first('telefono_user')}}</label>
     @endif
@@ -185,5 +185,30 @@
 
 </center>
 <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-
+<script>
+        function validar(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+        if (tecla==8) return true; //Tecla de retroceso (para poder borrar)
+        // dejar la línea de patron que se necesite y borrar el resto
+        patron =/[A-Za-z\sáéíóú]/; // Solo acepta letras
+        //patron = /\d/; // Solo acepta números
+        //patron = /\w/; // Acepta números y letras
+        //patron = /\D/; // No acepta números
+        //
+        te = String.fromCharCode(tecla);
+        return patron.test(te);
+        }
+         function validarNumeros(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+        if (tecla==8) return true; //Tecla de retroceso (para poder borrar)
+        // dejar la línea de patron que se necesite y borrar el resto
+        // patron =/[A-Za-z\sáéíóú]/; // Solo acepta letras
+        patron = /\d/; // Solo acepta números
+        //patron = /\w/; // Acepta números y letras
+        //patron = /\D/; // No acepta números
+        //
+        te = String.fromCharCode(tecla);
+        return patron.test(te);
+        }
+        </script>
 @endsection

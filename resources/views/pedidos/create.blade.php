@@ -76,7 +76,7 @@
 });
 </script>
 
-
+<a href="{{route('pedidos.index')}}"><button type="button" class="btn btn-primary">Regresar</button></a>
 	<center>
 		<h1>ALTA PEDIDO</h1>
 		@if($errors->any())

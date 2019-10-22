@@ -32,7 +32,7 @@
         </div>
         <div class="user-info">
           <span class="user-name">
-            {{auth()->user()->name}}
+           <p style="text-transform: uppercase">{{auth()->user()->name}}</p>
             {{-- Andres<strong>Sanchez</strong> --}}            
           </span>
           <span class="user-role">Administrador</span>

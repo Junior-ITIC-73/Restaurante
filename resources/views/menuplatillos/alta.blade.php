@@ -37,7 +37,7 @@
         <a class="hiddenanchor" id="tologin"></a>
         <div id="wrapper">
             <div id="login" class="animate form">
-
+<a href="{{url('/menuplatillo')}}"><button type="button" class="btn btn-primary">Regresar</button></a>
                 <form action="{{route('alta_menu') }}" method="POST">
                     {{csrf_field()}}
 

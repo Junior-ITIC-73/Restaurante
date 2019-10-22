@@ -10,7 +10,7 @@
 
 
 <center> <h2>Menu Platillo</h2>
-    <a href="{{url('menuplatillo/create')}}"><button type="button" class="btn btn-info btn-lg">Agregar Plantillo</button></BUTTON></a></center>
+    <a href="{{url('menuplatillo/create')}}"><button type="button" class="btn btn-info btn-lg">Agregar Platillo</button></BUTTON></a></center>
 
 <div class="container">
     <table id="a1" class="table table-striped table-bordered" style="width:100%">
