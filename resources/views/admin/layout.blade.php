@@ -100,10 +100,9 @@
               </ul>
             </div>
           </li>
-          <li class="sidebar-dropdown">
+          
+{{--           <li class="sidebar-dropdown">
             <a href="#">
-              {{-- <i class="far fa-gem"></i> --}}
-
               <i class="fa fa-shopping-cart"></i>
               <span>PEDIDOS</span>
             </a>
@@ -117,7 +116,8 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> --}}
+
           <li class="sidebar-dropdown">
             <a href="#">
               {{-- <i class="far fa-gem"></i> --}}
