@@ -1,8 +1,9 @@
-
-@extends('admin.layout')
-
-@section('content')
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 
 
          <form action="{{asset('modificarplatillo')}}" method="POST" enctype="multipart/form-data">
@@ -44,4 +45,8 @@
 
         </form>
         <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-@endsection
+
+
+
+</body>
+</html>

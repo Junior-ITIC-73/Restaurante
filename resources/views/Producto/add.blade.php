@@ -1,7 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
 
-@section('content')
-        <script>
+<script>
 
             function soloLetras(e){
                 key = e.keyCode || e.which;
@@ -40,6 +44,8 @@
                 }
 
     </script>  
+
+<a href="{{url('/producto')}}"><button type="button" class="btn btn-primary">Regresar</button></a> 
 <h1>Registra un Producto</h1>
     <div id="info"></div>
         <form name="formularioproducto" method="POST" action="{{url('producto')}}" onsubmit="return validarFormulario();">
@@ -141,5 +147,7 @@
         </script>
         <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
 
-             
-@endsection
+
+
+</body>
+</html>

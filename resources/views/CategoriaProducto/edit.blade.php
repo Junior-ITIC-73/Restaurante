@@ -1,6 +1,10 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-@section('content')
 <h1>ACTUALIZAR CATEGORIA</h1>
         <form action="{{ route('categoria.update', ['id' => $categoria->id]) }}" method="POST">
             {{ csrf_field() }}
@@ -13,4 +17,8 @@
 
         
         <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-@endsection
+
+
+
+</body>
+</html>

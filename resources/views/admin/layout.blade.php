@@ -32,7 +32,7 @@
         </div>
         <div class="user-info">
           <span class="user-name">
-            {{auth()->user()->name}}
+           <p style="text-transform: uppercase">{{auth()->user()->name}}</p>
             {{-- Andres<strong>Sanchez</strong> --}}            
           </span>
           <span class="user-role">Administrador</span>
@@ -100,10 +100,9 @@
               </ul>
             </div>
           </li>
-          <li class="sidebar-dropdown">
+          
+{{--           <li class="sidebar-dropdown">
             <a href="#">
-              {{-- <i class="far fa-gem"></i> --}}
-
               <i class="fa fa-shopping-cart"></i>
               <span>PEDIDOS</span>
             </a>
@@ -117,7 +116,8 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> --}}
+
           <li class="sidebar-dropdown">
             <a href="#">
               {{-- <i class="far fa-gem"></i> --}}
