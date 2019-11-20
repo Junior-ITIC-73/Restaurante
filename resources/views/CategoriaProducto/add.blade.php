@@ -1,7 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
 
-@section('content')
-      <script>
+ <script>
                     function soloLetras(e){
                         key = e.keyCode || e.which;
                         teclado = String.fromCharCode(key).toLowerCase();
@@ -55,4 +59,8 @@
                             }    
                     </script>
                     <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-@endsection
+
+
+
+</body>
+</html>

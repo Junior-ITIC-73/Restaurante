@@ -1,7 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
 
-@section('content')
-    <h1>ACTUALIZAR PRODUCTO</h1>
+<h1>ACTUALIZAR PRODUCTO</h1>
         <form action="{{ route('producto.update', ['id' => $producto->id]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -37,4 +41,8 @@
         </form>
 
         <script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-@endsection
+
+
+
+</body>
+</html>

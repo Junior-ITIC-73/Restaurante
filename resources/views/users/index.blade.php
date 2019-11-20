@@ -1,7 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 
-@section('content')
-        <link rel="stylesheet" href="{{asset('datatables/bootstrap.css')}}">
+ <link rel="stylesheet" href="{{asset('datatables/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('datatables/bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset('datatables/css/jquery.dataTables.min.css')}}">
         <link rel="stylesheet" href="{{asset('datatables/css/estilos.css')}}">
@@ -58,4 +62,7 @@
 <script src="{{{ asset('datatables/js/buttons.colVis.min.js')}}}"></script>
 <script src="{{{ asset('js/datatables.js')}}}"></script>
 
-@endsection
+
+
+</body>
+</html>

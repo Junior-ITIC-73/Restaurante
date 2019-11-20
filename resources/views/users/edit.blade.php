@@ -1,8 +1,11 @@
-@extends('admin.layout')
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 
-@section('content')
-
- {{--   <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+{{--   <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
    rel = "stylesheet">
    <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
    <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
@@ -211,4 +214,8 @@
         return patron.test(te);
         }
         </script>
-@endsection
+
+
+
+</body>
+</html>

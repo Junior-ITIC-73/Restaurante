@@ -1,6 +1,9 @@
-@extends('admin.layout')
-
-@section('content')
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
 
 
         <link rel="stylesheet" href="{{ asset('datatables/bootstrap.css') }}">
@@ -60,7 +63,5 @@
 
 
 
-
-
-@endsection
-
+</body>
+</html>
