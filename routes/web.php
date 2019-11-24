@@ -105,3 +105,17 @@ Route::post('ingreso','Auth\LoginController@login')->name('ingreso');//iniciar s
 Route::post('logout','Auth\LoginController@logout')->name('logout');
 //salir de la sesion
 
+
+
+// ----------CRUD EMPLEADO--------------//
+
+Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
+
+Route::get('empleado/create','EmpleadoController@create')->name('empleado.create');
+
+Route::post('empleado/alta','EmpleadoController@store')->name('empleado.alta');
+
+Route::get("empleado/{empleado}",'EmpleadoController@edit')->name('empleado.edit');
+Route::put('empleado/{empleado}/editar','EmpleadoController@update')->name('empleado.update');
+
+Route::delete("empelado/{empleado}/delete",'EmpleadoController@destroy')->name('empleado.destroy');

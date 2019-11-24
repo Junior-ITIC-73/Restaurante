@@ -76,11 +76,9 @@
 	<center>
 		<h1>ALTA MESAS</h1>
 		@if($errors->any())
-			<ul>
 				@foreach($errors->all() as $error)
-					<li>{{$error}}</li>
+					<label style="color:red">{{$error}}</label><br>
 				@endforeach
-			</ul>
 		@endif
 		<form method="POST" action="{{route('mesas.store')}}" id="mesas">
 			{{csrf_field()}}
