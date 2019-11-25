@@ -14,7 +14,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::all();
+        return view ('Empleados.index', compact('empleados'));
     }
 
     /**
@@ -24,8 +25,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view ('Empleados.add');    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +35,13 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request;
+
+        $empleado = new Empleado($request->all());
+        $empleado->save();
+        
+        return redirect('/empleado')->with('mesage', 'El empleado se ha agregado exitosamente!');
+
     }
 
     /**
@@ -55,9 +61,10 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado)
+    public function edit(Empleado $request, $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        return view('Empleados.edit', compact('empleado'));     
     }
 
     /**
@@ -67,9 +74,20 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        $empleado->name = $request->name;
+        $empleado->sexo = $request->sexo;
+        $empleado->telefono_empleado = $request->telefono_empleado;
+        $empleado->calle = $request->calle;
+        $empleado->num_interior = $request->num_interior;
+        $empleado->num_exterior = $request->num_exterior;
+        $empleado->CP = $request->CP;
+        $empleado->localidad = $request->localidad;
+
+        $empleado->save();
+        return redirect('/empleado')->with('mesage-update', 'El empleado se ha modificado exitosamente!');
     }
 
     /**
@@ -78,8 +96,11 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->delete();
+
+       return redirect('/empleado');
     }
 }

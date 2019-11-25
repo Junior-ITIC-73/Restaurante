@@ -90,6 +90,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categoria', 'CategoriaProductoController');
     Route::get('/categoria/{id}','CategoriaController@destroy');
 
+    // Crud Empleado
+
+    Route::resource('empleado', 'EmpleadoController');
+    Route::get('/empleado/{id}','EmpleadoController@destroy');
+
+    
+
     Route::get('/admin', function(){
         return view('admin.dashboard');
     })->name('admin.index');
