@@ -18,7 +18,8 @@
 					<th>Numero exterior</th>
 					<th>Codigo postal</th>
 					<th>Localidad</th>
-					<th>Municipio</th>		
+					<th>Municipio</th>
+					<th>Opciones</th>		
 				</thead>
 				<tfoot>
 					<th>Nombre</th>
@@ -29,7 +30,8 @@
 					<th>Numero exterior</th>
 					<th>Codigo postal</th>
 					<th>Localidad</th>
-					<th>Municipio</th>	
+					<th>Municipio</th>
+					<th>Opciones</th>	
 				</tfoot>
 				<tbody>
 					@foreach ($empleados as $i => $empleado)
@@ -46,10 +48,10 @@
 	                        <td>
 	                        	<a href="/empleado/{{$empleado->id}}/edit"><button><img src="{{asset('img/editar.png')}}" width="30" height="30"></button>
                         		</a>
-			                        <form id="eliminarEmpleado"action="{{route('empleado.destroy', $empleado->id)}}" method="POST">
+			                        <form action="{{route('empleado.destroy', $empleado->id)}}" method="POST" >
 			                                {{method_field('DELETE')}}
 			                                {{ csrf_field() }}
-			                                <button type="submit" value="Eliminar"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></button>
+			                                <button type="submit" value="Eliminar"  onclick="return confirm('Estas seguro de aliminar el registro?')"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></button>
 			                        </form>
                         </td> 
 	                </tr>
