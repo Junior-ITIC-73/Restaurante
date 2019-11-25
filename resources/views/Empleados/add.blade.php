@@ -75,6 +75,13 @@
                         Localidad
                         <input type="text" id="localidad" name="localidad" onkeypress="return soloLetras(event)" onpaste="return false;" class="form-control">
                         <br>
+                        <label  class="control-label">Seleccione Municipio</label>
+                            <select id="municipio_id"   name="municipio_id"  class="form-control round">
+                                @foreach($municipios as $municipio)            
+                                <option value="{{ $municipio->id }}" >{{ $municipio->nombre }}</option>
+                                @endforeach
+                            </select>
+                        <br>
                         <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
                     </div>
                 </form>

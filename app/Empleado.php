@@ -15,5 +15,10 @@ class Empleado extends Model
         'num_exterior',
         'CP',
         'localidad',
+        'municipio_id',
     ];
+
+     public function municipio(){
+        return $this->belongsTo(Municipio::class);
+      }
 }

@@ -17,7 +17,8 @@
 					<th>Numero interior</th>
 					<th>Numero exterior</th>
 					<th>Codigo postal</th>
-					<th>Localidad</th>	
+					<th>Localidad</th>
+					<th>Municipio</th>		
 				</thead>
 				<tfoot>
 					<th>Nombre</th>
@@ -28,6 +29,7 @@
 					<th>Numero exterior</th>
 					<th>Codigo postal</th>
 					<th>Localidad</th>
+					<th>Municipio</th>	
 				</tfoot>
 				<tbody>
 					@foreach ($empleados as $i => $empleado)
@@ -40,6 +42,7 @@
 	                        <td>{{ $empleado->num_exterior }}</td>
 	                        <td>{{ $empleado->CP }}</td>
 	                        <td>{{ $empleado->localidad }}</td>
+	                        <td>{{ $empleado->municipio->nombre}}</td>
 	                        <td>
 	                        	<a href="/empleado/{{$empleado->id}}/edit"><button><img src="{{asset('img/editar.png')}}" width="30" height="30"></button>
                         		</a>

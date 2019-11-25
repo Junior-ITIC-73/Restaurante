@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empleado;
+use App\Municipio;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -25,7 +26,9 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        return view ('Empleados.add');    }
+        $municipios = Municipio::all();
+        return view ('Empleados.add', compact('municipios'));    
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -64,7 +67,8 @@ class EmpleadoController extends Controller
     public function edit(Empleado $request, $id)
     {
         $empleado = Empleado::findOrFail($id);
-        return view('Empleados.edit', compact('empleado'));     
+        $municipios = Municipio::all();
+        return view('Empleados.edit', compact('empleado','municipios'));     
     }
 
     /**
@@ -85,6 +89,7 @@ class EmpleadoController extends Controller
         $empleado->num_exterior = $request->num_exterior;
         $empleado->CP = $request->CP;
         $empleado->localidad = $request->localidad;
+        $empleado->municipio_id = $request->municipio_id;
 
         $empleado->save();
         return redirect('/empleado')->with('mesage-update', 'El empleado se ha modificado exitosamente!');
