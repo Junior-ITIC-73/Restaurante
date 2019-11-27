@@ -14,7 +14,8 @@ class CategoriaPlatilloController extends Controller
      */
     public function index()
     {
-        //
+        $categoriaPlatillos = CategoriaPlatillo::all();
+        return view('categoriaPlatillo.index',compact('categoriaPlatillos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoriaPlatilloController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoriaPlatillo.create');
     }
 
     /**
@@ -35,7 +36,20 @@ class CategoriaPlatilloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       //valido si en el request se manda un archivo en el input llamado chooseFile
+       $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+       //guardo el archivo en la carpeta imag con el nombre original del archivo
+       $file->move('imag',$file->getClientOriginalName());
+
+        CategoriaPlatillo::create([
+        'nombre_categoria'=>($request['nombre_categoria']),
+        //el el campo imagen de la bd guardo el nombre original del archivo
+        'imagen'=>$file->getClientOriginalName()
+
+
+        ]);
+        return redirect()->route('categoriaPlatillo.index')->with('mesage', 'La categoria se ha agregado exitosamente!');
     }
 
     /**

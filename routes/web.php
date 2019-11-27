@@ -119,3 +119,16 @@ Route::get("empleado/{empleado}",'EmpleadoController@edit')->name('empleado.edit
 Route::put('empleado/{empleado}/editar','EmpleadoController@update')->name('empleado.update');
 
 Route::delete("empelado/{empleado}/delete",'EmpleadoController@destroy')->name('empleado.destroy');
+
+///-----------------CRUD CATEGORIA PLATILLO---------------------/////
+
+Route::get('categoriaPlatillo/', 'CategoriaPlatilloController@index')->name('categoriaPlatillo.index');
+
+Route::get('categoriaPlatillo/create','CategoriaPlatilloController@create')->name('categoriaPlatillo.create');
+
+Route::post('categoriaPlatillo/alta','CategoriaPlatilloController@store')->name('categoriaPlatillo.alta');
+
+Route::get("categoriaPlatillo/{categoriaPlatillo}",'CategoriaPlatilloController@edit')->name('categoriaPlatillo.edit');
+Route::put('categoriaPlatillo/{categoriaPlatillo}/editar','CategoriaPlatilloController@update')->name('categoriaPlatillo.update');
+
+Route::delete("categoriaPlatillo/{categoriaPlatillo}/delete",'CategoriaPlatilloController@destroy')->name('categoriaPlatillo.destroy');
