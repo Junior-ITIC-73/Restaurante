@@ -9,10 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script type="text/javascript">
  $(document).ready(function(){
-
+ 	
  });
-  	
-
   </script>
 </head>
 <body>
@@ -35,16 +33,16 @@
 		<tr>
 			<td>{{$empleado->name}}</td>
 			<td>{{$empleado->apellido_paterno}}</td>
-			<td>{{$empleado->apellido_paterno}}</td>
+			<td>{{$empleado->apellido_materno}}</td>
 			<td>{{$empleado->telefono_empleado}}</td>
 			<td>
 				<ul>
 					{{-- <li><b>MUNICIPIO:</b>{{$empleado->}}</li> --}}
+					<li><b>LOCALIDAD:</b> {{$empleado->localidad}}</li>
 					<li><b>CALLE:</b> {{$empleado->calle}}</li>
 					<li><b>N# interior:</b> {{$empleado->num_interior}}</li>
 					<li><b>N# exterior:</b> {{$empleado->num_exterior}}</li>
 					<li><b>CALLE:</b> {{$empleado->calle}}</li>
-					<li><b>LOCALIDAD:</b> {{$empleado->localidad}}</li>
 					<li><b>CP:</b> {{$empleado->CP}}</li>
 				</ul>	
 			</td>
@@ -53,14 +51,8 @@
 				<form action="{{route('empleado.destroy',$empleado)}}" method="POST">
 					{{csrf_field()}}
 					{{method_field('DELETE')}}
-					<button type="submit"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></button>
+					<button type="submit" onclick="return confirm('Estas seguro de eliminar al Empleado {{$empleado->name}}?')"><img src="{{asset('img/eliminar.png')}}" width="30" height="30" ></button>
 				</form>
-
-
-		{{-- 		<a href="{{route('empleado.destroy',$empleado)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a>
-					} --}}
-
-
 			</td>
 		</tr>
 		@endforeach

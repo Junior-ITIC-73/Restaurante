@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('usuarios/create', 'UserController@create')->name('users.create');
     Route::post('usuarios/alta','UserController@store')->name('users.store');
 //--ELIMINAR
-    Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
+    Route::delete('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
 //--MODIFICAR
     Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
     Route::put('usuarios/{user}','UserController@update')->name('users.update');
