@@ -32,7 +32,7 @@ class FormEmpleado extends FormRequest
             'calle'=>'required',
             'num_interior'=>'required|numeric',
             'num_exterior'=>'required|numeric',
-            'CP'=>'required|numeric',
+            'CP'=>'required|numeric|min:5',
             'localidad'=>'required|not_regex:/[0-9]/',
         ];
     }

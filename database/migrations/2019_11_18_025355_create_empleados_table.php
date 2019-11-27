@@ -19,8 +19,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
             $table->boolean('sexo')->nullable();
-            $table->string('telefono_empleado')->nullable();
             $table->string('calle')->nullable();
+            $table->string('telefono_empleado')->nullable();
             $table->string('num_interior')->nullable();
             $table->string('num_exterior')->nullable();
             $table->string('CP')->nullable();
