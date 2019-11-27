@@ -42,7 +42,13 @@
 				</ul>	
 			</td>
 			<td><a href="{{route('users.edit',$user)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
-			<td><a href="{{route('users.destroy',$user)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
+			<td>
+				<form action="{{route('users.destroy',$user)}}" method="POST">
+					{{csrf_field()}}
+					{{method_field('DELETE')}}
+					<button type="submit" onclick="return confirm('Estas seguro de eliminar al Empleado {{$user->name}}?')"><img src="{{asset('img/eliminar.png')}}" width="30" height="30" ></button>
+				</form>
+			</td>
 		</tr>
 		@endforeach
 	</tbody>
