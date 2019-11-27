@@ -23,6 +23,15 @@ Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
 Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
 Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
 
+
+Route::resource('catplatillo','CategoriaPlatilloController');
+Route::post('alta_catplatillo','CategoriaPlatilloController@store')->name('alta_catplatillo');
+Route::get('/eliminar_catplatillo/{id}','CategoriaPlatilloController@eliminar');
+
+
+
+
+
 Route::resource('proveedor', 'ProveedorController');
 Route::get('/proveedor/{id}','ProveedorController@destroy');
 
