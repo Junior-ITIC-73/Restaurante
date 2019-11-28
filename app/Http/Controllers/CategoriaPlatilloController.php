@@ -15,6 +15,10 @@ class CategoriaPlatilloController extends Controller
     public function index()
     {
         $categoriaPlatillos = CategoriaPlatillo::all();
+
+
+        // dd($categoriaPlatillos);
+
         return view('categoriaPlatillo.index',compact('categoriaPlatillos'));
     }
 
@@ -71,7 +75,8 @@ class CategoriaPlatilloController extends Controller
      */
     public function edit(CategoriaPlatillo $categoriaPlatillo)
     {
-        //
+
+       return view('categoriaPlatillo.edit',compact('categoriaPlatillo'));
     }
 
     /**
@@ -83,7 +88,14 @@ class CategoriaPlatilloController extends Controller
      */
     public function update(Request $request, CategoriaPlatillo $categoriaPlatillo)
     {
-        //
+        //valido si en el request se manda un archivo en el input llamado chooseFile
+       $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+       //guardo el archivo en la carpeta imag con el nombre original del archivo
+       $file->move('imag',$file->getClientOriginalName());
+       $categoriaPlatillo->nombre_categoria = $request['nombre_categoria'];
+       $categoriaPlatillo->imagen = $file->getClientOriginalName();
+       $categoriaPlatillo->save();
+        return redirect()->route('categoriaPlatillo.index')->with('mesage', 'La categoria se ha modificado exitosamente!');
     }
 
     /**
@@ -94,6 +106,8 @@ class CategoriaPlatilloController extends Controller
      */
     public function destroy(CategoriaPlatillo $categoriaPlatillo)
     {
-        //
+        $categoriaPlatillo->delete();
+        return redirect()->route('categoriaPlatillo.index')->with('message', 'La categoria se ha eliminado exitosamente!');
+
     }
 }

@@ -129,6 +129,7 @@ Route::get('categoriaPlatillo/create','CategoriaPlatilloController@create')->nam
 Route::post('categoriaPlatillo/alta','CategoriaPlatilloController@store')->name('categoriaPlatillo.alta');
 
 Route::get("categoriaPlatillo/{categoriaPlatillo}",'CategoriaPlatilloController@edit')->name('categoriaPlatillo.edit');
-Route::put('categoriaPlatillo/{categoriaPlatillo}/editar','CategoriaPlatilloController@update')->name('categoriaPlatillo.update');
+
+Route::PUT('categoriaPlatillo/{categoriaPlatillo}/editar','CategoriaPlatilloController@update')->name('categoriaPlatillo.update');
 
 Route::delete("categoriaPlatillo/{categoriaPlatillo}/delete",'CategoriaPlatilloController@destroy')->name('categoriaPlatillo.destroy');
