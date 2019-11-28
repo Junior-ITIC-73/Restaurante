@@ -43,7 +43,7 @@
                     {{csrf_field()}}
             <label>Nombre Categoria</label>
             <input type="text" name="nombre_categoria" required onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="10"><br>
-            <input type="file" name="chooseFile" id="chooseFile" required><br>
+            IMAGEN<input type="file" name="chooseFile" id="chooseFile" required><br>
                 <button type="submit">Listo</button>
             </form>
             </center>
