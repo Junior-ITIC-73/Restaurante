@@ -23,7 +23,7 @@ class CreateMenuPlatillosTable extends Migration
         });
     }
 
-    /**
+    /** 
      * Reverse the migrations.
      *
      * @return void
