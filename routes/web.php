@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('usuarios/create', 'UserController@create')->name('users.create');
     Route::post('usuarios/alta','UserController@store')->name('users.store');
 //--ELIMINAR
-    Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
+    Route::delete('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
 //--MODIFICAR
     Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
     Route::put('usuarios/{user}','UserController@update')->name('users.update');
@@ -108,3 +108,17 @@ Route::post('ingreso','Auth\LoginController@login')->name('ingreso');//iniciar s
 Route::post('logout','Auth\LoginController@logout')->name('logout');
 //salir de la sesion
 
+
+
+// ----------CRUD EMPLEADO--------------//
+
+Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
+
+Route::get('empleado/create','EmpleadoController@create')->name('empleado.create');
+
+Route::post('empleado/alta','EmpleadoController@store')->name('empleado.alta');
+
+Route::get("empleado/{empleado}",'EmpleadoController@edit')->name('empleado.edit');
+Route::put('empleado/{empleado}/editar','EmpleadoController@update')->name('empleado.update');
+
+Route::delete("empelado/{empleado}/delete",'EmpleadoController@destroy')->name('empleado.destroy');

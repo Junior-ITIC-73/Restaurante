@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use Illuminate\Http\Request;
+use App\http\Requests\FormEmpleado;
 
 class EmpleadoController extends Controller
 {
@@ -14,7 +15,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::all();
+        return view("Empleados.index",compact("empleados"));
     }
 
     /**
@@ -24,7 +26,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view("Empleados.alta");
     }
 
     /**
@@ -33,9 +35,13 @@ class EmpleadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormEmpleado $request)
     {
-        //
+         $empleado = new Empleado(request()->all());
+         $empleado->save();
+
+
+         return redirect()->route('empleado.index');
     }
 
     /**
@@ -57,7 +63,7 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        return  view("Empleados.edit",compact("empleado"));
     }
 
     /**
@@ -67,9 +73,20 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(FormEmpleado $request, Empleado $empleado)
     {
-        //
+        $empleado->name = $request['name'];
+        $empleado->apellido_paterno = $request['apellido_paterno'];
+        $empleado->apellido_materno = $request['apellido_materno'];
+        $empleado->sexo = $request['sexo'];
+        $empleado->telefono_empleado = $request['telefono_empleado'];
+        $empleado->calle = $request['calle'];
+        $empleado->num_interior = $request['num_interior'];
+        $empleado->num_exterior = $request['num_exterior'];
+        $empleado->CP = $request['CP'];
+        $empleado->localidad = $request['localidad'];
+        $empleado->save();
+        return redirect()->route('empleado.index');
     }
 
     /**
@@ -80,6 +97,7 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        $empleado->delete();
+        return redirect()->route('empleado.index');
     }
 }

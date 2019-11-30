@@ -22,6 +22,9 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public $maxAttempts = 3;
+    public $decayMinutes = 1;
+    
     // /**
     //  * Where to redirect users after login.
     //  *
@@ -67,5 +70,5 @@ class LoginController extends Controller
         return redirect()->route('arboleda.login');
     }
 
-
+    
 }
