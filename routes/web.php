@@ -140,3 +140,7 @@ Route::get("menuplatillo/{menu_platillo}",'MenuPlatilloController@edit')->name('
 Route::PUT('menuplatillo/{menu_platillo}/editar','MenuPlatilloController@update')->name('menuplatillo.update');
 
 Route::delete("menuplatillo/{menu_platillo}/delete",'MenuPlatilloController@destroy')->name('menuplatillo.destroy');
+
+// ---------------------RUTAS DE CORTE----------------------------------//
+
+Route::get("corteCaja","CorteController@index")->name('modulo.corte');
