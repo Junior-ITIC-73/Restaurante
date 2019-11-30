@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\modulo1;
-use App\CategoriaProducto;
+use App\CategoriaPlatillo;
+use App\MenuPlatillo;
 use Illuminate\Http\Request;
 
 class Modulo1Controller extends Controller
@@ -13,18 +14,22 @@ class Modulo1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()//Request $request)
     {
-        $id = $request->categoria_id;
-        $categorias = CategoriaProducto::all();
-        $pruebas = CategoriaProducto::all();
-        $answers = CategoriaProducto::find($request->categoria_id);
+        //$id = $request->categoria_id;
+        $categorias = CategoriaPlatillo::all();
+        //return $categorias;
+        $menus = MenuPlatillo::all();
+        //return $platillos;
+        // $pruebas = CategoriaProducto::all();
+        // $answers = CategoriaProducto::find($request->categoria_id);
         //return $answer;
         //$id = CategoriaProducto::find();
-        return view('Modulos.ventaModulo',compact('categorias','id','pruebas','answers'));
+        //return CategoriaPlatillo::where('categoria_id', $id)->get();
+        return view('Modulos.ventaModulo',compact('categorias','menus'));
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

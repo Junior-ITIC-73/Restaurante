@@ -89,7 +89,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('empleado', 'EmpleadoController');
     Route::get('/empleado/{id}','EmpleadoController@destroy');
 
-    //Route::resource('modulo','VentaModuloController');
+    Route::resource('menuplatillo.categoriaPlatillo', 'MenuCategoriaController');
 
     //Modulo de ventas
     Route::resource('realizarventa', 'Modulo1controller');
