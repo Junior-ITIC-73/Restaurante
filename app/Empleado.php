@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empleado extends Model
 {
-    protected $fillable = [
-        'name',
+    
+       protected $fillable = [
+        'name', 
+        'apellido_paterno', 
+        'apellido_materno',
         'sexo',
         'telefono_empleado',
         'calle',
@@ -22,3 +25,4 @@ class Empleado extends Model
         return $this->belongsTo(Municipio::class);
       }
 }
+

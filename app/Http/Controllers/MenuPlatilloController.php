@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\menuplatillosRequest;
 use App\MenuPlatillo;
+use App\CategoriaPlatillo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,8 +18,9 @@ class MenuPlatilloController extends Controller
      */
     public function index()
     {
-        $menu_platillo=MenuPlatillo::All();
-        return view('menuplatillos.index',compact('menu_platillo'));
+
+        $menu_platillos=MenuPlatillo::All();
+        return view('menuplatillos.index',compact('menu_platillos'));
     }
 
     /**
@@ -28,7 +30,8 @@ class MenuPlatilloController extends Controller
      */
     public function create()
     {
-        return view('menuplatillos.alta');
+        $categorias = CategoriaPlatillo::all();
+        return view('menuplatillos.alta',compact('categorias'));
     }
 
     /**
@@ -39,14 +42,18 @@ class MenuPlatilloController extends Controller
      */
     public function store(menuplatillosRequest $request)
     {
-     MenuPlatillo::create([
-            'nombre_platillo'=>$request['nombre_platillo'],
-            'precio_platillo'=>$request['precio_platillo'],
-            'descripcion_platillo'=>$request['descripcion_platillo'],
-            'fecha'=>$request['fecha'],
-            ]);
+        $platillo  = new MenuPlatillo(request()->all());
+        // return redirect()->route('menuplatillo.index');
+        //valido si en el request se manda un archivo en el input llamado chooseFile
+        $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+        //guardo el archivo en la carpeta imag con el nombre original del archivo
+        $file->move('imag',$file->getClientOriginalName());
 
-    return redirect('menuplatillo');
+        $platillo->imagen = $file->getClientOriginalName();
+
+
+        $platillo->save();
+         return redirect()->route('menuplatillo.index');
     }
 
     /**
@@ -66,10 +73,10 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(MenuPlatillo $menu_platillo)
     {
-        $menu_platillo=\App\MenuPlatillo::find($id);
-        return view('menuplatillos.edit',['menu_platillo'=>$menu_platillo]);
+         $categorias = CategoriaPlatillo::all();
+       return view('menuplatillos.edit',compact('menu_platillo','categorias'));
     }
 
     /**
@@ -79,17 +86,23 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function update(menuplatillosRequest $request)
+    public function update(menuplatillosRequest $request,MenuPlatillo $menu_platillo)
     {
+        //valido si en el request se manda un archivo en el input llamado chooseFile
+       $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+       //guardo el archivo en la carpeta imag con el nombre original del archivo
+       $file->move('imag',$file->getClientOriginalName());
 
-            $id = $request['id'];
-            $nombre_platillo=$request['nombre_platillo'];
-            $precio_platillo=$request['precio_platillo'];
-            $descripcion_platillo=$request['descripcion_platillo'];
-            $fecha=$request['fecha'];
-            DB::SELECT("CALL modifica_platillo('$nombre_platillo','$precio_platillo','$descripcion_platillo',
-            '$fecha','$id')");
-             return redirect('menuplatillo');
+
+            $menu_platillo->categoria_id = $request['categoria_id'];
+            $menu_platillo->nombre_platillo = $request['nombre_platillo'];
+            $menu_platillo->precio_platillo = $request['precio_platillo'];
+            $menu_platillo->descripcion_platillo = $request['descripcion_platillo'];
+            $menu_platillo->imagen = $file->getClientOriginalName();
+            $menu_platillo->save();
+
+
+        return redirect()->route('menuplatillo.index');
         }
     /**
      * Remove the specified resource from storage.
@@ -97,13 +110,9 @@ class MenuPlatilloController extends Controller
      * @param  \App\MenuPlatillo  $menuPlatillo
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(MenuPlatillo $menu_platillo)
     {
-        //
-    }
-    public function eliminar($id)
-    {
-        DB::table('menu_platillos')->where('id','=',$id)->delete();
-        return redirect("menuplatillo");
+        $menu_platillo->delete();
+         return redirect()->route('menuplatillo.index');
     }
 }

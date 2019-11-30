@@ -16,6 +16,7 @@ class CreateCategoriaPlatillosTable extends Migration
         Schema::create('categoria_platillos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_categoria');
+            $table->string('imagen');
             $table->timestamps();
         });
     }

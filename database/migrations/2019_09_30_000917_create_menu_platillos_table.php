@@ -18,7 +18,7 @@ class CreateMenuPlatillosTable extends Migration
             $table->string('nombre_platillo');
             $table->double('precio_platillo');
             $table->string('descripcion_platillo');
-            $table->date('fecha');
+            $table->string('imagen')->nullable();
             $table->timestamps();
         });
     }

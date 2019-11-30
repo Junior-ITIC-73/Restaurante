@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class MenuPlatillo extends Model
 {
     protected $table="menu_platillos";
-    protected $fillable=['id','nombre_platillo','precio_platillo','descripcion_platillo','fecha'];
+    protected $fillable=['categoria_id','nombre_platillo','precio_platillo','descripcion_platillo','imagen'];
+    
+    public function categoria(){
+    	return	$this->belongsTo(CategoriaPlatillo::class);
+    }
+
 }

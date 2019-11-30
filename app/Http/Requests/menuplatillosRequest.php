@@ -26,8 +26,7 @@ class menuplatillosRequest extends FormRequest
         return [
             'nombre_platillo' => 'required',
             'precio_platillo' => 'required',
-            'descripcion_platillo' => 'required',
-            'fecha' => 'required',
+            'descripcion_platillo' => 'required'
         ];
     }
 }

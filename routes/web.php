@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('usuarios/create', 'UserController@create')->name('users.create');
     Route::post('usuarios/alta','UserController@store')->name('users.store');
 //--ELIMINAR
-    Route::get('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
+    Route::delete('/usuarios/eliminar/{user}','UserController@destroy')->name('users.destroy');
 //--MODIFICAR
     Route::get('usuarios/{user}/editar','UserController@edit')->name('users.edit');
     Route::put('usuarios/{user}','UserController@update')->name('users.update');
@@ -74,12 +74,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('mesas/elimiar/{mesa}','MesaController@destroy')->name('mesas.destroy');
     Auth::routes();
 
-
-    Route::resource('menuplatillo','MenuPlatilloController');
-    Route::post('alta_menu','MenuPlatilloController@store')->name('alta_menu');
-    Route::get('/eliminarplatillo/{id}','MenuPlatilloController@eliminar');
-    Route::get('/modificarplatillo/{id}','MenuPlatilloController@edit');
-    Route::POST('modificarplatillo','MenuPlatilloController@update')->name('modificarplatillo') ;
 
     // Route::resource('proveedor', 'ProveedorController');
     // Route::get('/proveedor/{id}','ProveedorController@destroy');
@@ -114,3 +108,44 @@ Route::post('ingreso','Auth\LoginController@login')->name('ingreso');//iniciar s
 Route::post('logout','Auth\LoginController@logout')->name('logout');
 //salir de la sesion
 
+
+
+// ----------CRUD EMPLEADO--------------//
+
+Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
+
+Route::get('empleado/create','EmpleadoController@create')->name('empleado.create');
+
+Route::post('empleado/alta','EmpleadoController@store')->name('empleado.alta');
+
+Route::get("empleado/{empleado}",'EmpleadoController@edit')->name('empleado.edit');
+Route::put('empleado/{empleado}/editar','EmpleadoController@update')->name('empleado.update');
+
+Route::delete("empelado/{empleado}/delete",'EmpleadoController@destroy')->name('empleado.destroy');
+
+///-----------------CRUD CATEGORIA PLATILLO---------------------/////
+
+Route::get('categoriaPlatillo/', 'CategoriaPlatilloController@index')->name('categoriaPlatillo.index');
+
+Route::get('categoriaPlatillo/create','CategoriaPlatilloController@create')->name('categoriaPlatillo.create');
+
+Route::post('categoriaPlatillo/alta','CategoriaPlatilloController@store')->name('categoriaPlatillo.alta');
+
+Route::get("categoriaPlatillo/{categoriaPlatillo}",'CategoriaPlatilloController@edit')->name('categoriaPlatillo.edit');
+
+Route::PUT('categoriaPlatillo/{categoriaPlatillo}/editar','CategoriaPlatilloController@update')->name('categoriaPlatillo.update');
+
+Route::delete("categoriaPlatillo/{categoriaPlatillo}/delete",'CategoriaPlatilloController@destroy')->name('categoriaPlatillo.destroy');
+
+
+///-----------------CRUD MENU PLATILLO---------------------/////
+
+Route::get('menuplatillo/', 'MenuPlatilloController@index')->name('menuplatillo.index');
+
+Route::get('menuplatillo/create','MenuPlatilloController@create')->name('menuplatillo.create');
+Route::POST('menuplatillo/alta','MenuPlatilloController@store')->name('menuplatillo.alta');
+
+Route::get("menuplatillo/{menu_platillo}",'MenuPlatilloController@edit')->name('menuplatillo.edit');
+Route::PUT('menuplatillo/{menu_platillo}/editar','MenuPlatilloController@update')->name('menuplatillo.update');
+
+Route::delete("menuplatillo/{menu_platillo}/delete",'MenuPlatilloController@destroy')->name('menuplatillo.destroy');

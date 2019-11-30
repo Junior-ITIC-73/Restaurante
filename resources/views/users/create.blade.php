@@ -5,12 +5,12 @@
 </head>
 <body>
 
-{{--     <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+    <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
     rel = "stylesheet">
     <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
     <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('js/messages_es.js')}}"></script>  
+    <script src="{{asset('js/messages_es.js')}}"></script> 
     <style type="text/css">
         .error {
             border: 2px solid #f00;
@@ -68,7 +68,6 @@
         rules: {
             name: {
                 required: true,
-                alpha: true,
                 minlength: 4
             },
             email: {
@@ -87,7 +86,6 @@
             },
             calle:{
                 required: true,
-                alpha: false
             },
             num_interior:{
                 required: true,
@@ -111,7 +109,41 @@
         }
     });
 });
-</script> --}}
+        function soloLetras(e){
+            key = e.keyCode || e.which;
+            teclado = String.fromCharCode(key).toLowerCase();
+            letras = " abcdefghijklmnñopqrstuvwxyz";
+            especiales = "8-37-38-46-164";
+            teclado_especial = false;
+
+            for(var i in especiales){
+                if(key == especiales[i]){
+                    teclado_especial = true; break;
+                }
+            }
+            if(letras.indexOf(teclado) == -1 && !teclado_especial){
+                return false;
+            } 
+
+        }
+        function solonumeros(e){
+            key = e.keyCode || e.which;
+            teclado = String.fromCharCode(key);
+            numeros = "0123456789";
+            especiales = "8-37-38-46";
+            teclado_especial = false;
+
+            for(var i in especiales){
+                if(key == especiales[i]){
+                    teclado_especial = true;
+                }
+            }
+            if(numeros.indexOf(teclado) == -1 && !teclado_especial){
+                return false;
+            } 
+
+        }
+</script>
 
 
 
@@ -124,14 +156,14 @@
         {{csrf_field()}}
   <div class="form-group">
         <label for="name" class="col-sm-0 col-form-label">Nombre</label>
-        <input type="text" name="name" id="name" value="{{old('name')}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control" onkeypress="return validar(event)">
+        <input type="text" name="name" id="name" value="{{old('name')}}" required title="Introduce tu nombre" placeholder="Nombre de Usuario" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="25">
         @if($errors->has('name'))
         <label style="color:red">{{$errors->first('name')}}</label>
         @endif
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="{{old('email')}}" required title="Introduce tu email" placeholder="Email" class="form-control">
+        <input type="email" name="email" id="email" value="{{old('email')}}" required title="Introduce tu email" placeholder="Email" class="form-control" maxlength="40">
         @if($errors->has('email'))
         <label style="color:red">{{$errors->first('email')}}</label>
         @endif
@@ -164,77 +196,48 @@
     </div>
     <div class="form-group">
         <label for="telefono">Telefono</label>
-        <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return validarNumeros(event)">
+        <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="10" minlength="10">
         @if($errors->has('telefono_user'))
         <label style="color:red">{{$errors->first('telefono_user')}}</label>
         @endif
     </div>
     <div class="form-group">    
         <label for="calle">Calle</label>
-        <input type="text" name="calle" id="calle" value="{{old('calle')}}" title="Nombre de la Calle" class="form-control" placeholder="Calle">
+        <input type="text" name="calle" id="calle" value="{{old('calle')}}" title="Nombre de la Calle" class="form-control" placeholder="Calle" maxlength="25">
         @if($errors->has('calle'))
         <label style="color:red">{{$errors->first('calle')}}</label>
         @endif
     </div>
     <div class="form-group">
         <label for="num_interior">Numero Interior</label>
-        <input type="text" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required class="form-control" placeholder="Numero Interior" >
+        <input type="text" name="num_interior" id="num_interior" value="{{old('num_interior')}}" required class="form-control" placeholder="Numero Interior" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5">
         @if($errors->has('num_interior'))
         <label style="color:red">{{$errors->first('num_interior')}}</label>
         @endif
     </div>
     <div class="form-group">
         <label for="num_exterior">Numero Exterior</label>
-        <input type="text" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required class="form-control" placeholder="Numero Exterior">
+        <input type="text" name="num_exterior" id="num_exterior" value="{{old('num_exterior')}}" required class="form-control" placeholder="Numero Exterior" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5">
         @if($errors->has('num_exterior'))
         <label style="color:red">{{$errors->first('num_exterior')}}</label>
         @endif
     </div>
     <div class="form-group">
         <label for="CP">Codigo Postal</label>
-        <input type="text" name="CP" id="CP" value="{{old('CP')}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP"onkeypress="return validarNumeros(event)"> 
+        <input type="text" name="CP" id="CP" value="{{old('CP')}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5" minlength="5"> 
         @if($errors->has('CP'))
         <label style="color:red">{{$errors->first('CP')}}</label>
         @endif
     </div>
     <div class="form-group">
         <label for="localidad">Localidad</label>
-        <input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required title="Introduzca su localidad" class="form-control" placeholder="Localidad">
+        <input type="text" name="localidad" id="localidad" value="{{old('localidad')}}" required title="Introduzca su localidad" class="form-control" placeholder="Localidad" onkeypress="return soloLetras(event)" onpaste="return false;">
         @if($errors->has('localidad'))
         <label style="color:red">{{$errors->first('localidad')}}</label>
         @endif
     </div>
   <button type="submit" class="btn btn-success btn-lg btn-block">GUARDAR</button>
 </form>
-
-<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-<script>
-        function validar(e) {
-        tecla = (document.all) ? e.keyCode : e.which;
-        if (tecla==8) return true; //Tecla de retroceso (para poder borrar)
-        // dejar la línea de patron que se necesite y borrar el resto
-        patron =/[A-Za-z\sáéíóú]/; // Solo acepta letras
-        //patron = /\d/; // Solo acepta números
-        //patron = /\w/; // Acepta números y letras
-        //patron = /\D/; // No acepta números
-        //
-        te = String.fromCharCode(tecla);
-        return patron.test(te);
-        }
-         function validarNumeros(e) {
-        tecla = (document.all) ? e.keyCode : e.which;
-        if (tecla==8) return true; //Tecla de retroceso (para poder borrar)
-        // dejar la línea de patron que se necesite y borrar el resto
-        // patron =/[A-Za-z\sáéíóú]/; // Solo acepta letras
-        patron = /\d/; // Solo acepta números
-        //patron = /\w/; // Acepta números y letras
-        //patron = /\D/; // No acepta números
-        //
-        te = String.fromCharCode(tecla);
-        return patron.test(te);
-        }
-        </script>
-
 
 
 </body>

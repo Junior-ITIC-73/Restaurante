@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Empleado;
 use App\Municipio;
 use Illuminate\Http\Request;
+use App\http\Requests\FormEmpleado;
 
 class EmpleadoController extends Controller
 {
@@ -16,7 +17,11 @@ class EmpleadoController extends Controller
     public function index()
     {
         $empleados = Empleado::all();
+<<<<<<< HEAD
         return view ('Empleados.index', compact('empleados'));
+=======
+        return view("Empleados.index",compact("empleados"));
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 
     /**
@@ -26,8 +31,12 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $municipios = Municipio::all();
         return view ('Empleados.add', compact('municipios'));    
+=======
+        return view("Empleados.alta");
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 
     /**
@@ -36,8 +45,9 @@ class EmpleadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormEmpleado $request)
     {
+<<<<<<< HEAD
         //return $request;
 
         $empleado = new Empleado($request->all());
@@ -45,6 +55,13 @@ class EmpleadoController extends Controller
         
         return redirect('/empleado')->with('mesage', 'El empleado se ha agregado exitosamente!');
 
+=======
+         $empleado = new Empleado(request()->all());
+         $empleado->save();
+
+
+         return redirect()->route('empleado.index');
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 
     /**
@@ -66,9 +83,13 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $request, $id)
     {
+<<<<<<< HEAD
         $empleado = Empleado::findOrFail($id);
         $municipios = Municipio::all();
         return view('Empleados.edit', compact('empleado','municipios'));     
+=======
+        return  view("Empleados.edit",compact("empleado"));
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 
     /**
@@ -78,6 +99,7 @@ class EmpleadoController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function update(Request $request, $id)
     {
         $empleado = Empleado::findOrFail($id);
@@ -93,6 +115,22 @@ class EmpleadoController extends Controller
 
         $empleado->save();
         return redirect('/empleado')->with('mesage-update', 'El empleado se ha modificado exitosamente!');
+=======
+    public function update(FormEmpleado $request, Empleado $empleado)
+    {
+        $empleado->name = $request['name'];
+        $empleado->apellido_paterno = $request['apellido_paterno'];
+        $empleado->apellido_materno = $request['apellido_materno'];
+        $empleado->sexo = $request['sexo'];
+        $empleado->telefono_empleado = $request['telefono_empleado'];
+        $empleado->calle = $request['calle'];
+        $empleado->num_interior = $request['num_interior'];
+        $empleado->num_exterior = $request['num_exterior'];
+        $empleado->CP = $request['CP'];
+        $empleado->localidad = $request['localidad'];
+        $empleado->save();
+        return redirect()->route('empleado.index');
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 
     /**
@@ -103,9 +141,14 @@ class EmpleadoController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         $empleado = Empleado::find($id);
         $empleado->delete();
 
        return redirect('/empleado');
+=======
+        $empleado->delete();
+        return redirect()->route('empleado.index');
+>>>>>>> 36b7c66f6630c06ca7a8a324b431d80d8c9d7825
     }
 }
