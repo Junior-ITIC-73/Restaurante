@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenuPlatillosTable extends Migration
+class CreateModulo1sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,19 @@ class CreateMenuPlatillosTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu_platillos', function (Blueprint $table) {
+        Schema::create('modulo1s', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre_platillo');
-            $table->double('precio_platillo');
-            $table->string('descripcion_platillo');
-            $table->date('fecha');
             $table->timestamps();
         });
     }
 
-    /** 
+    /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('menu_platillos');
+        Schema::dropIfExists('modulo1s');
     }
 }

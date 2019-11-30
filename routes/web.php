@@ -90,6 +90,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categoria', 'CategoriaProductoController');
     Route::get('/categoria/{id}','CategoriaController@destroy');
 
+    //Modulo de ventas
+    Route::resource('realizarventa', 'Modulo1controller');
+    
     Route::get('/admin', function(){
         return view('admin.dashboard');
     })->name('admin.index');
