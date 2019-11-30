@@ -12,7 +12,7 @@
             <th>Nombre del Platillo</th>
             <th>Precio</th>
             <th>Descripcion</th>
-            <th>Imagen</th>
+            <th>Imagen Platillo</th>
             <th>Fecha</th>
             <th>Modificar</th>
             <th>Eliminar</th>
@@ -22,7 +22,9 @@
     <tbody>
         <tr>
             @foreach ($menu_platillos as $menu_platillo)
-            <td>{{$menu_platillo->categoria->nombre_categoria}}</td>
+            <td>{{$menu_platillo->categoria->nombre_categoria}}<br>
+                <img style="width:85px; height:85px;" src="{{asset('imag/'.$menu_platillo->categoria->imagen)}}">
+            </td>
             <td>{{$menu_platillo->nombre_platillo}}</td>
             <td>{{$menu_platillo->precio_platillo}}</td>
             <td>{{$menu_platillo->descripcion_platillo}}</td>
