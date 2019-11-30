@@ -62,22 +62,7 @@
     var value_without_space = $.trim(value);
    });
 
-    //------FORMULARIO A VALIDAR CON JQUERY
-    $('#mesas').validate({ // initialize the plugin
-    	rules: {
-    		numero_mesa: {
-    			required: true,
-    			digits: true
-    		},
-    		descripcion_mesa:{
-    			required: true
-    		}
-    	},
-    	errorPlacement: function(){
-    		return false;
-    	}
-    });
-});
+
 
 	function soloLetras(e){
 		key = e.keyCode || e.which;
@@ -125,10 +110,10 @@
 		<form method="POST" action="{{route('mesas.store')}}" id="mesas">
 			{{csrf_field()}}
 			<label for="numero_mesa">Numero Mesa</label>
-			<input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa')}}" required title="Ingreas un numero de mesa" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="2" minlength="2">
+			<input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa')}}" required title="Ingreas un numero de mesa" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="2" minlength="1">
 			<br>
 			<label for="descripcion_mesa">Descripcion Mesa</label>
-			<input type="text" name="descripcion_mesa" id="descripcion_mesa" value="{{old('descripcion_mesa')}}" required title="Agregue descripcion de la mesa" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="38" minlength="38">
+			<input type="text" name="descripcion_mesa" id="descripcion_mesa" value="{{old('descripcion_mesa')}}" required title="Agregue descripcion de la mesa" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="38">
 			<br>
 			<button type="submit">GUARDAR</button>
 		</form>

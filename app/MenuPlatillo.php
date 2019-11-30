@@ -12,5 +12,8 @@ class MenuPlatillo extends Model
     public function categoria(){
     	return	$this->belongsTo(CategoriaPlatillo::class);
     }
+    public function detalle_ordens(){
+    	return	$this->hasMany(MenuPlatillo::class);
+    }
 
 }
