@@ -28,6 +28,11 @@ Route::resource('catplatillo','CategoriaPlatilloController');
 Route::post('alta_catplatillo','CategoriaPlatilloController@store')->name('alta_catplatillo');
 Route::get('/eliminar_catplatillo/{id}','CategoriaPlatilloController@eliminar');
 
+Route::resource('checador','ChecadorEmpleadoController');
+Route::post('altacheck','ChecadorEmpleadoController@store')->name('altacheck');
+Route::get('/modificarchecador/{id}','ChecadorEmpleadoController@edit');
+Route::POST('modificachecador','ChecadorEmpleadoController@update')->name('modificachecador') ;
+
 
 
 
