@@ -1,158 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+	<title>CORTE</title>
+	    <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
   rel = "stylesheet">
   <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
   <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-
-   <link rel="stylesheet" href="{{asset('datatables/bootstrap.css')}}">
-   <link rel="stylesheet" href="{{asset('datatables/bootstrap4.min.css')}}">
-   <link rel="stylesheet" href="{{asset('datatables/css/jquery.dataTables.min.css')}}">
-   <link rel="stylesheet" href="{{asset('datatables/css/estilos.css')}}">
-
   <script type="text/javascript">
- $(document).ready(function(){
-	var total_venta=0;
-	$(".total").each(function(){
-		total_venta+=parseInt($(this).html()) || 0;
+  	$(document).ready(function(){
+ 	saldo_inicial=parseInt($("#saldo_inicial").val());
+ 	monto_cobrado=parseInt($("#monto_cobrado").val());
+ 	$("#total_diferencia").val(monto_cobrado);
+ 	total_en_caja = (saldo_inicial+monto_cobrado); 
+  	$("#total_en_caja").val(total_en_caja);
+
+
+  	$("#cantidad_efectivo").keyup(function(){
+			total_efectivo=parseInt($("#total_efectivo").val());
+		 	cantidad_efectivo=parseInt($("#cantidad_efectivo").val());
+		 	diferencia_efectivo = (total_efectivo-cantidad_efectivo); 
+		  	$("#diferencia_efectivo").val(diferencia_efectivo);
+
+		  	if ($("#cantidad_efectivo").val().length > 0  &&   $("#cantidad_tarjeta").val().length > 0 ) {
+        		suma = (cantidad_efectivo + parseInt($("#cantidad_tarjeta").val()));
+        		// alert(suma);
+		  		monto_cobrado = parseInt($("#monto_cobrado").val());
+		  		// alert(monto_cobrado);
+        		resta = (monto_cobrado - suma);
+        		// alert(resta);
+        		$("#total_diferencia").val(resta);
+        	}
+
+		  	// monto_cobrado = parseInt($("#monto_cobrado").val());
+     //    	resta = (monto_cobrado - cantidad_efectivo);
+     //    	$("#total_diferencia").val(resta);
+		  	if( $("#cantidad_efectivo").val().length <= 0 ) {
+           		$("#diferencia_efectivo").val("0");
+           		$("#total_diferencia").val(monto_cobrado);
+        	}
+
+
 	});
-	$("#total").html('<b>'+total_venta+'</b>');
 
-	$('#a1').DataTable( {
-        "lengthMenu": [4],
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'copyHtml5',
-                title: 'CORTE DE CAJA' + '{{$date}}',
-                exportOptions: {
-                    columns: [ 0,':visible' ]
-                }
-            },
-            {
-                extend: 'excelHtml5',
-                title: 'CORTE DE CAJA' + '{{$date}}',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
+  	// $("#cantidad_efectivo").focusout(function() {
+  	// 		alert($("#total_diferencia").val());
+   //  });
 
-            {
-                extend: 'pdfHtml5',
-                title: 'CORTE DE CAJA' + '{{$date}}',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'print',
-                title: 'CORTE DE CAJA' + '{{$date}}',
-                exportOptions: {
-                    columns: [0, ':visible' ]
-                }
-            },
-            'colvis'
-        ],
-        "language": {
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",  
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],  
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior",
-        },
-        "buttons":{
-            "copy" : 'Copiar',
-            "csv" : 'Exportar a CSV',
-            "print" : 'Imprimir',
-            copyTitle: 'Los datos fueron copiados',
-            copySuccess: {
-                _: '%d lineas copiadas',
-                1: '1 línea copiada'
-        },
-            "colvis" : 'Filtrar Columnas'
 
-        }
+  	$("#cantidad_tarjeta").keyup(function(){
+			total_tarjeta=parseInt($("#total_tarjeta").val());			
+		 	cantidad_tarjeta=parseInt($("#cantidad_tarjeta").val());
+		 	diferencia_tarjeta = (total_tarjeta-cantidad_tarjeta); 
+		  	$("#diferencia_tarjeta").val(diferencia_tarjeta);
 
-        }
-    } );
- });
+		  	if ($("#cantidad_efectivo").val().length > 0  &&   $("#cantidad_tarjeta").val().length > 0 ) {
+        		suma = (cantidad_tarjeta + parseInt($("#cantidad_efectivo").val()));
+        		// alert(suma);
+		  		monto_cobrado = parseInt($("#monto_cobrado").val());
+		  		// alert(monto_cobrado);
+        		resta = (monto_cobrado - suma);
+        		// alert(resta);
+        		$("#total_diferencia").val(resta);
+        	}
+
+		  	// monto_cobrado = parseInt($("#monto_cobrado").val());
+     //    	resta = (monto_cobrado - cantidad_tarjeta);
+     //    	$("#total_diferencia").val(resta);
+        	if( $("#cantidad_tarjeta").val().length <= 0 ) {
+           		$("#diferencia_tarjeta").val("0");
+           		$("#total_diferencia").val(monto_cobrado);
+        	}
+
+	  	});
+
+  	});
   </script>
 </head>
 <body>
-<center>
-<H1>CORTE DE CAJA</H1>
-<div class="container">
-<table border="4" id="a1" class="table table-striped table-bordered" style="width:100%" >
+<CENTER>
+	<h1>CORTE DE CAJA</h1>
+	<form method="POST" action="{{route('reporte.corte')}}">
+		{{csrf_field()}}
+	<table border="4" style="width:80%">
+		<tbody>
+			<tr>
+				<td>CORTE # <input type="text" name="num_corte" id="num_corte" value="CDR00000{{$num_corte}}" readonly></td>
+
+				<td>FECHA:<input type="text" name="fecha_corte" value="{{$date}}" readonly></td>
+			</tr>
+			<tr>
+				<td>SALDO INICIAL<input type="text"  name="saldo_inicial" id="saldo_inicial" readonly value="{{$saldo_inicial}}"></td>
+
+				<td  rowspan="4">
+				TOTAL DIFERENCIA<input type="text" name="total_diferencia" id="total_diferencia" readonly></td>
+			</tr>
+			<tr>
+				<td>MONTO COBRADO<input type="text" name="monto_cobrado" id="monto_cobrado" value="{{$monto_cobrado}}" readonly></td>
+			</tr>
+			<tr>
+				<td>TOTAL EN CAJA<input type="text" name="total_en_caja" id="total_en_caja" readonly></td>
+			</tr>	
+	    </tbody>
+	</table><br>
+	<table border="4"  style="width:80%">
 		<thead>
-		<tr>
-			<th colspan="6" align="center">CORTE DE CAJA</th>
-		</tr>
-		<tr>
-			<th><b>FOLIO VENTA</b></th>
-			<th><b>FOLIO ORDEN</b></th>
-			<th><b>TIPO PAGO</b></th>
-			<th><b>PROPINA</b></th>
-			<th><b>FECHA</b></th>
-			<th><b>IMPORTE</b></th>
-		</tr>
+			<tr>
+				<th><b>DETALLES VENTAS</b></th>
+				<th><b>TIPO PAGO</b></th>
+				<th><b>MONTO COBRADO</b></th>
+				<th><b>MONTO CONTADO</b></th>
+				<th><b>DIFERENCIA</b></th>
+			</tr>
 		</thead>
 		<tbody>
-		@foreach($ventas as $venta)
-		<tr>
-			<td>000{{$venta->folio_venta}}</td>
-			<td>000{{$venta->orden->orden->folio_orden}}</td>
-			@if($venta->tipo_de_pago == 0)
-				<td>Efectivo</td>
-			@else
-				@if($venta->tipo_de_pago == 1)
-					<td>Tarjeta</td>
-				@endif
-			@endif
-			<td>{{$venta->propina}}</td>
-			<td>{{$venta->created_at}}</td>
-			<td id="total_venta" class="total">{{$venta->total_venta}}</td>
-		</tr>
-		@endforeach
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td align="right">TOTAL:</td>
-			<td colspan="2" id="total"></td>
-		</tr>
-	</tbody>
+			<tr>
+				<td align="center"><button><a href="{{route('modulo.detalleVentasEfectivo')}}">VENTAS EN EFECTIVO</a></button></td>
+				<td>EFECTIVO</td>
+				<td><input type="text" name="total_efectivo" readonly value="{{$total_efectivo}}" id="total_efectivo"></td>
+				<td><input type="text" name="cantidad_efectivo" id="cantidad_efectivo" placeholder="Ingresa cantidad total"></td>
+				<td><input type="text" name="diferencia_efectivo" id="diferencia_efectivo" readonly></td>
+			</tr>
+			<tr>
+				<td align="center"><button>VENTAS EN TARJETA</button></td>
+				<td>TARJETA</td>
+				<td><input type="text" name="total_tarjeta" readonly value="{{$total_tarjeta}}" id="total_tarjeta" ></td>
+				<td><input type="text" name="cantidad_tarjeta" placeholder="ingrese total de baucher" id="cantidad_tarjeta" id="cantidad_tarjeta"></td>
+				<td><input type="text" name="diferencia_tarjeta" id="diferencia_tarjeta" readonly></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="5"><button type="submit">REALIZAR CORTE</button></td>
+			</tr>
+		</tbody>
 	</table>
-
-</div>
-</center>
-<script src="{{{ asset('datatables/js/jquery-3.3.1.js')}}}"></script>
-<script src="{{{ asset('datatables/js/jquery.dataTables.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/dataTables.bootstrap4.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/dataTables.buttons.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/jszip.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/pdfmake.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/vfs_fonts.js')}}}"></script>
-<script src="{{{ asset('datatables/js/buttons.html5.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/buttons.print.min.js')}}}"></script>
-<script src="{{{ asset('datatables/js/buttons.colVis.min.js')}}}"></script>
+	</form>
+</CENTER>
 </body>
 </html>

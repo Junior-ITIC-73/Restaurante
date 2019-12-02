@@ -15,12 +15,14 @@ class CorteController extends Controller
      */
     public function index()
     {
-         
-        $date = Carbon::now(); 
-        $date = $date->format('Y-m-d');    
-
-        $ventas = Venta::all();
-        return view("Modulos.corte",compact('ventas','date'));
+       $num_corte = 1;
+       $saldo_inicial=2500;
+       $monto_cobrado = Venta::sum('total_venta');
+       $total_efectivo= Venta::where('tipo_de_pago','0')->sum('total_venta');
+       $total_tarjeta= Venta::where('tipo_de_pago','1')->sum('total_venta');
+       $date = Carbon::now(); 
+       $date = $date->format('Y-m-d');     
+       return view('Modulos.corte',compact('date','num_corte','saldo_inicial','monto_cobrado','total_efectivo','total_tarjeta'));
     }
 
     /**
@@ -87,5 +89,31 @@ class CorteController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function detalleVentas()
+    {
+        $date = Carbon::now(); 
+        $date = $date->format('Y-m-d');    
+        $ventas = Venta::all()->where('tipo_de_pago','0');
+        return view("Modulos.detallesVentasEfectivo",compact('ventas','date'));
+    }
+    public function reporte(Request $request){
+
+       $num_corte = $request['num_corte'];
+       $fecha_corte = $request['fecha_corte'];
+       $saldo_inicial = $request['saldo_inicial'];
+       $total_diferencia = $request['total_diferencia'];
+       $monto_cobrado = $request['monto_cobrado'];
+       $total_en_caja = $request['total_en_caja'];
+
+       $total_efectivo = $request['total_efectivo'];
+       $cantidad_efectivo = $request['cantidad_efectivo'];
+       $diferencia_efectivo = $request['diferencia_efectivo'];
+
+       $total_tarjeta = $request['total_tarjeta'];
+       $cantidad_tarjeta = $request['cantidad_tarjeta'];
+       $diferencia_tarjeta = $request['diferencia_tarjeta'];
+
+       return view('reportes.cortePDF',compact('num_corte','fecha_corte','saldo_inicial','total_diferencia','monto_cobrado','total_en_caja','total_efectivo','cantidad_efectivo','diferencia_efectivo','total_tarjeta','cantidad_tarjeta','diferencia_tarjeta'));
     }
 }
