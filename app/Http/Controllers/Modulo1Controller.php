@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\aAuth;
 use App\modulo1;
 use App\CategoriaPlatillo;
 use App\MenuPlatillo;
@@ -18,9 +20,10 @@ class Modulo1Controller extends Controller
     {   
         // $categorias = CategoriaPlatillo::where($request->categoria_id);
         // return $categorias;
+        $users = User::all();
         $categorias = CategoriaPlatillo::all();
         $menus = MenuPlatillo::all();
-        return view('Modulos.ventaModulo',compact('categorias','menus'));
+        return view('Modulos.ventaModulo',compact('categorias','menus','users'));
     }
 
       public function getMenu(Request $request, $id){
