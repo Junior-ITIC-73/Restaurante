@@ -14,19 +14,21 @@ class Modulo1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()//Request $request)
-    {
-        //$id = $request->categoria_id;
+    public function index()
+    {   
+        // $categorias = CategoriaPlatillo::where($request->categoria_id);
+        // return $categorias;
         $categorias = CategoriaPlatillo::all();
-        //return $categorias;
         $menus = MenuPlatillo::all();
-        //return $platillos;
-        // $pruebas = CategoriaProducto::all();
-        // $answers = CategoriaProducto::find($request->categoria_id);
-        //return $answer;
-        //$id = CategoriaProducto::find();
-        //return CategoriaPlatillo::where('categoria_id', $id)->get();
         return view('Modulos.ventaModulo',compact('categorias','menus'));
+    }
+
+      public function getMenu(Request $request, $id){
+
+        if($request->ajax()){
+            $menus = MenuPlatillo::menus($id);
+            return response()->json($menus);
+        }
     }
 
     /** 

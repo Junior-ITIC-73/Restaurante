@@ -18,7 +18,7 @@ class AddCategoriaIdToMenuPlatillos extends Migration
             $table->foreign('categoria_id')->references('id')->on('categoria_platillos');
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

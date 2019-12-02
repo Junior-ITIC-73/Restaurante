@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div class="container">
+		<form name="formularioventa" method="POST" action="{{url('realizarventa')}}">
 		<div class="row" align="center">
 			<div class="col-md-12"><p>Realizar venta.... ARBOLEDA RESTAURANTE</p></div>
 		</div>
@@ -16,7 +17,7 @@
 			<div class="col-md-6"><p>Primera seccion</p>
 				<div class="form-group ">
 	                <label  class="control-label">Seleccione Categoria</label>
-	                    <select id="categoria_id"   name="categoria_id"  class="form-control round" onclick="return obtenerId();" alt="1" >
+	                    <select id="categorias_1"   name="id"  class="form-control round" onclick="return obtenerId();" alt="1" >
 	                    	<option value="*">Selecciona Categoria</option>   	
 	                        @foreach($categorias as $categoria)         
 	                        <option value="{{ $categoria->id }}" >{{ $categoria->nombre_categoria }}</option>
@@ -31,24 +32,29 @@
 							<script type="text/javascript">
 					            function obtenerId(){
 					                var texto;
-					                var btn1 = document.getElementById('categoria_id').value;
+					                var btn1 = document.getElementById('categorias_1').value;
 			                		document.getElementById("info").innerHTML = btn1;
 					               }  	               
 					        </script>
-					        <script type="text/javascript">
+							<script type="text/javascript">
 								$(document).ready(function(){
-								  $("#categoria_id").change(function(){
-								    
-								  });	
-								});
-							</script>		
+						    		$("#categorias_1").change(function(event){
+						    			$.get("menus/"+event.target.value+"",function(response,menu){
+						    				$("#menus_1").empty();
+						    				for(i=0;i<response.length; i++){
+						    					$("#menus_1").append("<option value='"+response[i].id+"'>"+response[i].nombre_platillo+"</option>");
+						    				}
+						    			});
+						    		});
+						    	});
+							</script>
 			</div>
 			<div class="col-md-6"><p>Segunda seccion</p>
 				
 				<table border="1">
 					
 				<tr>
-					<th>Encabezados de ventas</th>
+					<th>Encabezados de ventas</th>	
 				</tr>	
 				</table>
 			</div>
@@ -56,19 +62,25 @@
 		<div class="row" align="center">
 			<div class="col-md-12"><p>Tercera seccion</p>
             	<div class="col-md-12">
-                <label class="floating-label" for="inputMunicipality">{{ __('Categorias') }}</label>
-                <select id="categoria_id" name="categoria_id" class="form-control round"></select>
+                <label class="floating-label" for="inputMenus">{{ __('Menu') }}</label>
+                <select id="menus_1" name="id" class="form-control round">
+                	<option value="">Selecciona un menu</option>
+                </select>
               	</div>
 					<table border="1">
 						<tr>
 							<th>Encabezados Tipos de Categorias</th>
 						</tr>	
-					</table>
+					</table> 	
 					<br><br>
 						<div id="info"></div>
-					        <input type="submit">Obtener id de respuesta
+					        
 			</div>
 		</div>
+		<button id="sales" type="submit" class="btn btn-primary btn-block registro" >
+  			Agregar
+        </button>
+		</form>
 	</div>
 </body>
 </html>

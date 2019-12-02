@@ -89,11 +89,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('empleado', 'EmpleadoController');
     Route::get('/empleado/{id}','EmpleadoController@destroy');
 
-    Route::resource('menuplatillo.categoriaPlatillo', 'MenuCategoriaController');
 
     //Modulo de ventas
     Route::resource('realizarventa', 'Modulo1controller');
-    
+    //Recursos anidados
+    Route::get('menus/{id}', 'Modulo1Controller@getMenu');
+
     Route::get('/admin', function(){
         return view('admin.dashboard');
     })->name('admin.index');
