@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+    <title></title>
+    <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
   rel = "stylesheet">
   <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
   <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
@@ -16,13 +16,14 @@
 
   <script type="text/javascript">
  $(document).ready(function(){
-	var total_venta=0;
-	$(".total").each(function(){
-		total_venta+=parseInt($(this).html()) || 0;
-	});
-	$("#total").html('<b>'+total_venta+'</b>');
+    var total_venta=0;
+    $(".total").each(function(){
+        total_venta+=parseInt($(this).html()) || 0;
+    });
+    $("#total").html('<b>'+total_venta+'</b>');
 
-	$('#a1').DataTable( {
+    $('#a1').DataTable( {
+         "searching": false,
         "lengthMenu": [4],
         dom: 'Bfrtip',
         buttons: [
@@ -97,46 +98,43 @@
 </head>
 <body>
 <center>
-<H1>DETALLES</H1>
+<H1>DETALLES VENTAS TARJETA</H1>
 <div class="container">
 <table border="4" id="a1" class="table table-striped table-bordered" style="width:100%" >
-		<thead>
-		<tr align="center">
-			<th colspan="5" > VENTAS DEL DIA <b>{{$date}}</b></th>
-		</tr>
-		<tr>
-			<th><b>FOLIO VENTA</b></th>
-			<th><b>TIPO PAGO</b></th>
-			<th><b>PROPINA</b></th>
-			<th><b>FECHA</b></th>
-			<th><b>IMPORTE</b></th>
-		</tr>
-		</thead>
-		<tbody>
-		@foreach($ventas as $venta)
-		<tr>
-			<td>000{{$venta->folio_venta}}</td>
-			@if($venta->tipo_de_pago == 0)
-				<td>Efectivo</td>
-			@else
-				@if($venta->tipo_de_pago == 1)
-					<td>Tarjeta</td>
-				@endif
-			@endif
-			<td>{{$venta->propina}}</td>
-			<td>{{$venta->created_at}}</td>
-			<td id="total_venta" class="total">{{$venta->total_venta}}</td>
-		</tr>
-		@endforeach
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td align="right">TOTAL:</td>
-			<td colspan="2" id="total"></td>
-		</tr>
-	</tbody>
-	</table>
+        <thead>
+        <tr align="center">
+            <th colspan="5" > VENTAS DEL DIA <b>{{$date}}</b></th>
+        </tr>
+        <tr>
+            <th><b>FOLIO VENTA</b></th>
+            <th><b>TIPO PAGO</b></th>
+            <th><b>PROPINA</b></th>
+            <th><b>FECHA</b></th>
+            <th><b>IMPORTE</b></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($ventas as $venta)
+        <tr>
+            <td>000{{$venta->folio_venta}}</td>
+            <td>TARJETA</td>
+            <td>{{$venta->propina}}</td>
+            <td>{{$venta->created_at}}</td>
+            <td id="total_venta" class="total">{{$venta->total_venta}}</td>
+        </tr>
+        @endforeach
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td align="right">TOTAL:</td>
+            <td colspan="2" id="total"></td>
+        </tr>
+    </tfoot>
+    </table>
 
 </div>
 </center>

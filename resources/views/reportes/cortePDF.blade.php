@@ -96,20 +96,5 @@
 </div>
 </center>
 
-{{-- <center>
-
-{{$num_corte}}<br>
-{{$fecha_corte}}<br>
-{{$saldo_inicial}}<br>
-{{$total_diferencia}}<br>
-{{$monto_cobrado}}<br>
-{{$total_en_caja}}<br>
-{{$total_efectivo}}<br>
-{{$cantidad_efectivo}}<br>
-{{$diferencia_efectivo}}<br>
-{{$total_tarjeta}}<br>
-{{$cantidad_tarjeta}}<br>
-{{$diferencia_tarjeta}}<br>
-</center> --}}
 </body>
 </html>

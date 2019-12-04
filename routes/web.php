@@ -143,7 +143,9 @@ Route::delete("menuplatillo/{menu_platillo}/delete",'MenuPlatilloController@dest
 
 // ---------------------RUTAS DE CORTE----------------------------------//
 
-Route::get("detalleVentasEfectivo","CorteController@detalleVentas")->name('modulo.detalleVentasEfectivo');
+Route::get("detalleVentasEfectivo","CorteController@detallesVentasEfectivo")->name('modulo.detalleVentasEfectivo');
+
+Route::get("detalleVentasTarjeta","CorteController@detalleVentasTarjeta")->name('modulo.detalleVentasTarjeta');
 
 Route::get("corteCaja","CorteController@index")->name('modulo.corteCaja');
 

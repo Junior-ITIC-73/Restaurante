@@ -14,15 +14,17 @@ class CorteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-       $num_corte = 1;
-       $saldo_inicial=2500;
-       $monto_cobrado = Venta::sum('total_venta');
-       $total_efectivo= Venta::where('tipo_de_pago','0')->sum('total_venta');
-       $total_tarjeta= Venta::where('tipo_de_pago','1')->sum('total_venta');
+    {   
+        //obtengo fecha de zona horaria mexico
        $date = Carbon::now(); 
-       $date = $date->format('Y-m-d');     
-       return view('Modulos.corte',compact('date','num_corte','saldo_inicial','monto_cobrado','total_efectivo','total_tarjeta'));
+       $date = $date->format('Y-m-d');//asigno formato  
+
+       $num_corte = 1;
+       $saldo_inicial=1000;//todo los dias dejan 1000 pesos
+       $monto_cobrado = Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
+       $total_efectivo= Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
+       $total_tarjeta= Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
+       return view('Modulos.corte.corte',compact('date','num_corte','saldo_inicial','monto_cobrado','total_efectivo','total_tarjeta'));//le mando todas las consultas
     }
 
     /**
@@ -90,12 +92,23 @@ class CorteController extends Controller
     {
         //
     }
-    public function detalleVentas()
+    public function detallesVentasEfectivo()
     {
+        
         $date = Carbon::now(); 
         $date = $date->format('Y-m-d');    
         $ventas = Venta::all()->where('tipo_de_pago','0');
-        return view("Modulos.detallesVentasEfectivo",compact('ventas','date'));
+        return view("Modulos.corte.detallesVentasEfectivo",compact('ventas','date'));
+
+    }
+    public function detalleVentasTarjeta()
+    {
+        
+        $date = Carbon::now(); 
+        $date = $date->format('Y-m-d');    
+        $ventas = Venta::all()->where('tipo_de_pago','1');
+        return view("Modulos.corte.detallesVentasTarjeta",compact('ventas','date'));
+
     }
     public function reporte(Request $request){
 
