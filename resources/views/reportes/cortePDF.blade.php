@@ -2,40 +2,72 @@
 <html>
 <head>
 	<title></title>
-	 <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
-  rel = "stylesheet">
-  <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
-  <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script type="text/javascript">
-		$(document).ready(function(){
-			cantidad_efectivo=parseInt($("#cantidad_efectivo").html());
-			cantidad_tarjeta=parseInt($("#cantidad_tarjeta").html());
-			suma = (cantidad_tarjeta + cantidad_tarjeta);
-			$("#total_cantidad_contada").html(suma);
-		});
-	</script>
+	<style type="text/css">
+		 @page {
+                margin: 100px 25px;
+                align-content: center;
+            }
+		header {
+                position: fixed;
+                top: -60px;
+                left: 0px;
+                right: 0px;
+                height: 50px;
+
+                /** Extra personal styles **/
+                background-color:  #0F6766;
+                color: white;
+                text-align: center;
+                line-height: 35px;
+            }
+		footer {
+                position: fixed; 
+                bottom: -60px; 
+                left: 0px; 
+                right: 0px;
+                height: 50px; 
+
+                /** Extra personal styles **/
+                background-color: #0F6766;
+                color: white;
+                text-align: center;
+                line-height: 35px;
+            }
+
+	</style>
 </head>
 <body>
+	   <header>
+           CORTE DE CAJA
+        </header>
 <center>
-<div class="row">
-	<div class="col-md-4">
-		<img src="{{asset('/img/logo.png')}}"  style="width:80%">
-	</div>
-	<div class="col-md-4"><br><br><br>
-		<b>ARBOLEDA RESTAURANTE</b><br>
-		<b>TELEFONO : </b> 7223423640<br>
-		<b>PAGINA WEB : </b> www.arboledarestaurante.com<br>
-		<b>CORREO : </b> arboleda@arboledarestaurante.com
-	</div>
 
-	<div class="col-md-4"><br><br>
-		<label style="background-color: #0F6766; width: 80%; color: #FFFFFF"  >NUMERO DE CORTE</label><br>
-		{{$num_corte}}<br>
-		<label style="background-color: #0F6766; width: 80%; color: #FFFFFF">FECHA DE CORTE</label><br>
-		{{$fecha_corte}}<br>
-	</div>
-</div><br>
+
+<table align="center">
+	<tr>
+		<td align="center">
+			<img src="https://drive.google.com/uc?id=1sUqoZlVzzcpzQz8IXSon7pJ_9ML0IUd1"style="width:35%">
+		</td>
+		<td align="center">
+			<b>ARBOLEDA RESTAURANTE</b><br>
+			<b>TELEFONO : </b> <br>7223423640<br>
+			<b>PAGINA WEB : </b><br> www.arboledarestaurante.com<br>
+			<b>CORREO : </b> <br>arboleda@arboledarestaurante.com
+		</td>
+		<td align="center">
+			<label style="background-color: #0F6766; width: 80%; color: #FFFFFF">NUMERO DE CORTE</label><br>
+			{{$num_corte}}<br>
+			<label style="background-color: #0F6766; width: 80%; color: #FFFFFF">FECHA DE CORTE</label><br>
+			{{$fecha_corte}}<br>
+		</td>
+	</tr>
+</table>
+
+<br><br><br><br>
+
+
+
+
 <div class="row">
 	<div class="col-lg-12">
 	    <label style="background-color: #0F6766; width: 90%; color: #FFFFFF">INGRESOS POR TIPO DE PAGO</label><br>
@@ -43,7 +75,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-12">
-		<table border="0" style="width: 90%">
+		<table border="0" style="width: 90%" align="center">
 			<tr  align="center">
 				<td><b>TIPO DE PAGO</b></td>
 				<td><b>MONTO COBRADO</b></td>
@@ -65,7 +97,7 @@
 			<tr  align="center">
 				<td><label style="background-color: #0F6766; width: 80%; color: #FFFFFF">ACUMULADOS</label></td>
 				<td  style="border-width: 1px;border:solid">{{$monto_cobrado}}</td>
-				<td id="total_cantidad_contada"  style="border-width: 1px;border:solid"></td>
+				<td id="suma"  style="border-width: 1px;border:solid">{{$suma}}</td>
 				<td style="border-width: 1px;border:solid">{{$total_diferencia}}</td>
 			</tr>
 			<tr  align="center">
@@ -86,15 +118,17 @@
 <br>
 <br>
 <br>
-<div class="row">
-	<div class="col-md-6">
-		<b>NOMBRE</b>________________________________________________
-	</div>
-	<div class="col-md-6">
+<br>
+		<b>NOMBRE</b>_______________________________________________
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<b>FIRMA</b>________________________________________________
-	</div>
-</div>
 </center>
-
+<footer>
+            Copyright &copy; ARBOLEDA RESTAURANTE
+</footer>
 </body>
 </html>

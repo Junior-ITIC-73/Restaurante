@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Venta;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CorteController extends Controller
 {
@@ -97,8 +98,11 @@ class CorteController extends Controller
         
         $date = Carbon::now(); 
         $date = $date->format('Y-m-d');    
-        $ventas = Venta::all()->where('tipo_de_pago','0');
+        //consulta  mis ventas del dia de hoy donde las ventas sean en EFECTIVO
+        $ventas = Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->get();
+        
         return view("Modulos.corte.detallesVentasEfectivo",compact('ventas','date'));
+
 
     }
     public function detalleVentasTarjeta()
@@ -106,11 +110,14 @@ class CorteController extends Controller
         
         $date = Carbon::now(); 
         $date = $date->format('Y-m-d');    
-        $ventas = Venta::all()->where('tipo_de_pago','1');
+        //consulta  mis ventas del dia de hoy donde las ventas sean en de TARJETA
+        $ventas = Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->get();
+        
         return view("Modulos.corte.detallesVentasTarjeta",compact('ventas','date'));
 
     }
     public function reporte(Request $request){
+
 
        $num_corte = $request['num_corte'];
        $fecha_corte = $request['fecha_corte'];
@@ -127,6 +134,12 @@ class CorteController extends Controller
        $cantidad_tarjeta = $request['cantidad_tarjeta'];
        $diferencia_tarjeta = $request['diferencia_tarjeta'];
 
-       return view('reportes.cortePDF',compact('num_corte','fecha_corte','saldo_inicial','total_diferencia','monto_cobrado','total_en_caja','total_efectivo','cantidad_efectivo','diferencia_efectivo','total_tarjeta','cantidad_tarjeta','diferencia_tarjeta'));
+       $suma = ($cantidad_efectivo + $cantidad_tarjeta);
+
+
+       //CREACION DE REPORTE PDF
+        $pdf = PDF::loadView('reportes.cortePDF',compact('num_corte','fecha_corte','saldo_inicial','total_diferencia','monto_cobrado','total_en_caja','total_efectivo','cantidad_efectivo','diferencia_efectivo','total_tarjeta','cantidad_tarjeta','diferencia_tarjeta','suma'));
+
+        return $pdf->stream();
     }
 }

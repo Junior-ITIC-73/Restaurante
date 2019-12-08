@@ -22,14 +22,18 @@
   			//Calculo la diferencia de lo ingresado de efectivo y lo resto con total efectivo
 			total_efectivo=parseInt($("#total_efectivo").val());
 		 	cantidad_efectivo=parseInt($("#cantidad_efectivo").val());
-		 	diferencia_efectivo = (total_efectivo-cantidad_efectivo); 
-		  	$("#diferencia_efectivo").val(diferencia_efectivo);
+		 	diferencia_efectivo = (total_efectivo-cantidad_efectivo);
 
+		 	//cambio la diferencia_efectivo a positivo para indicar que le sobre dinero
+		 	positivo_diferencia_efectivo = -(diferencia_efectivo);
+		 	// alert(positivo_diferencia_efectivo);
+
+		  	$("#diferencia_efectivo").val(positivo_diferencia_efectivo);
 	  		 //cambia de color rojo o negro la cantidad de diferencia
-	  	    if (diferencia_efectivo < 0){
+	  	    if (diferencia_efectivo > 0){
     			$("#diferencia_efectivo").attr('style', 'color:#FF0000;');
     		}else{
-    			$("#diferencia_efectivo").attr('style', 'color:#000000;');
+    			$("#diferencia_efectivo").attr('style', 'color:#008f39;');
     		}
 
     		//si las 2 cantidades ya son introducidas  realizo la suma y la resta en  la diferencia total
@@ -37,12 +41,14 @@
         		suma = (cantidad_efectivo + parseInt($("#cantidad_tarjeta").val()));
 		  		monto_cobrado = parseInt($("#monto_cobrado").val());
         		resta = (monto_cobrado - suma);
-        		$("#total_diferencia").val(resta);
+
+        		negativo_resta = -(resta);
+        		$("#total_diferencia").val(negativo_resta);
         		//cambia de color rojo o negro la cantidad de diferencia
-	  			if(resta < 0){
+	  			if(resta > 0){
     				$("#total_diferencia").attr('style', 'color:#FF0000;');
     			}else{
-    				$("#total_diferencia").attr('style', 'color:#000000;');
+    				$("#total_diferencia").attr('style', 'color:#008f39;');
     			}
         	}
         	//si  borran la cantidad a  longitud 0 , regresa al cantidad original
@@ -60,14 +66,18 @@
 			total_tarjeta=parseInt($("#total_tarjeta").val());			
 		 	cantidad_tarjeta=parseInt($("#cantidad_tarjeta").val());
 		 	diferencia_tarjeta = (total_tarjeta-cantidad_tarjeta); 
-		  	$("#diferencia_tarjeta").val(diferencia_tarjeta);
+		  
+		  	//cambio la diferencia_tarjeta a positivo para indicar que le sobre dinero
+		 	positivo_diferencia_tarjeta = -(diferencia_tarjeta);
+		 	// alert(positivo_diferencia_tarjeta);
 
+		 	$("#diferencia_tarjeta").val(positivo_diferencia_tarjeta);
 
 		  	//cambia de color rojo o negro la cantidad de diferencia
-	  		if(diferencia_tarjeta < 0){
+	  		if(diferencia_tarjeta > 0){
     			$("#diferencia_tarjeta").attr('style', 'color:#FF0000;');
     		}else{
-    			$("#diferencia_tarjeta").attr('style', 'color:#000000;');
+    			$("#diferencia_tarjeta").attr('style', 'color:#008f39;');
     		}
 
 
@@ -75,13 +85,18 @@
         		suma = (cantidad_tarjeta + parseInt($("#cantidad_efectivo").val()));
 		  		monto_cobrado = parseInt($("#monto_cobrado").val());
         		resta = (monto_cobrado - suma);
-        		$("#total_diferencia").val(resta);
+        		negativo_resta = -(resta);
+        		$("#total_diferencia").val(negativo_resta);
+
         		//cambia de color rojo o negro la cantidad de diferencia
-	  			if(resta < 0){
+	  			if(resta > 0){
     				$("#total_diferencia").attr('style', 'color:#FF0000;');
     			}else{
-    				$("#total_diferencia").attr('style', 'color:#000000;');
+    				$("#total_diferencia").attr('style', 'color:#008f39;');
     			}
+
+
+
         	}
 
         	if( $("#cantidad_tarjeta").val().length <= 0 ) {
@@ -122,28 +137,28 @@
 	<h1>CORTE DE CAJA</h1>
 	<form method="POST" action="{{route('reporte.corte')}}">
 		{{csrf_field()}}
-	<table border="4" style="width:80%">
+	<table border="4" style="width:60%">
 		<tbody>
 			<tr>
-				<td>CORTE # <input type="text" name="num_corte" id="num_corte" value="CDR00000{{$num_corte}}" readonly></td>
+				<td><b>CORTE #</b> <input type="text" name="num_corte" id="num_corte" value="CDR00000{{$num_corte}}" readonly></td>
 
-				<td>FECHA:<input type="text" name="fecha_corte" value="{{$date}}" readonly></td>
+				<td><b>FECHA:</b><input type="text" name="fecha_corte" value="{{$date}}" readonly></td>
 			</tr>
 			<tr>
-				<td>SALDO INICIAL<input type="text"  name="saldo_inicial" id="saldo_inicial" readonly value="{{$saldo_inicial}}"></td>
+				<td><b>SALDO INICIAL</b><input type="text"  name="saldo_inicial" id="saldo_inicial" readonly value="{{$saldo_inicial}}"></td>
 
-				<td  rowspan="4">
-				TOTAL DIFERENCIA<input type="text" name="total_diferencia" id="total_diferencia" readonly></td>
+				<td  rowspan="4" align="center">
+				<b>TOTAL DIFERENCIA</b><input type="text" name="total_diferencia" id="total_diferencia" readonly></td>
 			</tr>
 			<tr>
-				<td>MONTO COBRADO<input type="text" name="monto_cobrado" id="monto_cobrado" value="{{$monto_cobrado}}" readonly></td>
+				<td><b>MONTO COBRADO</b><input type="text" name="monto_cobrado" id="monto_cobrado" value="{{$monto_cobrado}}" readonly></td>
 			</tr>
 			<tr>
-				<td>TOTAL EN CAJA<input type="text" name="total_en_caja" id="total_en_caja" readonly></td>
+				<td><b>TOTAL EN CAJA<b><input type="text" name="total_en_caja" id="total_en_caja" readonly></td>
 			</tr>	
 	    </tbody>
 	</table><br>
-	<table border="4"  style="width:80%">
+	<table border="4"  style="width:60%">
 		<thead>
 			<tr>
 				<th><b>DETALLES VENTAS</b></th>
@@ -158,14 +173,14 @@
 				<td align="center"><button><a href="{{route('modulo.detalleVentasEfectivo')}}">MAS DETALLES</a></button></td>
 				<td>EFECTIVO</td>
 				<td><input type="text" name="total_efectivo" readonly value="{{$total_efectivo}}" id="total_efectivo"></td>
-				<td><input type="text" name="cantidad_efectivo" id="cantidad_efectivo" placeholder="Ingresa cantidad total" onkeypress="return solonumeros(event)" onpaste="return false;"></td>
+				<td><input type="text" name="cantidad_efectivo" id="cantidad_efectivo" placeholder="Ingresa cantidad total" onkeypress="return solonumeros(event)" onpaste="return false;" style="border-color: blue;" required></td>
 				<td><input type="text" name="diferencia_efectivo" id="diferencia_efectivo" readonly></td>
 			</tr>
 			<tr>
 				<td align="center"><button><a href="{{route('modulo.detalleVentasTarjeta')}}">MAS DETALLES</a></button></td>
 				<td>TARJETA</td>
 				<td><input type="text" name="total_tarjeta" readonly value="{{$total_tarjeta}}" id="total_tarjeta" ></td>
-				<td><input type="text" name="cantidad_tarjeta" placeholder="ingrese total de baucher" id="cantidad_tarjeta" id="cantidad_tarjeta" onkeypress="return solonumeros(event)" onpaste="return false;"></td>
+				<td><input type="text" name="cantidad_tarjeta" placeholder="ingrese total de baucher" id="cantidad_tarjeta" id="cantidad_tarjeta" onkeypress="return solonumeros(event)" onpaste="return false;"  style="border-color: blue;" required></td>
 				<td><input type="text" name="diferencia_tarjeta" id="diferencia_tarjeta" readonly></td>
 			</tr>
 			<tr>
