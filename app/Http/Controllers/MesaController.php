@@ -92,4 +92,13 @@ class MesaController extends Controller
         $mesa->delete();
         return redirect()->route('mesas.index');
     }
+
+    public function menu(){
+        // $mesas = Mesa::whereBetween('numero_mesa', [4, 6])->get();
+        $mesas = Mesa::all();
+
+        // dd($mesas);
+        // Game::limit(30)->offset(30)->get();
+        return view('sistema.menuMesas',compact('mesas'));
+    }
 }

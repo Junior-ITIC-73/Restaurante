@@ -150,3 +150,13 @@ Route::get("detalleVentasTarjeta","CorteController@detalleVentasTarjeta")->name(
 Route::get("corteCaja","CorteController@index")->name('modulo.corteCaja');
 
 Route::post("reporte/corteCaja",'CorteController@reporte')->name('reporte.corte');
+
+
+////----------------------RUTAS PARA  EL MENU DE MESAS DISPONIBLES-------//
+Route::get('orden/menumesas','MesaController@menu')->name('sistema.menumesas');
+
+Route::get('sistema/carrito/{mesa}','OrdenController@index')->name('sistema.carrito');
+
+Route::post('sistema/realizarorden/{mesa}','OrdenController@ordenar')->name('realizar.orden');
+
+Route::post('sistema/terminar/{mesa}','OrdenController@terminar')->name('terminar.orden');

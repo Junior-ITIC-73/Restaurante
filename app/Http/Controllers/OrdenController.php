@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Orden;
+use App\Mesa;
 use Illuminate\Http\Request;
 
 class OrdenController extends Controller
@@ -12,9 +13,9 @@ class OrdenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Mesa $mesa)
     {
-        //
+        return  view('sistema.carrito',compact('mesa'));
     }
 
     /**
@@ -81,5 +82,20 @@ class OrdenController extends Controller
     public function destroy(Orden $orden)
     {
         //
+    }
+
+    public function ordenar(Mesa $mesa){
+
+        $mesa->disponible = 1;
+        $mesa->save();
+        return redirect()->route('sistema.menumesas');
+
+    }
+    public function terminar(Mesa $mesa){
+
+        $mesa->disponible = 0;
+        $mesa->save();
+        return redirect()->route('sistema.menumesas');
+
     }
 }
