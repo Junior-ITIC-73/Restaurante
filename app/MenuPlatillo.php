@@ -17,7 +17,5 @@ class MenuPlatillo extends Model
     	return	$this->hasMany(MenuPlatillo::class);
     }
 
-    public static function menus($id){
-    	return MenuPlatillo::where('categoria_id','=',$id)->get();
-    }
 }
+ 

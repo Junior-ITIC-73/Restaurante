@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\aAuth;
+use App\Auth;
 use App\modulo1;
 use App\CategoriaPlatillo;
 use App\MenuPlatillo;
+use App\Empleado;
+use App\Mesa;
+use App\Orden;
+use App\Venta;
 use Illuminate\Http\Request;
 
 class Modulo1Controller extends Controller
@@ -16,23 +20,98 @@ class Modulo1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)//Request $request)
     {   
-        // $categorias = CategoriaPlatillo::where($request->categoria_id);
-        // return $categorias;
-        $users = User::all();
-        $categorias = CategoriaPlatillo::all();
-        $menus = MenuPlatillo::all();
-        return view('Modulos.ventaModulo',compact('categorias','menus','users'));
+        // FUNCIONES DE AJAX
+        // $users = User::all();
+        // $categorias = CategoriaPlatillo::all();
+        // $menus = MenuPlatillo::all();
+        // $id = $request->categoria_id;
+        // $mennus = MenuPlatillo::where('categoria_id','=',$id)->get(); 
+        // return view('Modulos.ventaModulo',compact('categorias','menus','users','mennus')); 
+        //return $request->all(); 
+        //venta.blade.php
+         $categorias = CategoriaPlatillo::all();
+         $ventas = Venta::all();
+        // //return $categorias;
+        // $menus = MenuPlatillo::all();
+        // $empleados = Empleado::all();
+        // $mesas = Mesa::all();
+        // $usuarios = User::all();
+        // $ordenes= Orden::all();
+        //return($mesas);
+        //return $menus;
+        //return $menus;
+        //$id = $request->id;
+        //$menus = MenuPlatillo::where('categoria_id','=',$id)->get();
+
+        //return view('Modulos.venta',compact('categorias','empleados','mesas','usuarios','ordenes'));
+        //return view('Modulos.semaforo');
+        //return view('Modulos.carrito',compact('categorias','empleados'));
+
+        if ($request)
+        {
+            //trim() Elimina espacios en blanco al principio y al final
+            $query = trim($request->input('searchText'));
+
+            $ventas = Venta::where('folio_venta', 'LIKE', "%$query%")
+                ->paginate(5);
+
+            return view('Modulos.carroventas', [
+                'ventas'=>$ventas, 
+                'searchText'=>$query
+            ]);
+        }
+                //return view('Modulos.carroventas',compact('ventas'));
+
     }
+
+
+    // FUNCION PARA OBTENER LOS RESULTADOS CON LA PETICION AJAX 
 
       public function getMenu(Request $request, $id){
 
         if($request->ajax()){
-            $menus = MenuPlatillo::menus($id);
+            $menus = MenuPlatillo::where('categoria_id','=',$id)->get();
             return response()->json($menus);
         }
     }
+
+        public function getContenido(Request $request, $id){
+            $data = MenuPlatillo::where('id',"=",$id)->get();
+            return response()->json($data);
+        }
+
+    //     public function getCantidad(Request $request, $id){
+    //     if($request->ajax()){
+    //         $datas = MenuPlatillo::where('id',"=",$id)->get();
+    //         foreach ($datas as $data) {
+    //             $datashelp[$data->id]=$data->precio_platillo;
+    //         }
+    //         return response()->json($datashelp);
+    //     }
+    //   }
+
+        public function getContenido2(Request $request, $id){
+            if($request->ajax()){
+                $datas = MenuPlatillo::where('id',"=",$id)->get();
+                    foreach ($datas as $data) {
+                            $price[$data->id]=$data->precio_platillo;
+                         }
+                         return response()->json($price);
+                     }
+        }
+
+
+      // public function ajaxGrupos(Request $request){
+      //   if($request->ajax()){
+      //       $categorias = MenuPlatillo::where('categoria_id',$request->id)->get();
+      //       foreach ($categorias as $categoria) {
+      //           $categoriashelp[$categoria->id]=$categoria->nombre_platillo;
+      //       }
+      //       return response()->json($categoriashelp);
+      //   }
+      // }  
 
     /** 
      * Show the form for creating a new resource.
@@ -41,7 +120,11 @@ class Modulo1Controller extends Controller
      */
     public function create()
     {
-        //
+        $menus = MenuPlatillo::all();
+        $empleados = User::all();
+        $orders = Orden::all();
+        return view('Modulos.add',compact('menus','empleados','orders'));
+
     }
 
     /**
@@ -52,7 +135,13 @@ class Modulo1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all();
+        $orden = new Orden($request->all());
+        $orden->user_id = $request['user_id'];
+        $orden->mesa_id = $request['mesa_id'];
+        $orden->save();
+        dd($orden);
+        //return redirect('/realizarventa');
     }
 
     /**

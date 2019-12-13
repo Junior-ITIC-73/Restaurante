@@ -1,31 +1,206 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Modulo de ventas</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script>
+        window.onload = function () {
+            // Variables
+            let baseDeDatos = [
+                {
+                    id: 1,
+                    nombre: 'Patata',
+                    precio: 1,
+                    imagen: 'https://source.unsplash.com/random/500x500/?potato&sig=1'
+                },
+                {
+                    id: 2,
+                    nombre: 'Cebolla',
+                    precio: 1.2,
+                    imagen: 'https://source.unsplash.com/random/500x500/?onion&sig=2'
+                },
+                {
+                    id: 3,
+                    nombre: 'Calabacin',
+                    precio: 2.1,
+                    imagen: 'https://source.unsplash.com/random/500x500/?zucchini&sig=3'
+                },
+                {
+                    id: 4,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                },
+                {
+                    id: 5,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                },
+                {
+                    id: 6,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                },
+                {
+                    id: 7,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                },
+                {
+                    id: 8,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                },
+                {
+                    id: 9,
+                    nombre: 'Fresas',
+                    precio: 0.6,
+                    imagen: 'https://source.unsplash.com/random/500x500/?burrs&sig=4'
+                }
+
+
+            ]
+            let $items = document.querySelector('#items');
+            let carrito = [];
+            let total = 0;
+            let $carrito = document.querySelector('#carrito');
+            let $total = document.querySelector('#total');
+            // Funciones
+            function renderItems () {
+                for (let info of baseDeDatos) {
+                    // Estructura
+                    let miNodo = document.createElement('div');
+                    miNodo.classList.add('card', 'col-sm-4');
+                    // Body
+                    let miNodoCardBody = document.createElement('div');
+                    miNodoCardBody.classList.add('card-body');
+                    // Titulo
+                    let miNodoTitle = document.createElement('h5');
+                    miNodoTitle.classList.add('card-title');
+                    miNodoTitle.textContent = info['nombre'];
+                    // Imagen
+                    let miNodoImagen = document.createElement('img');
+                    miNodoImagen.classList.add('img-fluid');
+                    miNodoImagen.setAttribute('src', info['imagen']);
+                    // Precio
+                    let miNodoPrecio = document.createElement('p');
+                    miNodoPrecio.classList.add('card-text');
+                    miNodoPrecio.textContent = info['precio'] + '€';
+                    // Boton 
+                    let miNodoBoton = document.createElement('button');
+                    miNodoBoton.classList.add('btn', 'btn-primary');
+                    miNodoBoton.textContent = '+';
+                    miNodoBoton.setAttribute('marcador', info['id']);
+                    miNodoBoton.addEventListener('click', anyadirCarrito);
+                    // Insertamos
+                    miNodoCardBody.appendChild(miNodoImagen);
+                    miNodoCardBody.appendChild(miNodoTitle);
+                    miNodoCardBody.appendChild(miNodoPrecio);
+                    miNodoCardBody.appendChild(miNodoBoton);
+                    miNodo.appendChild(miNodoCardBody);
+                    $items.appendChild(miNodo);
+                }
+            }
+
+            function anyadirCarrito () {
+                // Anyadimos el Nodo a nuestro carrito
+                carrito.push(this.getAttribute('marcador'))
+                // Calculo el total
+                calcularTotal();
+                // Renderizamos el carrito 
+                renderizarCarrito();
+            }
+
+            function renderizarCarrito () {
+                // Vaciamos todo el html
+                $carrito.textContent = '';
+                // Quitamos los duplicados
+                let carritoSinDuplicados = [...new Set(carrito)];
+                // Generamos los Nodos a partir de carrito
+                carritoSinDuplicados.forEach(function (item, indice) {
+                    // Obtenemos el item que necesitamos de la variable base de datos
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    // Cuenta el número de veces que se repite el producto
+                    let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+                        return itemId === item ? total += 1 : total;
+                    }, 0);
+                    // Creamos el nodo del item del carrito
+                    let miNodo = document.createElement('li');
+                    miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0]['nombre']} - ${miItem[0]['precio']}€`;
+                    // Boton de borrar
+                    let miBoton = document.createElement('button');
+                    miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                    miBoton.textContent = 'X';
+                    miBoton.style.marginLeft = '1rem';
+                    miBoton.setAttribute('item', item);
+                    miBoton.addEventListener('click', borrarItemCarrito);
+                    // Mezclamos nodos
+                    miNodo.appendChild(miBoton);
+                    $carrito.appendChild(miNodo);
+                })
+            }
+
+            function borrarItemCarrito () {
+                console.log()
+                // Obtenemos el producto ID que hay en el boton pulsado
+                let id = this.getAttribute('item');
+                // Borramos todos los productos
+                carrito = carrito.filter(function (carritoId) {
+                    return carritoId !== id;
+                });
+                // volvemos a renderizar
+                renderizarCarrito();
+                // Calculamos de nuevo el precio
+                calcularTotal();
+            }
+
+            function calcularTotal () {
+                // Limpiamos precio anterior
+                total = 0;
+                // Recorremos el array del carrito
+                for (let item of carrito) {
+                    // De cada elemento obtenemos su precio
+                    let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                        return itemBaseDatos['id'] == item;
+                    });
+                    total = total + miItem[0]['precio'];
+                }
+                // Formateamos el total para que solo tenga dos decimales
+                let totalDosDecimales = total.toFixed(2);
+                // Renderizamos el precio en el HTML
+                $total.textContent = totalDosDecimales;
+            }
+            // Eventos
+
+            // Inicio
+            renderItems();
+        } 
+    </script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<p>Primera seccion</p>
-				<table border="1">
-					<td>	<tr>Hola</tr>   </td>
-				</table>
-			</div>
-			<div class="col-md-6"> 
-				<p>Segunda seccion</p>
-				<table border="1">
-					<td>	<tr>Hola2</tr>   </td>
-				</table>
-			</div>
-		</div>
-		<div class="row">	
-				<div class="col-md-6">Tipo de producto</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            </aside>
+        </div>
+    </div>
 </body>
 </html>

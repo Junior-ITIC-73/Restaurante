@@ -89,11 +89,35 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('empleado', 'EmpleadoController');
     Route::get('/empleado/{id}','EmpleadoController@destroy');
 
+    //CRUD Orden
+    Route::resource('orden', 'OrdenController');
 
-    //Modulo de ventas
+    //Index del modulo de ventas
     Route::resource('realizarventa', 'Modulo1controller');
-    //Recursos anidados
+    //Route::POST('agregarventa', 'Modulo1controller@store');
+    //Recursos anidados para la vista venta.blade.php
     Route::get('menus/{id}', 'Modulo1Controller@getMenu');
+    //Recursos para agregar productos a la vista venta.blade.php
+    Route::get('menusadd/{id}', 'Modulo1Controller@getContenido');
+    //Recursos anidados para optener os precios de los productos
+    Route::get('cantidad/{id}', 'Modulo1Controller@getCantidad');
+    //Ajax en clase
+    //Route::name('/ajax1')->get('/ajax1','Modulo1controller@ajaxGrupos');
+    Route::get('pdf', function(){
+        $users = App\User::all();
+        $pdf = PDF::loadView('pruebaPDF',['users'=>$users]);
+        return $pdf->stream('archivo.pdf');
+    }
+    );
+    Route::get('menusprice/{id}', 'Modulo1Controller@getContenido2');
+
+    // Route::get('venta','ChidoController@index');
+    // Route::POST('ventas','ChidoController@store');
+    Route::get('xbr', function(){
+        return view('admin.prueba');
+    });
+
+
 
     Route::get('/admin', function(){
         return view('admin.dashboard');

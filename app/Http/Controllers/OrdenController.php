@@ -35,7 +35,12 @@ class OrdenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orden = new Orden($request->all());
+        $orden->user_id = $request['user_id'];
+        $orden->mesa_id = $request['mesa_id'];
+        $orden->save();
+        
+        return redirect('/realizarventa');
     }
 
     /**
