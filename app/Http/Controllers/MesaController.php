@@ -24,9 +24,9 @@ class MesaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Mesa $mesa)
+    public function create()
     {
-        return view('mesas.create',compact('mesa'));
+        return view('mesas.create');
     }
 
     /**

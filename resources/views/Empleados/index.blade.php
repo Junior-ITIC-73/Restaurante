@@ -11,6 +11,45 @@
 <a href="{{route('empleado.create')}}"><button type="button" class="btn btn-primary">Agregar</button></a>
 
 	<div class="container">
+		<div class="col-md-12 col-xs-12">
+		<div class="cold-md-12">
+          <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+            <tr>
+              <td><a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"><button class="btn btn-danger">Reporte PDF</button></a></td>
+              <td>
+                <a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}"><button class="btn btn-success">Reporte Excel</button></a>
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <form action="{{route('busqueda.empleado')}}" method="POST">
+					  	@csrf
+					    <input type="search" placeholder="Buscar" aria-label="Buscar" name="criterio" placeholder="{{old('criterio')}}">
+                  <button class="btn btn-warning" type="submit">BUSCAR</button>
+                </form>
+              </td>
+            </tr>
+          </table>
+          </div>
+		<div class="cold-md-12">
 		<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
 			<thead>
 			<tr>
@@ -53,6 +92,8 @@
 			@endforeach
 		</tbody>
 		</table>
+		</div>
+		</div>
 	</div>
 @endsection
 

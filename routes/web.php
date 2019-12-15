@@ -35,7 +35,8 @@
     Route::post('/contactanos','EmailController@contactanos')->name('contactanos');
 
 
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::GET('logout', 'Auth\LoginController@logout')->name('logout');
+    
     //------final de rutas de pagina presencial 
 
 
@@ -54,7 +55,7 @@
 
 
     // Registro de usuarios
-    Route::post('register', 'Auth\RegisterController@register')->name('register');;
+    Route::post('register', 'Auth\RegisterController@register')->name('users.altaLogin');;
 
 
     // Ingreso al sistema...
@@ -63,6 +64,10 @@
     })->name('login');
     // ->middleware('guest');
 
+    // // Salir del sistema...
+    // Route::get('/logout', function () {
+    // Auth::logout();
+    // return redirect('/');})->name('logout'); 
 
     //logueo al sistema
     Route::post('logueoLaravel', 'Auth\LoginController@login')->name('logueoLaravel');
@@ -189,3 +194,33 @@
     // Route::POST('ventas','ChidoController@store');
     ///////////////////////////////////
     
+    Route::post('busqueda/categoriaplatillo','CategoriaPlatilloController@index')->name('busqueda.categoriaplatillo');
+
+
+    //Reportes de Categoria Platillo
+    Route::get('categoriaplatillo/reportepdf/{criterio?}','CategoriaPlatilloController@reportepdf')->name('pdf.categoriaplatillo');
+
+
+    Route::get('categoriaplatillo/reporteExcel/{criterio?}','CategoriaPlatilloController@reporteExcel')->name('excel.categoriaplatillo');
+
+        //-buqueda por citerio empleados
+    Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
+    //Reportes de Empleados
+    Route::get('Empleados/reportepdf/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
+
+    Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
+
+        //-buqueda por citerio menu Platillos
+    Route::post('busqueda/menu_platillo','MenuPlatilloController@index')->name('busqueda.menu_platillo');
+
+    //Reportes de  PDF menu Platillos
+    Route::get('menu_platillo/reportepdf/{criterio?}','MenuPlatilloController@reportepdf')->name('pdf.menu_platillo');
+    //reporte de Excel  menu Platillos
+    Route::get('menu_platillo/reporteExcel/{criterio?}','MenuPlatilloController@reporteExcel')->name('excel.menu_platillo');
+
+        //-buqueda por citerio empleados
+    Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
+    //Reportes de Usuarios
+    Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
+    Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');
+    // Route::get('usuarios/reporteWord/','UserController@reporteWord')->name('word.usuario');

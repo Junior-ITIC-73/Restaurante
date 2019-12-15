@@ -75,7 +75,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -225,7 +225,7 @@
       <!-- 2018 -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="#">Desing</a>.</strong>
+    <strong>Copyright &copy; 2019 <a href="#">Arboleda Restaurante</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

@@ -108,9 +108,9 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="telefono">Telefono</label>
-                            <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user')}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="10">
-                            @if($errors->has('telefono_user'))
-                            <label style="color:red">{{$errors->first('telefono_user')}}</label>
+                            <input type="text" name="telefono_empleado" id="telefono" value="{{old('telefono_empleado')}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="10">
+                            @if($errors->has('telefono_empleado'))
+                            <label style="color:red">{{$errors->first('telefono_empleado')}}</label>
                             @endif
                     </div>
                 </div><!-- fin col-md-3 -->

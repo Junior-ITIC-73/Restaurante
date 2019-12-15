@@ -5,6 +5,18 @@ namespace App\Http\Controllers;
 use App\CategoriaPlatillo;
 use Illuminate\Http\Request;
 
+//Para reportes en PDF
+use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+
+// para reportes Excel
+use App\Exports\CategoriaPlatillosExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+//para reporte Word
+use phpoffice\phpword;
+use Illuminate\support\Facades\DB;
+
 class CategoriaPlatilloController extends Controller
 {
         /**
@@ -12,14 +24,21 @@ class CategoriaPlatilloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categoriaPlatillos = CategoriaPlatillo::all();
+        $criterio = $request['criterio'];
+        $categoriaPlatillos = CategoriaPlatillo::where('nombre_categoria', 'LIKE', '%'.$criterio.'%')
+        ->paginate(2);
+
+        // $users = User::All();
+        return view('categoriaPlatillo.index',compact('categoriaPlatillos'),['criterio'=>$criterio]);
+        ///Old
+        //$categoriaPlatillos = CategoriaPlatillo::all();
 
 
         // dd($categoriaPlatillos);
 
-        return view('categoriaPlatillo.index',compact('categoriaPlatillos'));
+        //return view('categoriaPlatillo.index',compact('categoriaPlatillos'));
     }
 
     /**
@@ -109,5 +128,35 @@ class CategoriaPlatilloController extends Controller
         $categoriaPlatillo->delete();
         return redirect()->route('categoriaPlatillo.index')->with('message', 'La categoria se ha eliminado exitosamente!');
 
+    }
+     public function reportepdf(Request $request){
+
+
+        $criterio = $request['criterio'];
+
+
+
+
+        $categoriaPlatillos = CategoriaPlatillo::where('nombre_categoria', 'LIKE', '%'.$criterio.'%')->get();
+
+
+        $date = Carbon::now(); 
+
+
+        $date = $date->format('Y-m-d');
+
+
+        $pdf = PDF::loadView("reportes.pdfCategoriaPlatillo",compact("categoriaPlatillos","date"));
+
+        return $pdf->stream('ReporteCategoriPlatillos.pdf');
+      
+
+    }
+
+    public function reporteExcel(Request $request){
+
+        $criterio = $request['criterio'];
+        return Excel::download(new CategoriaPlatillosExport($criterio),'CategoriaPlatillos-Reporte.xlsx');
+        // return Excel::download(new UsersExport,'Usuario-Reporte.xlsx');
     }
 }
