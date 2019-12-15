@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="row d-flex">
-          <div class="col-md-4 ftco-animate img" style="background-image: url(tasty/images/res.jpg);"></div>
+          <div class="col-md-4 ftco-animate img" style="background-image: url(tasty/images/r.jpg);"></div>
           <div class="col-md-8 ftco-animate makereservation p-5 bg-light">
             <form action="#">
               <div class="row">

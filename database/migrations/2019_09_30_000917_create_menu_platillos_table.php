@@ -22,8 +22,8 @@ class CreateMenuPlatillosTable extends Migration
             $table->timestamps();
         });
     }
- 
-    /** 
+
+    /**
      * Reverse the migrations.
      *
      * @return void

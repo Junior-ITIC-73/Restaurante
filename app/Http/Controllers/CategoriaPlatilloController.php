@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoriaPlatilloController extends Controller
 {
-    /**
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

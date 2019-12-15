@@ -58,7 +58,7 @@
               <!-- The user image in the navbar-->
               <img src="{{ asset('image/user1-128x128.jpg') }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Nombre Usuario</span>
+              <span class="hidden-xs">{{ auth()->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -66,7 +66,7 @@
                 <img src="{{ asset('image/user1-128x128.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
-                  Nombre Usuario
+                   {{ auth()->user()->name }} 
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -106,22 +106,22 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="treeview active menu-open">
           <a href="#">
-            <i class="fa fa-link"></i> <span>Almacén</span>
+            <i class="fa fa-link"></i> <span>Usuarios</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="/usuarios">
                 <i class="fa fa-circle-o"></i>
-                Artículos
+                Usuarios
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/empleado">
                 <i class="fa fa-circle-o"></i>
-                Categorías
+                Empleado
               </a>
             </li>
           </ul>
@@ -129,22 +129,28 @@
 
         <li class="treeview active menu-open">
           <a href="#">
-            <i class="fa fa-link"></i> <span>Compras</span>
+            <i class="fa fa-link"></i> <span>Mesas</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="/mesas">
                 <i class="fa fa-circle-o"></i>
-                Proveedores
+                Mesas
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/categoriaPlatillo">
                 <i class="fa fa-circle-o"></i>
-                Ingresos
+                Categoria Platillos
+              </a>
+            </li>
+            <li>
+              <a href="/menuplatillo">
+                <i class="fa fa-circle-o"></i>
+                Menu Platillos
               </a>
             </li>
           </ul>
@@ -169,16 +175,16 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-link"></i> <span>Acceso</span>
+            <i class="fa fa-link"></i> <span>Corte Caja</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="#">
+              <a href="/corteCaja">
                 <i class="fa fa-circle-o"></i>
-                Listado
+                Corte de caja
               </a>
             </li>
           </ul>

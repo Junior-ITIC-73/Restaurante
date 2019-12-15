@@ -1,8 +1,6 @@
 @extends('Arboleda.principal')
 
 @section('contenido')
-
-
     <title>Arboleda-Restaurante cafe</title> 
      
     
@@ -12,34 +10,32 @@
         <div class="container">
           <div class="row slider-text align-items-center justify-content-center text-center">
             <div class="col-md-10 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Revisa y pide nuestro menu del día  </h1>
+              <h1 class="mb-3">Revisa nuestro menu del día  </h1>
               <p><a href="{{url('/menu')}}" class="btn btn-primary btn-outline-white px-5 py-3">Checar menu del día</a></p>
             </div>
           </div>
         </div>
       </div>
 
-
-
-      <div class="slider-item" style="background-image: url('tasty/images/des.png');">
+      <div class="slider-item" style="background-image: url('tasty/images/2.JPEG');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center justify-content-center text-center">
             <div class="col-md-10 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Desayuno completo $65</h1>
-              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Pedir ahora</a></p>
+              <h1 class="mb-3">Desayunos completos desde $65</h1>
+              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Checar desayunos</a></p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url('tasty/images/eje.jpg');">
+      <div class="slider-item" style="background-image: url('tasty/images/1.JPEG');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center justify-content-center text-center">
             <div class="col-md-10 col-sm-12 ftco-animate">
-              <h1 class="mb-3">Comida ejecutiva $60 </h1>
-              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Pedir ahora</a></p>
+              <h1 class="mb-3">Comida ejecutiva desde $60 </h1>
+              <p><a href="{{url('/specialties')}}"  class="btn btn-primary btn-outline-white px-5 py-3">Checar comida ejecutiva</a></p>
             </div>
           </div>
         </div>
@@ -125,7 +121,7 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/pechuga.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/3.JPEG);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Bistec,pechuga ó filetes de pescado</h3>
@@ -137,7 +133,7 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/chila.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/4.JPEG);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Chilaquiles, enchiladas ó huaraches arboleda</h3>
@@ -200,14 +196,26 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/dor.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/tacos.jpg);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
-                          <h3>Tacos dorados de pollo (4)</h3>
-                          
+                          <h3>Tacos ó quesadillas</h3>
+                          <p><span>Arrachera</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Pollo</span>, <span> Cecina</span> <br><span>Con queso y en tortilla de harina agrega $10</span></p>
                         </div>
                         <div class="one-forth">
                           <span class="price">$50</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/to.JPEG);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Tortas</h3>
+                          <p><span>Arrachera</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Pollo</span>, <span> Huevo</span> </p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$40</span>
                         </div>
                       </div>
                     </div>
@@ -235,7 +243,7 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Alitas</h3>
-                          <p><span>BBQ ó tradicional</span>p>
+                          <p><span>BBQ ó tradicional</span><p>
                         </div>
                         <div class="one-forth">
                           <span class="price">$70</span>
@@ -328,10 +336,10 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Jugo</h3>
-                          <p><span>Grande</span>, <span>Chico</span></p>
+                          <p>Grande   $25</p> <br> <p>Chico     $15</p>
                         </div>
                         <div class="one-forth">
-                          <span class="price">$25 </span> <br> <span class="price">$15 </span>
+                          
                         </div>
                       </div>
                     </div>
@@ -340,10 +348,9 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Licuados</h3>
-                          <p><span>Grande</span>, <span>Chico</span></p>
+                          <p>Grande   $25</p> <br> <p>Chico     $15</p>
                         </div>
                         <div class="one-forth">
-                          <span class="price">$25</span> <br> <span class="price">$15</span>
                         </div>
                       </div>
                     </div>
@@ -429,12 +436,13 @@
       </div>
     </section>
 
-    <section class="ftco-section parallax-img" style="background-image: url('tasty/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="ftco-section parallax-img" style="background-image: url('tasty/images/sx.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2>Desayunos completos desde $65</h2>
+            <h2>Desayunos completos desde $65 <br>
+            Y Menu ejecutivo $60</h2>
           </div>
         </div>
       </div>
@@ -444,11 +452,11 @@
         <div class="row d-flex no-gutters">
           <div class="col-lg-6">
             <div class="block-3 d-md-flex ftco-animate">
-              <div class="image order-last" style="background-image: url(tasty/images/hu.jpg);"></div>
+              <div class="image order-last" style="background-image: url(tasty/images/fg.jpg);"></div>
               <div class="text text-center order-first">
-                <h2 class="heading">Huevos Arboleda (los de la casa)</h2>
-                <p>Base mexicana revueltos con chilorio, machaca ó camarón</p>
-                <span class="price"> $65.00</span>
+                <h2 class="heading">Menu ejecutivo incluye</h2><br>
+                <p>Sopa del día ó consome, sopa seca o enssalada, guisado del día y agua </p><br>
+                <span class="price"> $65.00</span><br><br>
               </div>
             </div>
             <div class="block-3 d-md-flex ftco-animate">
@@ -462,11 +470,11 @@
           </div>
           <div class="col-lg-6">
             <div class="block-3 d-md-flex ftco-animate">
-              <div class="image order-last" style="background-image: url(tasty/images/mollete.jpg);"></div>
+              <div class="image order-last" style="background-image: url(tasty/images/chi.jpg);"></div>
               <div class="text text-center order-first">
-                <h2 class="heading">Molletes Arboleda</h2><br>
-                <p>Preparados con arracherade la casa y queso philadelphia</p>
-                <span class="price"> $65.00</span>
+                <h2 class="heading">Convierte tu menu ejecutivo</h2><br>
+                <p>Convierte tu antojo de la carta en comida completa por $30 adicionales (Sopa del día ó consome, sopa seca o ensalada, guisado del día y agua) </p>
+                <span class="price"></span>
               </div>
             </div>
             <div class="block-3 d-md-flex ftco-animate">
@@ -478,111 +486,17 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-12 pt-4 text-center ftco-animate">
+                <p>Quieres conocer más de nuestros desayunos y comidas ejecutivas...</p>
+                <span><a href="{{url('/specialties')}}" class="btn btn-primary btn-outline-primary p-3">Desayunos y comidas </a></span>
+              </div>
         </div>
       </div>
     </section>
 
     
 
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <span class="subheading">Nuestros clientes</span>
-            <h2>Nuestros clientes satisfechos</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="carousel owl-carousel ftco-owl">
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">
-                    
-                  </p>
-                  <p class="name">
-                    
-                  </p>
-                  <span class="position">
-                    
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(tasty/images/person_2.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">
-                    
-                  </p>
-                  <p class="name">
-                    
-                  </p>
-                  <span class="position">
-                    
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(tasty/images/person_3.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">
-                    
-                  </p>
-                  <p class="name">
-                    
-                  </p>
-                  <span class="position">
-                    
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">
-                    
-                  </p>
-                  <p class="name">
-                    
-                  </p>
-                  <span class="position">
-                    
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="item text-center">
-              <div class="testimony-wrap p-4 pb-5">
-                <div class="user-img mb-4" style="background-image: url(tasty/images/person_1.jpg)" style="border: 1px solid red;"></div>
-                <div class="text">
-                  <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span></p>
-                  <p class="mb-5">
-                    
-                  </p>
-                  <p class="name">
-                    
-                  </p>
-                  <span class="position">
-                    
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     
 @stop

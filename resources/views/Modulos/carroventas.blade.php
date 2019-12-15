@@ -9,10 +9,10 @@
 @section('content')
 
 	<div class="row">
-		<div class="col-md-8 col-xs-12">
+		{{-- <div class="col-md-8 col-xs-12">
 			@include('modulos.search')
-		</div>
-		<div class="col-md-2">
+		</div> --}}
+		<div class="col-md-12">
 			<a href="realizarventa/create" class="pull-right">
 				<button class="btn btn-success">Crear venta</button>
 			</a>
@@ -25,19 +25,19 @@
 				<table class="table table-striped table-hover">
 					<thead>
 						<th>Id</th>
-						<th># Orden</th>
-						<th> Usuario</th>
+						<th>Usuario</th>
 						<th>Folio venta</th>
-						<th>Tipo pago</th>
 						<th>Total venta</th>
 						<th>Propina</th>
-						<th width="180">Opciones</th>
 					</thead>
 					<tbody>
 						@foreach($ventas as $vent)
 							<tr>
 								<td>{{ $vent->id }}</td>
-								<td>{{ $vent->nombre_categoria }}</td>
+								<td>{{ $vent->user->name }}</td>
+								<td>{{ $vent->folio_venta }}</td>
+								<td>{{ $vent->total_venta }}</td>
+								<td>{{ $vent->propina }}</td>
 								{{-- <td>{{ $per->tipo_documento }}</td>
 								<td>{{ $per->num_documento }}</td>
 								<td>{{ $per->telefono }}</td>

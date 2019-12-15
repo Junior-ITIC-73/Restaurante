@@ -123,7 +123,8 @@ class Modulo1Controller extends Controller
         $menus = MenuPlatillo::all();
         $empleados = User::all();
         $orders = Orden::all();
-        return view('Modulos.add',compact('menus','empleados','orders'));
+        $mesas = Mesa::all();
+        return view('Modulos.add',compact('menus','empleados','orders','mesas'));
 
     }
 
@@ -136,12 +137,30 @@ class Modulo1Controller extends Controller
     public function store(Request $request)
     {
         //return $request->all();
-        $orden = new Orden($request->all());
-        $orden->user_id = $request['user_id'];
-        $orden->mesa_id = $request['mesa_id'];
-        $orden->save();
-        dd($orden);
-        //return redirect('/realizarventa');
+        // $cantidad = $request->cantidad;
+        // //return $total;
+        // foreach ($cantidad as $cant) {
+        //     $cant;
+        // }
+        $pro=0;
+        $precio = $request->precio_venta;
+        foreach ($precio as $pre) {
+            $pro= $pre+$pro;
+        }
+
+        $ordens= Orden::create([
+            'user_id' => $request['user_id'],
+            'mesa_id' => $request['mesa_id'],
+            'folio_orden' => $request['folio_orden'],
+            'total_orden' => $pro,
+        ]);
+        //return $request->all();
+        // $orden = new Orden($request->all());
+        // $orden->user_id = $request['user_id'];
+        // $orden->mesa_id = $request['mesa_id'];
+        // $orden->save();
+        // dd($orden);
+        return redirect('/realizarventa');
     }
 
     /**

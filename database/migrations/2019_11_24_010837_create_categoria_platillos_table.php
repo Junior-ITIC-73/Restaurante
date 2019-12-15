@@ -20,13 +20,13 @@ class CreateCategoriaPlatillosTable extends Migration
             $table->timestamps();
         });
     }
- 
-    /** 
+
+    /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down()  
+    public function down()
     {
         Schema::dropIfExists('categoria_platillos');
     }

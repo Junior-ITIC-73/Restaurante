@@ -1,8 +1,8 @@
 @extends('admin.admin')
 
 @section('header')
-	<h1>
-		Nuevo Venta
+	<h1 align="center">
+		Modulo Venta
 	</h1>
 @endsection
 
@@ -24,7 +24,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 				
 				<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<div class="form-group">
 						<label for="proveedor">Empleado</label>
 						<select name="user_id" id="user_id" class="form-control selectpicker" data-live-search="true">
@@ -36,31 +36,38 @@
 						</select>
 					</div>
 				</div><!-- fin col-md-3 -->
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
-						<label for="proveedor">Orden</label>
-						<select name="orden_id" id="orden_id" class="form-control selectpicker" data-live-search="true">
-							@foreach($orders as $ord)
-							<option value="{{ $ord->id }}">
-								{{ $ord->folio_orden }}
-							</option>
-							@endforeach
+						<label for="folio_orden">Folio de Orden</label>
+						<input type="text" name="folio_orden" class="form-control" placeholder="Ej: 0001" value="{{ old('folio_orden') }}">
 						</select>
 					</div>
 				</div><!-- fin col-md-3 -->
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
-						<label for="folio_venta">Folio de venta</label>
+						<label for="folio_venta">Folio de Venta</label>
 						<input type="text" name="folio_venta" class="form-control" placeholder="Ej: 0001" value="{{ old('folio_venta') }}">
 					</div>
 				</div><!-- fin col-md-3 -->
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group">
 						<label for="tipo_de_pago">Tipo de Pago</label>
 						<select name="tipo_de_pago" class="form-control">
 							<option value="1">Efectivo</option>
 							<option value="2">Tarjeta</option>
 						</select> 
+					</div>
+				</div><!-- fin col-md-3 -->
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="proveedor">Mesa</label>
+						<select name="mesa_id" id="mesa_id" class="form-control selectpicker" data-live-search="true">
+							@foreach($mesas as $mes)
+							<option value="{{ $mes->id }}">
+								{{ $mes->numero_mesa }}
+							</option>
+							@endforeach
+						</select>
 					</div>
 				</div><!-- fin col-md-3 -->
 				</div><!-- fin row cabecera -->
@@ -99,7 +106,6 @@
 								</button>
 							</div>
 						</div>
-						
 						<div class="col-md-12">
 							<table id="detalles" class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 10px">
 								<thead style="background-color: #A9D0F5">
@@ -114,8 +120,11 @@
 									<th></th>
 									<th></th>
 									<th></th>
-									<th></th>
-									<th><h4 id="total" >0.00</h4></th>
+									<th id="to"></th>
+									<th>
+										<input type="button" id="boton" value="Recorrer lista">
+										<h4 id="total">0.00</h4>
+									</th>
 								</tfoot>
 								<tbody>
 									
@@ -129,7 +138,7 @@
 				<div class="row">
 				<div class="col-md-12" id="guardar">
 					<div class="form-group">
-						<button class="btn btn-primary" type="submit">
+						<button class="btn btn-primary" type="submit"> 
 							Guardar
 						</button>
 					</div>
@@ -146,6 +155,17 @@
 	$(document).ready(function(){
 		$("#bt_add").click(function(){
 			agregar();
+		});
+	});
+
+	$(document).ready(function(){
+        $("#boton").click(function(){
+		    $("#total").each(function(){
+        	    //alert($(this).text())
+        	    $(this).text()
+        	    //var ya = $(this).text()
+        	    //$("#btn1").append("<input type='text' value='"+ya+"'");
+        	});
 		});
 	});
 

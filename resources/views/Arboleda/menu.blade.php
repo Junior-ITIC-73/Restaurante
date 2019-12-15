@@ -1,7 +1,6 @@
 @extends('Arboleda.principal')
 
 @section('contenido')
-    <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
     
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url('tasty/images/cafe.jpg');" data-stellar-background-ratio="0.5">
@@ -18,8 +17,7 @@
     </section>
 
     
-
-       <section class="ftco-section bg-light">
+<section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -77,7 +75,7 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/pechuga.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/3.JPEG);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Bistec,pechuga ó filetes de pescado</h3>
@@ -89,7 +87,7 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/chila.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/4.JPEG);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Chilaquiles, enchiladas ó huaraches arboleda</h3>
@@ -152,14 +150,26 @@
                       </div>
                     </div>
                     <div class="menus d-flex ftco-animate">
-                      <div class="menu-img" style="background-image: url(tasty/images/dor.jpg);"></div>
+                      <div class="menu-img" style="background-image: url(tasty/images/tacos.jpg);"></div>
                       <div class="text d-flex">
                         <div class="one-half">
-                          <h3>Tacos dorados de pollo (4)</h3>
-                          
+                          <h3>Tacos ó quesadillas</h3>
+                          <p><span>Arrachera</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Pollo</span>, <span> Cecina</span> <br><span>Con queso y en tortilla de harina agrega $10</span></p>
                         </div>
                         <div class="one-forth">
                           <span class="price">$50</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url(tasty/images/to.JPEG);"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Tortas</h3>
+                          <p><span>Arrachera</span>, <span>Bistec</span>, <span>Longaniza</span>, <span>Pollo</span>, <span> Huevo</span> </p>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">$40</span>
                         </div>
                       </div>
                     </div>
@@ -187,7 +197,7 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Alitas</h3>
-                          <p><span>BBQ ó tradicional</span>p>
+                          <p><span>BBQ ó tradicional</span><p>
                         </div>
                         <div class="one-forth">
                           <span class="price">$70</span>
@@ -280,10 +290,10 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Jugo</h3>
-                          <p><span>Grande</span>, <span>Chico</span></p>
+                          <p>Grande   $25</p> <br> <p>Chico     $15</p>
                         </div>
                         <div class="one-forth">
-                          <span class="price">$25 </span> <br> <span class="price">$15 </span>
+                          
                         </div>
                       </div>
                     </div>
@@ -292,10 +302,9 @@
                       <div class="text d-flex">
                         <div class="one-half">
                           <h3>Licuados</h3>
-                          <p><span>Grande</span>, <span>Chico</span></p>
+                          <p>Grande   $25</p> <br> <p>Chico     $15</p>
                         </div>
                         <div class="one-forth">
-                          <span class="price">$25</span> <br> <span class="price">$15</span>
                         </div>
                       </div>
                     </div>

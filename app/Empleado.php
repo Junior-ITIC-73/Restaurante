@@ -21,8 +21,5 @@ class Empleado extends Model
         'municipio_id',
     ];
 
-     public function municipio(){
-        return $this->belongsTo(Municipio::class);
-      }
 }
 

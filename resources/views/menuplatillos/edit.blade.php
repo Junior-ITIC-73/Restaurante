@@ -1,8 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
+@extends('admin.admin')
+
+@section('header')
+    <h1 align="center">
+        Modificacion de Platillo
+    </h1>
+
+  <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+  rel = "stylesheet">
+  <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
+  <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
+  <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+
+@endsection
+
+@section('content')
 
 <script text="javascript">
 
@@ -48,30 +59,73 @@ function solonumeros(e){
 
 }
 </script>
-<body>
-
-<center>
-  <h1>MODIFICACION   DEL PLATILLO</h1>
-<form method="POST" action="{{route('menuplatillo.update',$menu_platillo)}}" enctype="multipart/form-data">
-  {{method_field('PUT')}}
-  {{csrf_field()}}
-
-  CAREGORIA:
-  <select name="categoria_id" id="categorias">
-    @foreach($categorias as $categoria)
-        <option value="{{$categoria->id}}">{{$categoria->nombre_categoria}}</option>
-    @endforeach
-  </select>
-  <br>
-  NOMBRE<input type="text" name="nombre_platillo" id="nombre_platillo" required value="{{old('nombre_platillo',$menu_platillo->nombre_platillo)}}" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="20"><br>
-  PRECIO:<input type="text" name="precio_platillo" id="precio_platillo" required value="{{old('precio_platillo',$menu_platillo->precio_platillo)}}" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="10" minlength="10"><br>
-      DESCRIPCI<br><textarea name="descripcion_platillo" id="descripcion_platillo" required value="{{old('descripcion_platillo',$menu_platillo->descripcion_platillo)}}" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="60">
-  </textarea><br>
-  IMAGEN<input type="file" name="chooseFile" id="chooseFile" required><br>
-  <button type="submit">Enviar</button>
-  </form>
-</center>
-
-
-</body>
-</html>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            @if(count($errors)>0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            
+            <form method="POST" action="{{route('menuplatillo.update',$menu_platillo)}}" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
+                
+                <div class="row">
+                  <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="categoria">Estado</label>
+                            <select name="categoria_id" id="categoria_id" class="form-control selectpicker" data-live-search="true">
+                                @foreach($categorias as $categoria)
+                                <option value="{{ $categoria->id }}">
+                                    {{ $categoria->nombre_categoria }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!-- fin col-md-4 -->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="nombre_platillo" class="col-sm-0 col-form-label">Nombre Platillo</label>
+                            <input type="text" name="nombre_platillo" id="nombre_platillo" value="{{old('nombre_platillo',$menu_platillo->nombre_platillo)}}" required title="Ingresa platillo" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;">
+                            @if($errors->has('nombre_platillo'))
+                            <label style="color:red">{{$errors->first('nombre_platillo')}}</label>
+                            @endif
+                        </div>
+                    </div><!-- fin col-md-3 -->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="precio_platillo" class="col-sm-0 col-form-label">Precio Platillo</label>
+                            <input type="text" name="precio_platillo" id="precio_platillo" value="{{old('precio_platillo',$menu_platillo->precio_platillo)}}" required title="Ej: Ocupada" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="38" minlength="6">
+                            @if($errors->has('precio_platillo'))
+                            <label style="color:red">{{$errors->first('precio_platillo')}}</label>
+                            @endif
+                        </div>
+                    </div><!-- fin col-md-4 -->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="descripcion_platillo" class="col-sm-0 col-form-label">Descripcion</label>
+                            <input type="text" name="descripcion_platillo" id="descripcion_platillo" value="{{old('descripcion_platillo',$menu_platillo->descripcion_platillo)}}" required title="Ej: Ocupada" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="60" minlength="6">
+                            @if($errors->has('descripcion_platillo'))
+                            <label style="color:red">{{$errors->first('descripcion_platillo')}}</label>
+                            @endif
+                        </div>
+                    </div><!-- fin col-md-4 -->
+                </div><!-- fin row cabecera -->
+                <div class="row">
+                <div class="col-md-12" id="guardar">
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit"> 
+                            Guardar
+                        </button>
+                        <a href="{{route('menuplatillo.index')}}"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                    </div>
+                </div>
+                </div><!-- fin row buttons -->
+            </form>
+        </div>
+    </div>
+@endsection
