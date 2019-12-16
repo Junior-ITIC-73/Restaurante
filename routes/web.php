@@ -203,12 +203,12 @@
 
     Route::get('categoriaplatillo/reporteExcel/{criterio?}','CategoriaPlatilloController@reporteExcel')->name('excel.categoriaplatillo');
 
-        //-buqueda por citerio empleados
-    Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
-    //Reportes de Empleados
-    Route::get('Empleados/reportepdf/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
+    // //     //-buqueda por citerio empleados
+    // // Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
+    // // //Reportes de Empleados
+    // // Route::get('Empleados/reportepdf/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
 
-    Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
+    // Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
 
         //-buqueda por citerio menu Platillos
     Route::post('busqueda/menu_platillo','MenuPlatilloController@index')->name('busqueda.menu_platillo');
@@ -218,9 +218,22 @@
     //reporte de Excel  menu Platillos
     Route::get('menu_platillo/reporteExcel/{criterio?}','MenuPlatilloController@reporteExcel')->name('excel.menu_platillo');
 
-        //-buqueda por citerio empleados
-    Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
-    //Reportes de Usuarios
-    Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
-    Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');
-    // Route::get('usuarios/reporteWord/','UserController@reporteWord')->name('word.usuario');
+    //     //-buqueda por citerio empleados
+    // Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
+    // //Reportes de Usuarios
+    // Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
+    // Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');
+    // // Route::get('usuarios/reporteWord/','UserController@reporteWord')->name('word.usuario');
+
+    // //-buqueda por citerio empleados
+    // Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
+    // //Reportes de Empleados
+    // Route::get('Empleados/reportepdf/{sexo?}/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
+
+    //-buqueda por citerio empleados
+    Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
+    //Reportes de Empleados
+    Route::get('Empleados/reportepdf/{sexo?}/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
+
+    Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
+    // Route::get('Empleados/reporteWord/','EmpleadoController@reporteWord')->name('word.empleado');

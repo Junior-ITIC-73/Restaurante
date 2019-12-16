@@ -35,7 +35,7 @@ class UserController extends Controller
         ->orWhere('calle', 'LIKE', '%'.$criterio.'%')
         ->orWhere('localidad', 'LIKE', '%'.$criterio.'%')
         ->orWhere('CP', 'LIKE', '%'.$criterio.'%')
-        ->paginate(2);
+        ->paginate(10);
 
         return view('users.index',compact('users'),['criterio'=>$criterio]);
 

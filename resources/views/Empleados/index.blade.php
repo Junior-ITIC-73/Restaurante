@@ -15,15 +15,21 @@
 		<div class="cold-md-12">
           <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
             <tr>
-              <td><a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"><button class="btn btn-danger">Reporte PDF</button></a></td>
               <td>
-                <a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}"><button class="btn btn-success">Reporte Excel</button></a>
+              	 {{-- <a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"> --}}
+              	 	<a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio,'sexo'=>$sexo])}}">
+              	 	<img src="{{ asset('image/reportepdf.png') }}">
+              	 </a></td>
+              <td>
+                {{-- <a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}"> --}}
+                	<a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}">
+                	<img src="{{ asset('image/reporteexcel.png') }}"></a>
               </td>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td></td> 
               <td></td>
               <td></td>
               <td></td>
@@ -40,11 +46,20 @@
               <td></td>
               <td></td>
               <td>
-                <form action="{{route('busqueda.empleado')}}" method="POST">
+                {{-- <form action="{{route('busqueda.empleado')}}" method="POST">
 					  	@csrf
 					    <input type="search" placeholder="Buscar" aria-label="Buscar" name="criterio" placeholder="{{old('criterio')}}">
                   <button class="btn btn-warning" type="submit">BUSCAR</button>
-                </form>
+                </form> --}}
+                <form action="{{route('busqueda.empleado')}}" method="POST">
+					  	@csrf
+					  	Mujer<input type="radio" name="sexo" value="0" class="sexo">
+					    Hombre<input type="radio" name="sexo" value="1" class="sexo">
+					    <input type="radio" name="sexo" value="L" class="sexo" checked style="visibility:hidden">
+
+					    <input type="search" placeholder="Buscar" aria-label="Buscar" name="criterio" placeholder="{{old('criterio')}}">
+					    <button class="btn btn-warning" type="submit">BUSCAR</button>
+					 </form>
               </td>
             </tr>
           </table>
@@ -56,6 +71,7 @@
 				<th><b>Nombre</b></th>
 				<th><b>Apellido Paterno</b></th>
 				<th><b>Apellido Materno</b></th>
+				<th><b>Sexo</b></th>
 				<th><b>Telefono</b></th>
 				<th><b>Direccion</b></th>
 				<th><b>Modificar</b></th>
@@ -68,6 +84,12 @@
 				<td>{{$empleado->name}}</td>
 				<td>{{$empleado->apellido_paterno}}</td>
 				<td>{{$empleado->apellido_materno}}</td>
+				@if($empleado->sexo == 1)
+				<td>Masculino</td>
+				@endif
+				@if($empleado->sexo == 0)
+				<td>Femenino</td>
+				@endif
 				<td>{{$empleado->telefono_empleado}}</td>
 				<td>
 					<ul>

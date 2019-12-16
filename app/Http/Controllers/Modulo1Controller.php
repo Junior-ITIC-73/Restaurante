@@ -136,7 +136,7 @@ class Modulo1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //return $request->all();
+        return $request->all();
         // $cantidad = $request->cantidad;
         // //return $total;
         // foreach ($cantidad as $cant) {

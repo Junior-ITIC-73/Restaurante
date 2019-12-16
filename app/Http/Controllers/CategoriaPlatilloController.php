@@ -28,7 +28,7 @@ class CategoriaPlatilloController extends Controller
     {
         $criterio = $request['criterio'];
         $categoriaPlatillos = CategoriaPlatillo::where('nombre_categoria', 'LIKE', '%'.$criterio.'%')
-        ->paginate(2);
+        ->paginate(10);
 
         // $users = User::All();
         return view('categoriaPlatillo.index',compact('categoriaPlatillos'),['criterio'=>$criterio]);

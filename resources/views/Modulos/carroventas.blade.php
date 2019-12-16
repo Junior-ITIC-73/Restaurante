@@ -14,7 +14,7 @@
 		</div> --}}
 		<div class="col-md-12">
 			<a href="realizarventa/create" class="pull-right">
-				<button class="btn btn-success">Crear venta</button>
+				<button class="btn btn-success">Crear Orden</button>
 			</a>
 		</div>		
 	</div>

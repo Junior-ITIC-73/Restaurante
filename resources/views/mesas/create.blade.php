@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name" class="col-sm-0 col-form-label">Numero Mesa</label>
-                            <input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa')}}" required title="Ingresa numero" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="20" minlength="10">
+                            <input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa')}}" required title="Ingresa numero" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="3" minlength="1">
                             @if($errors->has('numero_mesa'))
                             <label style="color:red">{{$errors->first('numero_mesa')}}</label>
                             @endif

@@ -122,8 +122,8 @@
 									<th></th>
 									<th id="to"></th>
 									<th>
-										<input type="button" id="boton" value="Recorrer lista">
 										<h4 id="total">0.00</h4>
+										Capturar total sugerido: $<input type="text" id="w" name="total">
 									</th>
 								</tfoot>
 								<tbody>
@@ -138,7 +138,7 @@
 				<div class="row">
 				<div class="col-md-12" id="guardar">
 					<div class="form-group">
-						<button class="btn btn-primary" type="submit"> 
+						<button class="btn btn-primary" type="submit" onclick="return confirm('Estas seguro del precio total')"> 
 							Guardar
 						</button>
 					</div>
