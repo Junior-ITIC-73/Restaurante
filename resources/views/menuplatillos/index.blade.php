@@ -13,9 +13,9 @@
             <div class="col-md-12">
                 <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
             <tr>
-              <td><a href="{{URL::action('MenuPlatilloController@reportepdf',['criterio'=>$criterio])}}"><img src="{{ asset('image/reportepdf.png') }}"></a></td>
+              <td><a href="{{URL::action('MenuPlatilloController@reportepdf',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
               <td>
-                <a href="{{URL::action('MenuPlatilloController@reporteExcel',['criterio'=>$criterio])}}"><img src="{{ asset('image/reporteexcel.png') }}"></a>
+                <a href="{{URL::action('MenuPlatilloController@reporteExcel',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-excel-o"></i>EXCEL</a>
               </td>
               <td></td>
               <td></td>

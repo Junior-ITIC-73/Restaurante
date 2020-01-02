@@ -18,12 +18,12 @@
               <td>
               	 {{-- <a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"> --}}
               	 	<a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio,'sexo'=>$sexo])}}">
-              	 	<img src="{{ asset('image/reportepdf.png') }}">
+              	 	<i class="fa fa-fw fa-file-pdf-o"></i>PDF
               	 </a></td>
               <td>
                 {{-- <a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}"> --}}
                 	<a href="{{URL::action('EmpleadoController@reporteExcel',['criterio'=>$criterio])}}">
-                	<img src="{{ asset('image/reporteexcel.png') }}"></a>
+                	<i class="fa fa-fw fa-file-excel-o"></i>EXCEL</a>
               </td>
               <td></td>
               <td></td>

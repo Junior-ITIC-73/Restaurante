@@ -10,7 +10,7 @@ class EmailController extends Controller
 {
     public function contactanos(Request $request){
 
-    	// dd($request);
+    	// dd($request); 
     	Mail::to('victor@arboledarestaurante.com')->send(new MensajeRecibido($request));
     	return redirect()->route('test')->with('status','Gracias por los comentarios ,nos pondremos en contacto contigo');
     }	

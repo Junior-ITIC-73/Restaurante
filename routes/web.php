@@ -218,12 +218,12 @@
     //reporte de Excel  menu Platillos
     Route::get('menu_platillo/reporteExcel/{criterio?}','MenuPlatilloController@reporteExcel')->name('excel.menu_platillo');
 
-    //     //-buqueda por citerio empleados
-    // Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
-    // //Reportes de Usuarios
-    // Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
-    // Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');
-    // // Route::get('usuarios/reporteWord/','UserController@reporteWord')->name('word.usuario');
+        //-buqueda por citerio empleados
+    Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
+    //Reportes de Usuarios
+    Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
+    Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');
+    // Route::get('usuarios/reporteWord/','UserController@reporteWord')->name('word.usuario');
 
     // //-buqueda por citerio empleados
     // Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
