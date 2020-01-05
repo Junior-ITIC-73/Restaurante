@@ -20,6 +20,7 @@
             total_venta+=parseInt($(this).html()) || 0;
         });
         $("#total").html('<b>'+total_venta+'</b>');
+        });
     </script>
 
 <div class="container">

@@ -135,7 +135,8 @@
                 }
   </script>
 <div class="container">
-	<form method="POST" action="{{route('reporte.corte')}}">
+	<form method="POST" action="{{route('reporte.corte')}}" target="somewhere_new">
+		{{csrf_field()}}
 		<table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
 			<tbody>
 				<tr>

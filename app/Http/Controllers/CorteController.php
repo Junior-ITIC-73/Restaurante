@@ -16,20 +16,27 @@ class CorteController extends Controller
      */
     public function index()
     {   
-        //obtengo fecha de zona horaria mexico
+        // obtengo fecha de zona horaria mexico
        $date = Carbon::now(); 
        $date = $date->format('Y-m-d');//asigno formato  
 
        $num_corte = 1;
        $saldo_inicial=1000;//todo los dias dejan 1000 pesos
-       $monto_cobrado = Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
-       $total_efectivo= Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
-       $total_tarjeta= Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
-// =======
-//        $monto_cobrado = 1100;//Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
-//        $total_efectivo= 800;//Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
-//        $total_tarjeta= 300;//Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
-// >>>>>>> 602e3543ad2ec92a4bcd8c033dbc85dc26eeb1d0
+
+
+
+       // $monto_cobrado = Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
+       // $total_efectivo= Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
+       // $total_tarjeta= Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
+
+
+       $monto_cobrado = 1200;//Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
+
+       $total_efectivo= 800;//Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
+       $total_tarjeta= 300;//Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
+
+
+
        return view('Modulos.corte.corte',compact('date','num_corte','saldo_inicial','monto_cobrado','total_efectivo','total_tarjeta'));//le mando todas las consultas
     }
 
