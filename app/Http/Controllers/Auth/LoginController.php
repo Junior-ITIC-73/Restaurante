@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
+use Auth;
+class LoginController extends Controller 
 
-class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -22,53 +21,27 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    public $maxAttempts = 3;
+    public $maxAttempts = 2;
     public $decayMinutes = 1;
     
-    // /**
-    //  * Where to redirect users after login.
-    //  *
-    //  * @var string
-    //  */
-    // protected $redirectTo = '/home';
+     /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/realizarventa';
 
-    // *
-    //  * Create a new controller instance.
-    //  *
-    //  * @return void
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-        $this->middleware('guest',['only' => 'showLoginForm']);
+        $this->middleware('guest')->except('logout');
     }
-
-    public function showLoginForm(){
-        return view('Arboleda.Login');
-    }
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    // }
-
-    public function login(){
-        $credentials = $this->validate(request(),[
-            'email' => 'required|email|string',
-            'password'=> 'required|string' 
-        ]);
-        // return $credentials;
-        if(Auth::attempt($credentials)){
-            return redirect()->route('admin.index');
-        }
-
-        return back()
-        ->withErrors(['email'=>trans('auth.failed')])
-        ->withInput(request(['email']));
-
-    }
-
-    public function logout(){
+    public function logout() {
         Auth::logout();
-        return redirect()->route('arboleda.login');
-    }
-
-    
+        return redirect('/');
+      }
 }

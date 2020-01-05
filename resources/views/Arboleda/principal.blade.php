@@ -3,31 +3,32 @@
   <head> 
 
     <title>Arboleda-Restaurante cafe</title> 
-    <link rel="ICON"  type="IMAGEN/PNG" href="{{asset('tasty/images/logo1.ico')}}">
+    <link rel="ICON"  type="IMAGEN/PNG" href="tasty/images/logo1.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('tasty/css/open-iconic-bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{asset('tasty/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('tasty/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('tasty/css/animate.css') }}">
     
-    <link rel="stylesheet" href="{{asset('tasty/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('tasty/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('tasty/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="tasty/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="tasty/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="tasty/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="{{asset('tasty/css/aos.css')}}">
+    <link rel="stylesheet" href="tasty/css/aos.css">
 
-    <link rel="stylesheet" href="{{asset('tasty/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="tasty/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="{{asset('tasty/css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('tasty/css/jquery.timepicker.css')}}">
+    <link rel="stylesheet" href="tasty/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="tasty/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="{{asset('tasty/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('tasty/css/icomoon.css')}}">
-    <link rel="stylesheet" href="{{asset('tasty/css/style.css')}}">
+    <link rel="stylesheet" href="tasty/css/flaticon.css">
+    <link rel="stylesheet" href="tasty/css/icomoon.css">
+    <link rel="stylesheet" href="tasty/css/style.css">
   </head>
   <body>
     
@@ -41,12 +42,11 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+            <li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Inicio</a></li>
             <li class="nav-item"><a href="{{url('/menu')}}" class="nav-link">Menu completo</a></li>
             <li class="nav-item"><a href="{{url('/specialties')}}" class="nav-link">Especiales</a></li>
-            <li class="nav-item"><a href="{{url('/reservation')}}" class="nav-link">Reservación</a></li>
             <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">Nosotros</a></li>
-            <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contacto</a></li>
+            <li class="nav-item"><a href="{{url('/test')}}" class="nav-link">Contacto</a></li>
           </ul>
         </div>
       </div>
@@ -56,10 +56,7 @@
 
 <center>
 <div id = 'Contenido'>
-
 @yield('contenido')
-
-
 </div>
 </center>
 
@@ -69,7 +66,7 @@
       <div class="container-fluid">
         <div class="row no-gutters justify-content-center pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2><span>Instagram</span></h2>
+            <h2><span>Galeria</span></h2>
           </div>
         </div>
         <div class="row no-gutters">
@@ -151,9 +148,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Redes sociales</h2>
                <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.facebook.com/CafeArboleda/"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
@@ -168,22 +163,22 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="{{asset('tasty/js/jquery.min.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery-migrate-3.0.1.min.js') }}"></script>
-  <script src="{{asset('tasty/js/popper.min.js') }}"></script>
-  <script src="{{asset('tasty/js/bootstrap.min.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.easing.1.3.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.waypoints.min.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.stellar.min.js') }}"></script>
-  <script src="{{asset('tasty/js/owl.carousel.min.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.magnific-popup.min.js') }}"></script>
-  <script src="{{asset('tasty/js/aos.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.animateNumber.min.js') }}"></script>
-  <script src="{{asset('tasty/js/bootstrap-datepicker.js') }}"></script>
-  <script src="{{asset('tasty/js/jquery.timepicker.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/popper.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/bootstrap.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/aos.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.animateNumber.min.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/bootstrap-datepicker.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/jquery.timepicker.min.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{{asset('tasty/js/google-map.js') }}"></script>
-  <script src="{{asset('tasty/js/main.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/google-map.js') }}"></script>
+  <script src="{{ URL::asset('tasty/js/main.js') }}"></script>
     
   </body>
 </html>

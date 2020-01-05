@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CORTE</title>
-	    <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
+@extends('admin.admin')
+
+@section('header')
+    <h1 align="center">
+        Modulo de Corte de caja
+    </h1>
+    <link href = "{{asset('js/jquery-ui-1.12.1/jquery-ui.css')}}"
   rel = "stylesheet">
   <script src = "{{asset('js/jquery-3.4.1.js')}}"></script>
   <script src = "{{asset('js/jquery-ui-1.12.1/jquery-ui.js')}}"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-  <script type="text/javascript">
+@endsection
+
+@section('content')
+   <script type="text/javascript">
   	$(document).ready(function(){
  	saldo_inicial=parseInt($("#saldo_inicial").val());
  	monto_cobrado=parseInt($("#monto_cobrado").val());
@@ -131,64 +134,57 @@
 
                 }
   </script>
-</head>
-<body>
-<CENTER>
-	<h1>CORTE DE CAJA</h1>
+<div class="container">
 	<form method="POST" action="{{route('reporte.corte')}}">
-		{{csrf_field()}}
-	<table border="4" style="width:60%">
-		<tbody>
-			<tr>
-				<td><b>CORTE #</b> <input type="text" name="num_corte" id="num_corte" value="CDR00000{{$num_corte}}" readonly></td>
-
-				<td><b>FECHA:</b><input type="text" name="fecha_corte" value="{{$date}}" readonly></td>
-			</tr>
-			<tr>
-				<td><b>SALDO INICIAL</b><input type="text"  name="saldo_inicial" id="saldo_inicial" readonly value="{{$saldo_inicial}}"></td>
-
-				<td  rowspan="4" align="center">
-				<b>TOTAL DIFERENCIA</b><input type="text" name="total_diferencia" id="total_diferencia" readonly></td>
-			</tr>
-			<tr>
-				<td><b>MONTO COBRADO</b><input type="text" name="monto_cobrado" id="monto_cobrado" value="{{$monto_cobrado}}" readonly></td>
-			</tr>
-			<tr>
-				<td><b>TOTAL EN CAJA<b><input type="text" name="total_en_caja" id="total_en_caja" readonly></td>
-			</tr>	
-	    </tbody>
-	</table><br>
-	<table border="4"  style="width:60%">
-		<thead>
-			<tr>
-				<th><b>DETALLES VENTAS</b></th>
-				<th><b>TIPO PAGO</b></th>
-				<th><b>MONTO COBRADO</b></th>
-				<th><b>MONTO CONTADO</b></th>
-				<th><b>DIFERENCIA</b></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td align="center"><button><a href="{{route('modulo.detalleVentasEfectivo')}}">MAS DETALLES</a></button></td>
-				<td>EFECTIVO</td>
-				<td><input type="text" name="total_efectivo" readonly value="{{$total_efectivo}}" id="total_efectivo"></td>
-				<td><input type="text" name="cantidad_efectivo" id="cantidad_efectivo" placeholder="Ingresa cantidad total" onkeypress="return solonumeros(event)" onpaste="return false;" style="border-color: blue;" required></td>
-				<td><input type="text" name="diferencia_efectivo" id="diferencia_efectivo" readonly></td>
-			</tr>
-			<tr>
-				<td align="center"><button><a href="{{route('modulo.detalleVentasTarjeta')}}">MAS DETALLES</a></button></td>
-				<td>TARJETA</td>
-				<td><input type="text" name="total_tarjeta" readonly value="{{$total_tarjeta}}" id="total_tarjeta" ></td>
-				<td><input type="text" name="cantidad_tarjeta" placeholder="ingrese total de baucher" id="cantidad_tarjeta" id="cantidad_tarjeta" onkeypress="return solonumeros(event)" onpaste="return false;"  style="border-color: blue;" required></td>
-				<td><input type="text" name="diferencia_tarjeta" id="diferencia_tarjeta" readonly></td>
-			</tr>
-			<tr>
-				<td align="center" colspan="5"><button type="submit">REALIZAR CORTE</button></td>
-			</tr>
-		</tbody>
-	</table>
+		<table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+			<tbody>
+				<tr>
+					<td><b>CORTE #</b> <input type="text" name="num_corte" id="num_corte" value="CDR00000{{$num_corte}}" readonly></td>
+					<td><b>FECHA:</b><input type="text" name="fecha_corte" value="{{$date}}" readonly></td>
+				</tr>
+				<tr>
+					<td><b>SALDO INICIAL</b><input type="text"  name="saldo_inicial" id="saldo_inicial" readonly value="{{$saldo_inicial}}"></td>	
+					<td  rowspan="4" align="center"><b>TOTAL DIFERENCIA</b><input type="text" name="total_diferencia" id="total_diferencia" readonly></td>
+				</tr>
+				<tr>
+					<td><b>MONTO COBRADO</b><input type="text" name="monto_cobrado" id="monto_cobrado" value="{{$monto_cobrado}}" readonly></td>
+				</tr>
+				<tr>
+					<td><b>TOTAL EN CAJA<b><input type="text" name="total_en_caja" id="total_en_caja" readonly></td>
+				</tr>
+			</tbody>
+		</table>
+		<table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+				<thead>
+					<tr>
+						<th><b>Detalle de ventas</b></th>
+						<th><b>Tipo pago</b></th>
+						<th><b>Monto cobrado</b></th>
+						<th><b>Monto contado</b></th>
+						<th><b>Diferencia</b></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="center"><button><a href="{{route('modulo.detalleVentasEfectivo')}}">MAS DETALLES</a></button></td>
+						<td>EFECTIVO</td>
+						<td><input type="text" name="total_efectivo" readonly value="{{$total_efectivo}}" id="total_efectivo"></td>
+						<td><input type="text" name="cantidad_efectivo" id="cantidad_efectivo" placeholder="Ingresa cantidad total" onkeypress="return solonumeros(event)" onpaste="return false;" style="border-color: blue;" required></td>
+						<td><input type="text" name="diferencia_efectivo" id="diferencia_efectivo" readonly></td>
+					</tr>
+					<tr>
+						<td align="center"><button><a href="{{route('modulo.detalleVentasTarjeta')}}">MAS DETALLES</a></button></td>
+						<td>TARJETA</td>
+						<td><input type="text" name="total_tarjeta" readonly value="{{$total_tarjeta}}" id="total_tarjeta" ></td>
+						<td><input type="text" name="cantidad_tarjeta" placeholder="ingrese total de baucher" id="cantidad_tarjeta" id="cantidad_tarjeta" onkeypress="return solonumeros(event)" onpaste="return false;"  style="border-color: blue;" required></td>
+						<td><input type="text" name="diferencia_tarjeta" id="diferencia_tarjeta" readonly></td>
+					</tr>
+					<tr>
+						<td align="center" colspan="5"><button type="submit">REALIZAR CORTE</button></td>
+					</tr>
+				</tbody>
+		</table>
 	</form>
-</CENTER>
-</body>
-</html>
+</div>
+@endsection
+

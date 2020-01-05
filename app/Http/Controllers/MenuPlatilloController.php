@@ -6,7 +6,14 @@ use App\Http\Requests\menuplatillosRequest;
 use App\MenuPlatillo;
 use App\CategoriaPlatillo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
+//Para reportes en PDF
+use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+
+// para reportes Excel
+use App\Exports\MenuPlatillosExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class MenuPlatilloController extends Controller
@@ -16,11 +23,16 @@ class MenuPlatilloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $menu_platillos=MenuPlatillo::All();
-        return view('menuplatillos.index',compact('menu_platillos'));
+        $criterio  = $request['criterio'];
+        $menu_platillos = MenuPlatillo::where('nombre_platillo', 'LIKE', '%'.$criterio.'%')->orWhere('descripcion_platillo', 'LIKE', '%'.$criterio.'%')->paginate(10);
+
+        return view("menuplatillos.index",compact("menu_platillos"),['criterio'=>$criterio]);
+        // Old
+        // $menu_platillos=MenuPlatillo::All();
+        // return view('menuplatillos.index',compact('menu_platillos'));
     }
 
     /**
@@ -114,5 +126,20 @@ class MenuPlatilloController extends Controller
     {
         $menu_platillo->delete();
          return redirect()->route('menuplatillo.index');
+    }
+
+    public function reportepdf(Request $request){
+        $criterio  = $request['criterio'];
+        $menu_platillos = MenuPlatillo::where('nombre_platillo', 'LIKE', '%'.$criterio.'%')->orWhere('descripcion_platillo', 'LIKE', '%'.$criterio.'%')->get();
+        $date = Carbon::now(); 
+        $date = $date->format('Y-m-d');
+
+         $pdf = PDF::loadView("reportes.pdfMenuPlatillo",compact("menu_platillos","date"));
+        return $pdf->stream('reporteMenuPlatillos.pdf');
+    }
+
+    public function reporteExcel(Request $request){
+        $criterio  = $request['criterio'];
+        return Excel::download(new MenuPlatillosExport($criterio),'Platillos-Reporte.xlsx');
     }
 }

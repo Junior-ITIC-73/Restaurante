@@ -17,7 +17,9 @@ class Empleado extends Model
         'num_interior',
         'num_exterior',
         'CP',
-        'localidad'
+        'localidad',
+        'municipio_id',
     ];
+
 }
 

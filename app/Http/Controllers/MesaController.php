@@ -62,7 +62,7 @@ class MesaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Mesa $mesa)
-    {
+    {   
         return view('mesas.edit',compact('mesa'));
     }
 

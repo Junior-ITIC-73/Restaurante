@@ -35,7 +35,7 @@
               </div>
               <div class="col mb-3 d-flex py-4 border" style="background: white;">
                 <div class="align-self-center">
-                  <p class="mb-0"><span>Email:</span> <a href=""></a></p>
+                  <p class="mb-0"><span>Email:</span> <a href="">enrique_sobra@arboledarestaurante.com</a></p>
                 </div>
               </div>
               <div class="col mb-3 d-flex py-4 border" style="background: white;">
@@ -46,18 +46,19 @@
             </div>
           </div>
           <div class="col-md-6">
-            <form action="#">
+            <form action="{{-- {{route('contact')}} --}}" method="POST">
+                  {{ csrf_field() }}
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre">
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="text" name="email" class="form-control" placeholder="Email">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Asunto">
+                <input type="text" name="asunto" class="form-control" placeholder="Asunto">
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
+                <textarea name="msg" id="" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
               </div>
               <div class="form-group">
                 <input type="submit" value="Enviar" class="btn btn-primary py-3 px-5">

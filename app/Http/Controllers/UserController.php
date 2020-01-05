@@ -7,6 +7,18 @@ use App\http\Requests\FormUser;
 use App\http\Requests\FormUserEdit;
 use Illuminate\Http\Request;
 
+//Para reportes en PDF
+use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+
+// para reportes Excel
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+//para reporte Word
+use phpoffice\phpword;
+use Illuminate\support\Facades\DB;
+
 class UserController extends Controller
 {
     /**
@@ -14,10 +26,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::All();
-        return view('users.index',compact('users'));
+        $criterio = $request['criterio'];
+        $users = User::where('name', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('email', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('telefono_user', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('calle', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('localidad', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('CP', 'LIKE', '%'.$criterio.'%')
+        ->paginate(10);
+
+        return view('users.index',compact('users'),['criterio'=>$criterio]);
+
+        // $users = User::All();
+        // return view('users.index',compact('users'));
     }
 
     /**
@@ -124,5 +147,33 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('users.index');
+    }
+
+    public function reportepdf(Request $request){
+
+
+        $criterio = $request['criterio'];
+
+        $users = User::where('name', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('email', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('telefono_user', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('calle', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('localidad', 'LIKE', '%'.$criterio.'%')
+        ->orWhere('CP', 'LIKE', '%'.$criterio.'%')->get();
+
+        $date = Carbon::now(); 
+        $date = $date->format('Y-m-d');
+
+
+        $pdf = PDF::loadView("reportes.pdfUsuarios",compact("users","date"));
+
+        return $pdf->stream('reporteUsuarios.pdf');
+        // return $pdf->download('reportesEmpleados.pdf');
+
+    }
+
+    public function reporteExcel(Request $request){
+        $criterio = $request['criterio'];
+        return Excel::download(new UsersExport($criterio),'Usuario-Reporte.xlsx');
     }
 }
