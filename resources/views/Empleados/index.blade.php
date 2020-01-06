@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="col-md-12 col-xs-12">
 		<div class="cold-md-12">
-          <table  border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+          <table  border="4" class="table table-striped table-bordered" style="width:95%" id="a" align="left">
             <tr>
               <td>
               	 {{-- <a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"> --}}
@@ -66,7 +66,7 @@
           </div>
 		<div class="cold-md-12">
 		<table border="4" class="table table-striped table-bordered" style="width:95%" id="a1">
-			<thead>
+			<thead style="background-color: #A9D0F5">
 			<tr>
 				<th>Imagen</th>
 				<th><b>Nombre</b></th>

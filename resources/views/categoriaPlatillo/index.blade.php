@@ -11,7 +11,7 @@
     <div class="container">
       <div class="col-md-12 col-xs-12">
         <div class="col-md-12">
-          <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+          <table table border="4" class="table table-striped table-bordered" style="width:90%" id="a" align="left">
             <tr>
               <td><a href="{{URL::action('CategoriaPlatilloController@reportepdf',['criterio'=>$criterio])}}" target="somewhere_new"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
               <td>
@@ -48,8 +48,8 @@
           </table>
         </div>
         <div class="col-md-12">
-        <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a1" align="center">
-          <thead style="background-color: #A9D0F5">
+        <table border="4" class="table table-striped table-bordered" style="width:90%" id="a1" align="left">
+          <thead  style="background-color: #A9D0F5">
             <tr>
                 <th>Nombre</th>
                 <th>Imagen</th>
@@ -78,6 +78,7 @@
           </tbody> 
         </table>
        </div>
+       <center>{{$categoriaPlatillos->links()}}</center>
       </div>
     </div>
 @endsection

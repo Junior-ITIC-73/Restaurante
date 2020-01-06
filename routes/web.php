@@ -194,7 +194,7 @@
     // Route::POST('ventas','ChidoController@store');
     ///////////////////////////////////
     
-    Route::post('busqueda/categoriaplatillo','CategoriaPlatilloController@index')->name('busqueda.categoriaplatillo');
+    Route::post('categoriaPlatillo','CategoriaPlatilloController@index')->name('busqueda.categoriaplatillo');
 
 
     //Reportes de Categoria Platillo
@@ -211,7 +211,7 @@
     // Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
 
         //-buqueda por citerio menu Platillos
-    Route::post('busqueda/menu_platillo','MenuPlatilloController@index')->name('busqueda.menu_platillo');
+    Route::post('menuplatillo','MenuPlatilloController@index')->name('busqueda.menu_platillo');
 
     //Reportes de  PDF menu Platillos
     Route::get('menu_platillo/reportepdf/{criterio?}','MenuPlatilloController@reportepdf')->name('pdf.menu_platillo');
@@ -219,7 +219,7 @@
     Route::get('menu_platillo/reporteExcel/{criterio?}','MenuPlatilloController@reporteExcel')->name('excel.menu_platillo');
 
         //-buqueda por citerio empleados
-    Route::post('busqueda/usuario','UserController@index')->name('busqueda.usuario');
+    Route::post('usuarios','UserController@index')->name('busqueda.usuario');
     //Reportes de Usuarios
     Route::get('usuarios/reportepdf/{criterio?}','UserController@reportepdf')->name('pdf.usuario');
     Route::get('usuarios/reporteExcel/{criterio?}','UserController@reporteExcel')->name('excel.usuario');

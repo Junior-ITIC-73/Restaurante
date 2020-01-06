@@ -27,7 +27,7 @@ class MenuPlatilloController extends Controller
     {
 
         $criterio  = $request['criterio'];
-        $menu_platillos = MenuPlatillo::where('nombre_platillo', 'LIKE', '%'.$criterio.'%')->orWhere('descripcion_platillo', 'LIKE', '%'.$criterio.'%')->paginate(10);
+        $menu_platillos = MenuPlatillo::where('nombre_platillo', 'LIKE', '%'.$criterio.'%')->orWhere('descripcion_platillo', 'LIKE', '%'.$criterio.'%')->paginate(5);
 
         return view("menuplatillos.index",compact("menu_platillos"),['criterio'=>$criterio]);
         // Old
