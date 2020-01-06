@@ -37,6 +37,9 @@
       .skin-blue .main-header .logo{
          background-color: #222d32 ;
       }
+      .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+         background-color: #222d32 ;
+      }
     </style>
 @endif
 
@@ -47,6 +50,9 @@
       }
       .skin-blue .main-header .logo{
          background-color: #153144;
+      }
+       .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+         background-color: #153144 ;
       }
     </style>
 @endif
@@ -59,6 +65,9 @@
       .skin-blue .main-header .logo{
          background-color: #1D6FA7;
       }
+       .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+         background-color: #1D6FA7 ;
+      }
     </style>
 @endif
 
@@ -69,6 +78,9 @@
       }
       .skin-blue .main-header .logo{
          background-color: #2099EA;
+      }
+       .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+         background-color: #2099EA ;
       }
     </style>
 @endif

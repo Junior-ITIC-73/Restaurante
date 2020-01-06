@@ -60,7 +60,7 @@
 				@endforeach
 			@endif
 
- <form method="POST" action="{{route('empleado.update',$empleado)}}" align="center" id="empleados">
+ <form method="POST" action="{{route('empleado.update',$empleado)}}"  id="empleados" enctype="multipart/form-data">
   {{method_field('PUT')}}
   {{csrf_field()}}
   <div class="row">
@@ -102,14 +102,22 @@
                         @endif
                     </div>
                 </div><!-- fin col-md-4 -->
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="chooseFile" class="col-sm-0 col-form-label">Imagen Perfil Empleado</label>
+                        <input type="file" name="chooseFile" id="chooseFile">
+                    </div>
+                </div>
+                <div class="col-md-4">
                  <div class="form-group">
-                        <label>Sexo</label>
+                        <label>Sexo</label><br>
                         <label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
                         <label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
                         @if($errors->has('sexo'))
                         <label style="color:red">{{$errors->first('sexo')}}</label>
                         @endif
-                    </div>
+                </div>
+            </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="telefono">Telefono</label>

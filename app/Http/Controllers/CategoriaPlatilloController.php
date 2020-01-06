@@ -70,8 +70,8 @@ class CategoriaPlatilloController extends Controller
         //el el campo imagen de la bd guardo el nombre original del archivo
         'imagen'=>$file->getClientOriginalName()
 
-
         ]);
+        
         return redirect()->route('categoriaPlatillo.index')->with('mesage', 'La categoria se ha agregado exitosamente!');
     }
 

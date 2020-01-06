@@ -25,7 +25,8 @@ class User extends Authenticatable
         'num_interior',
         'num_exterior',
         'CP',
-        'localidad'
+        'localidad',
+        'rol_user'
     ];
 
     /**

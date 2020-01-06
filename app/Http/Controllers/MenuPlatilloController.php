@@ -56,6 +56,7 @@ class MenuPlatilloController extends Controller
     {
         $platillo  = new MenuPlatillo(request()->all());
         // return redirect()->route('menuplatillo.index');
+        
         //valido si en el request se manda un archivo en el input llamado chooseFile
         $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
         //guardo el archivo en la carpeta imag con el nombre original del archivo

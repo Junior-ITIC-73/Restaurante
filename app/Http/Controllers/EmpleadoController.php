@@ -88,11 +88,18 @@ class EmpleadoController extends Controller
      */
     public function store(FormEmpleado $request)
     {
-         $empleado = new Empleado(request()->all());
-         $empleado->save();
+        $empleado = new Empleado(request()->all());
 
 
-         return redirect()->route('empleado.index');
+        //valido si en el request se manda un archivo en el input llamado chooseFile
+        $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+        //guardo el archivo en la carpeta imag con el nombre original del archivo
+        $file->move('imag/users',$file->getClientOriginalName());
+        $empleado->imagen = $file->getClientOriginalName();
+
+
+        $empleado->save();
+        return redirect()->route('empleado.index');
     }
 
     /**
@@ -126,6 +133,13 @@ class EmpleadoController extends Controller
      */
     public function update(FormEmpleado $request, Empleado $empleado)
     {
+
+         //valido si en el request se manda un archivo en el input llamado chooseFile
+       $file=$request->file('chooseFile');// chooseFile es el name que tiene mi input de tipo file
+       //guardo el archivo en la carpeta imag con el nombre original del archivo
+       $file->move('imag/users',$file->getClientOriginalName());
+
+
         $empleado->name = $request['name'];
         $empleado->apellido_paterno = $request['apellido_paterno'];
         $empleado->apellido_materno = $request['apellido_materno'];
@@ -136,6 +150,7 @@ class EmpleadoController extends Controller
         $empleado->num_exterior = $request['num_exterior'];
         $empleado->CP = $request['CP'];
         $empleado->localidad = $request['localidad'];
+        $empleado->imagen = $file->getClientOriginalName();
         $empleado->save();
         return redirect()->route('empleado.index');
     }

@@ -202,7 +202,7 @@
                 </div><!-- fin col-md-3 -->
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label><b>Sexo</b></label>
+                        <label><b>Sexo</b></label><br>
                         <label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
                         <label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
                         @if($errors->has('sexo'))
@@ -210,6 +210,18 @@
                         @endif
                     </div>
                 </div><!-- fin col-md-3 -->
+                 <div class="col-md-3">
+                    <div class="form-group">
+                        <label><b>Rol:</b></label><br>
+                        <label for="hombre">Admin</label><input type="radio" name="rol_user" value="1"  id="hombre">
+                        <label for="mujer">Empleado</label><input type="radio" name="rol_user" value="2" id="mujer">
+                        <label for="mujer">Invitado</label><input type="radio" name="rol_user" value="3" id="mujer" checked>
+                        @if($errors->has('rol_user'))
+                        <label style="color:red">{{$errors->first('rol_user')}}</label>
+                        @endif
+                    </div>
+                </div><!-- fin col-md-3 -->
+
                 </div><!-- fin row cabecera -->
                 <div class="row">
                     <div class="col-md-4">

@@ -64,7 +64,7 @@
             </div>
             @endif
             
-            <form method="POST" action="{{route('empleado.alta')}}">
+            <form method="POST" action="{{route('empleado.alta')}}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                 
                 <div class="row">
@@ -97,6 +97,12 @@
                 </div><!-- fin col-md-4 -->
                 <div class="col-md-4">
                     <div class="form-group">
+                        <label for="chooseFile" class="col-sm-0 col-form-label">Imagen Perfil Empleado</label>
+                        <input type="file" name="chooseFile" id="chooseFile">
+                    </div>
+                </div>
+                   <div class="col-md-4">
+                    <div class="form-group">
                         <label><b>Sexo</b></label>
                         <label for="hombre">Hombre</label><input type="radio" name="sexo" value="0" checked id="hombre">
                         <label for="mujer">Mujer</label><input type="radio" name="sexo" value="1" id="mujer">
@@ -104,7 +110,8 @@
                         <label style="color:red">{{$errors->first('sexo')}}</label>
                         @endif
                     </div>
-                </div><!-- fin col-md-3 -->
+                </div>
+                <!-- fin col-md-3 -->
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="telefono">Telefono</label>

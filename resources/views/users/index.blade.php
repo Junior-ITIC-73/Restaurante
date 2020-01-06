@@ -53,6 +53,7 @@
 			<tr>
 				<th><b>Nombre</b></th>
 				<th><b>EMAIL</b></th>
+				<th><b>ROL</b></th>
 				<th><b>DATOS DEL CLIENTE</b></th>
 				<th><b>MODIFICAR</b></th>
 				<th><b>ELIMINAR</b></th>
@@ -63,6 +64,18 @@
 			<tr>
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
+				@if($user->rol_user == 0)
+				<td>Admin</td>
+				@endif
+				@if($user->rol_user == 1)
+				<td>Admin</td>
+				@endif
+				@if($user->rol_user == 2)
+				<td>Empleado</td>
+				@endif
+				@if($user->rol_user == 3)
+				<td>Invitado</td>
+				@endif
 				<td>
 					<ul>
 						<li><b>TEL:</b> {{$user->telefono_user}}</li>

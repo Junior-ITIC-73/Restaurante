@@ -27,7 +27,7 @@ class FormUserEdit extends FormRequest
                'name'=>'required|not_regex:/[0-9]/',
                'sexo'=>'required|boolean',
                'telefono_user'=>'required|numeric',
-               'calle'=>'required|alpha_dash',
+               'calle'=>'required',
                'num_interior'=>'required|numeric',
                'num_exterior'=>'required|numeric',
                'CP'=>'required|numeric',

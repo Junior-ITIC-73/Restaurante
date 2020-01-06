@@ -87,7 +87,8 @@ class UserController extends Controller
             'num_interior' => $request['num_interior'],
             'num_exterior' => $request['num_exterior'],
             'CP' => $request['CP'],
-            'localidad' => $request['localidad']
+            'localidad' => $request['localidad'],
+            'rol_user' => $request['rol_user']
         ]);
 
         return redirect()->route('users.index');
@@ -132,6 +133,7 @@ class UserController extends Controller
         $user->num_exterior = $request['num_exterior'];
         $user->CP= $request['CP'];
         $user->localidad= $request['localidad'];
+        $user->rol_user = $request['rol_user'];
         $user->save();
 
         return redirect()->route('users.index');

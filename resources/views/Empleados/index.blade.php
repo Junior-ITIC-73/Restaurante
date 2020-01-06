@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="col-md-12 col-xs-12">
 		<div class="cold-md-12">
-          <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
+          <table  border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
             <tr>
               <td>
               	 {{-- <a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"> --}}
@@ -65,9 +65,10 @@
           </table>
           </div>
 		<div class="cold-md-12">
-		<table border="4" class="table table-striped table-bordered" style="width:100%" id="a1">
+		<table border="4" class="table table-striped table-bordered" style="width:95%" id="a1">
 			<thead>
 			<tr>
+				<th>Imagen</th>
 				<th><b>Nombre</b></th>
 				<th><b>Apellido Paterno</b></th>
 				<th><b>Apellido Materno</b></th>
@@ -81,6 +82,7 @@
 			<tbody>
 			@foreach($empleados as $empleado)
 			<tr>
+				<td><img style="width:85px; height:85px;" src="{{asset('imag/users/'.$empleado->imagen)}}"></td>
 				<td>{{$empleado->name}}</td>
 				<td>{{$empleado->apellido_paterno}}</td>
 				<td>{{$empleado->apellido_materno}}</td>
