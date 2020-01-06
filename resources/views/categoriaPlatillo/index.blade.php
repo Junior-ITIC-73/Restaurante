@@ -53,8 +53,10 @@
             <tr>
                 <th>Nombre</th>
                 <th>Imagen</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
+                @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                @endif
             </tr>
           </thead>
           <tbody>
@@ -63,16 +65,16 @@
                   <td>{{$categoriaPlatillo->nombre_categoria}}</td>
                   
                   <td><img style="width:85px; height:85px;" src="{{asset('imag/'.$categoriaPlatillo->imagen)}}"></td>
-
-                  <td><a href="{{route('categoriaPlatillo.edit',$categoriaPlatillo)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
-                  
-                  <td>
-                      <form action="{{route('categoriaPlatillo.destroy',$categoriaPlatillo)}}" method="POST">
-                          {{csrf_field()}}
-                          {{method_field('DELETE')}}
-                          <button type="submit" onclick="return confirm('Estas seguro de eliminar al la Categoria {{$categoriaPlatillo->nombre_categoria}}?')"><img src="{{asset('img/eliminar.png')}}" width="30" height="30" ></button>
-                      </form>
-                  </td>
+                   @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+                          <td><a href="{{route('categoriaPlatillo.edit',$categoriaPlatillo)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
+                          <td>
+                              <form action="{{route('categoriaPlatillo.destroy',$categoriaPlatillo)}}" method="POST">
+                                  {{csrf_field()}}
+                                  {{method_field('DELETE')}}
+                                  <button type="submit" onclick="return confirm('Estas seguro de eliminar al la Categoria {{$categoriaPlatillo->nombre_categoria}}?')"><img src="{{asset('img/eliminar.png')}}" width="30" height="30" ></button>
+                              </form>
+                          </td>
+                  @endif
                 </tr>
               @endforeach
           </tbody> 

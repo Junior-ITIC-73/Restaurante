@@ -213,7 +213,9 @@
                  <div class="col-md-3">
                     <div class="form-group">
                         <label><b>Rol:</b></label><br>
-                        <label for="hombre">Admin</label><input type="radio" name="rol_user" value="1"  id="hombre">
+                        @if(auth()->user()->rol_user == 0)
+                            <label for="hombre">Admin</label><input type="radio" name="rol_user" value="1"  id="hombre">
+                        @endif
                         <label for="mujer">Empleado</label><input type="radio" name="rol_user" value="2" id="mujer">
                         <label for="mujer">Invitado</label><input type="radio" name="rol_user" value="3" id="mujer" checked>
                         @if($errors->has('rol_user'))

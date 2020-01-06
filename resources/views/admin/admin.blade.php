@@ -214,12 +214,14 @@
                 Mesas
               </a>
             </li>
-            <li>
-              <a href="/categoriaPlatillo">
-                <i class="fa fa-circle-o"></i>
-                Categoria Platillos
-              </a>
-            </li>
+             @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0 or auth()->user()->rol_user == 2)
+                  <li>
+                    <a href="/categoriaPlatillo">
+                      <i class="fa fa-circle-o"></i>
+                      Categoria Platillos
+                    </a>
+                  </li>
+            @endif
             <li>
               <a href="/menuplatillo">
                 <i class="fa fa-circle-o"></i>
@@ -228,7 +230,7 @@
             </li>
           </ul>
         </li>
-
+ @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0 or auth()->user()->rol_user == 2)
         <li class="treeview active menu-open">
           <a href="#">
             <i class="fa fa-link"></i> <span>Ventas</span>
@@ -245,24 +247,25 @@
             </li>
           </ul>
         </li>
-
-        <li class="treeview active menu-open">
-          <a href="#">
-            <i class="fa fa-link"></i> <span>Corte Caja</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li>
-              <a href="{{url('/corteCaja')}}">
-                <i class="fa fa-circle-o"></i>
-                Corte Caja
+@endif
+         @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+            <li class="treeview active menu-open">
+              <a href="#">
+                <i class="fa fa-link"></i> <span>Corte Caja</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="{{url('/corteCaja')}}">
+                    <i class="fa fa-circle-o"></i>
+                    Corte Caja
+                  </a>
+                </li>
+              </ul>
             </li>
-          </ul>
-        </li>
-
+        @endif
 
         {{-- <li class="treeview">
           <a href="#">

@@ -16,8 +16,10 @@
 						<tr align="center">
 							<th>Numero</th>
 							<th>Descripcion</th>
-							<th>Modificar</th>
-							<th>Eliminar</th>
+							@if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+								<th>Modificar</th>
+								<th>Eliminar</th>
+							@endif
 						</tr>
 					</thead>
 					<tbody>
@@ -25,8 +27,10 @@
 						<tr align="center">
 							<td>{{$mesa->numero_mesa}}</td>
 							<td>{{$mesa->descripcion_mesa}}</td>
-							<td><a href="{{route('mesas.edit',$mesa)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
-							<td><a href="{{route('mesas.destroy',$mesa)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
+							@if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+									<td><a href="{{route('mesas.edit',$mesa)}}"><img src="{{asset('img/editar.png')}}" width="30" height="30"></a></td>
+									<td><a href="{{route('mesas.destroy',$mesa)}}"><img src="{{asset('img/eliminar.png')}}" width="30" height="30"></a></td>
+							@endif
 						</tr>
 					@endforeach
 					</tbody> 
