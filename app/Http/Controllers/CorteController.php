@@ -33,7 +33,7 @@ class CorteController extends Controller
        $monto_cobrado = 1200;//Venta::whereDate('created_at',$date)->sum('total_venta');//consulta para sumar ventas totales donde la fecha sea la de hoy
 
        $total_efectivo= 800;//Venta::where('tipo_de_pago','0')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en efectivio
-       $total_tarjeta= 300;//Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
+       $total_tarjeta= 400;//Venta::where('tipo_de_pago','1')->whereDate('created_at',$date)->sum('total_venta');//consulta para traer  suma  en donde el pago fue en tarjeta
 
 
 

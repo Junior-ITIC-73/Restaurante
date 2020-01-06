@@ -2,7 +2,7 @@
 
 @section('header')
     <h1 align="center">
-        Agregar Categoria
+        Modificar Categoria
     </h1>
 @endsection
 
@@ -35,8 +35,8 @@
                     </div><!-- fin col-md-3 -->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="descripcion_mesa" class="col-sm-0 col-form-label">Descripcion Mesa</label>
-                            <input type="file" name="chooseFile" id="chooseFile" >
+                            <label for="descripcion_mesa" class="col-sm-0 col-form-label">Imagen categoria</label>
+                            <input type="file" name="chooseFile" id="chooseFile" required>
                         </div>
                     </div><!-- fin col-md-4 -->
                 </div><!-- fin row cabecera -->

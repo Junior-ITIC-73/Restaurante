@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <a href="{{route('mesas.create')}}"><button type="button" class="btn btn-primary">Agregar</button></a>
+    <center><a href="{{route('mesas.create')}}"><button type="button" class="btn btn-primary">Agregar Mesas</button></a></center>
     <div class="container">
         <div class="col-md-12 col-xs-12">
     		<div class="col-md-12">

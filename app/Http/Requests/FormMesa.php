@@ -25,7 +25,7 @@ class FormMesa extends FormRequest
     {
         return [
             'numero_mesa' => 'required|numeric',
-            'descripcion_mesa' => 'required|not_regex:/[0-9]/',
+            'descripcion_mesa' => 'required',
         ];
     }
 }

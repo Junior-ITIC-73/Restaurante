@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="ICON"  type="IMAGEN/PNG" href="tasty/images/logo1.ico">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Restaurante | Arboleda</title>
@@ -26,6 +27,55 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+{{-- ROLES DE USUARIOS COLORES--}}
+@if(auth()->user()->rol_user == 0)
+    <style type="text/css">
+      .skin-blue .main-header .navbar{
+        background-color: #222d32 ;
+      }
+      .skin-blue .main-header .logo{
+         background-color: #222d32 ;
+      }
+    </style>
+@endif
+
+@if(auth()->user()->rol_user == 1)
+    <style type="text/css">
+      .skin-blue .main-header .navbar{
+        background-color: #153144;
+      }
+      .skin-blue .main-header .logo{
+         background-color: #153144;
+      }
+    </style>
+@endif
+
+@if(auth()->user()->rol_user == 2)
+    <style type="text/css">
+      .skin-blue .main-header .navbar{
+        background-color: #1D6FA7;
+      }
+      .skin-blue .main-header .logo{
+         background-color: #1D6FA7;
+      }
+    </style>
+@endif
+
+@if(auth()->user()->rol_user == 3)
+    <style type="text/css">
+      .skin-blue .main-header .navbar{
+        background-color: #2099EA;
+      }
+      .skin-blue .main-header .logo{
+         background-color: #2099EA;
+      }
+    </style>
+@endif
+{{-- Final roles de usuarios --}}
+
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -37,9 +87,12 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>RC</span>
+      {{-- <span class="logo-mini"><b>A</b>RC</span> --}}
+      {{-- <img src="tasty/images/logo1.ico" width="20px" height="20px"> --}}
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Arboleda</b>Restaurante</span>
+      <span class="logo-lg"><b>Arboleda</b>Restaurante<br>Hola</span>
+      {{-- <center><img src="tasty/images/logo1.ico" width="230px" height="230px"></center> --}}
+      {{-- <span class="logo-lg"><img src="tasty/images/logo1.ico" width="60px" height="60px"></span> --}}
     </a>
 
     <!-- Header Navbar -->
@@ -84,6 +137,9 @@
       </div>
     </nav>
   </header>
+
+
+
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
 
@@ -103,29 +159,34 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
+
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="treeview active menu-open">
-          <a href="#">
-            <i class="fa fa-link"></i> <span>Usuarios</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li>
-              <a href="/usuarios">
-                <i class="fa fa-circle-o"></i>
-                Usuarios
+        {{-- Roles para los Admin --}}
+        @if(auth()->user()->rol_user == 1 or auth()->user()->rol_user == 0)
+            <li class="treeview active menu-open">
+              <a href="#">
+                <i class="fa fa-link"></i> <span>Usuarios</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
               </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="/usuarios">
+                    <i class="fa fa-circle-o"></i>
+                    Usuarios
+                  </a>
+                </li>
+                <li>
+                  <a href="/empleado">
+                    <i class="fa fa-circle-o"></i>
+                    Empleado
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li>
-              <a href="/empleado">
-                <i class="fa fa-circle-o"></i>
-                Empleado
-              </a>
-            </li>
-          </ul>
-        </li>
+        @endif
+
 
         <li class="treeview active menu-open">
           <a href="#">
@@ -173,9 +234,27 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview active menu-open">
           <a href="#">
             <i class="fa fa-link"></i> <span>Corte Caja</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="{{url('/corteCaja')}}">
+                <i class="fa fa-circle-o"></i>
+                Corte Caja
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        {{-- <li class="treeview">
+          <a href="#">
+            <i class="fa fa-link"></i><span>Corte Caja</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -189,7 +268,9 @@
             </li>
           </ul>
         </li>
-      </ul>
+      </ul> --}}
+      <br><br>
+     
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

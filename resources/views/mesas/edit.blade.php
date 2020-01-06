@@ -66,6 +66,42 @@
     	}
     });
 });
+
+
+        function soloLetras(e){
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key).toLowerCase();
+                letras = " abcdefghijklmnñopqrstuvwxyz";
+                especiales = "8-37-38-46-164";
+                teclado_especial = false;
+
+                for(var i in especiales){
+                    if(key == especiales[i]){
+                        teclado_especial = true; break;
+                    }
+                }
+                if(letras.indexOf(teclado) == -1 && !teclado_especial){
+                    return false;
+                } 
+
+            }
+            function solonumeros(e){
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key);
+                numeros = "0123456789";
+                especiales = "8-37-38-46";
+                teclado_especial = false;
+
+                for(var i in especiales){
+                    if(key == especiales[i]){
+                        teclado_especial = true;
+                    }
+                }
+                if(numeros.indexOf(teclado) == -1 && !teclado_especial){
+                    return false;
+                } 
+
+            }
 </script>
 		@if($errors->any())
 			<ul>
@@ -93,7 +129,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="numero_mesa">Numero Mesa</label>
-                        <input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa',$mesa->numero_mesa)}}" required title="Introduce numero de mesa" placeholder="Nombre de Usuario" class="form-control" onkeypress="return validar(event)">
+                        <input type="text" name="numero_mesa" id="numero_mesa" value="{{old('numero_mesa',$mesa->numero_mesa)}}" required title="Introduce numero de mesa" placeholder="Nombre de Usuario" class="form-control" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="3" minlength="1">
                         @if($errors->has('numero_mesa'))
                         <label style="color:red">{{$errors->first('numero_mesa')}}</label>
                         @endif

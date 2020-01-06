@@ -33,6 +33,44 @@
           te = String.fromCharCode(tecla);
           return patron.test(te);
         }
+      function soloLetras(e){
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key).toLowerCase();
+                letras = " abcdefghijklmnñopqrstuvwxyz";
+                especiales = "8-37-38-46-164";
+                teclado_especial = false;
+
+                for(var i in especiales){
+                    if(key == especiales[i]){
+                        teclado_especial = true; break;
+                    }
+                }
+                if(letras.indexOf(teclado) == -1 && !teclado_especial){
+                    return false;
+                } 
+
+            }
+            function solonumeros(e){
+                key = e.keyCode || e.which;
+                teclado = String.fromCharCode(key);
+                numeros = "0123456789";
+                especiales = "8-37-38-46";
+                teclado_especial = false;
+
+                for(var i in especiales){
+                    if(key == especiales[i]){
+                        teclado_especial = true;
+                    }
+                }
+                if(numeros.indexOf(teclado) == -1 && !teclado_especial){
+                    return false;
+                } 
+
+            }
+
+
+
+
         </script>
 
    @if($errors->any())
@@ -80,7 +118,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="telefono">Telefono</label>
-                        <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user',$user->telefono_user)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return validarNumeros(event)">
+                        <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user',$user->telefono_user)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return solonumeros(event)" onpaste="return false;"  minlength="10" maxlength="10">
                         @if($errors->has('telefono_user'))
                         <label style="color:red">{{$errors->first('telefono_user')}}</label>
                         @endif
@@ -100,7 +138,7 @@
                   <div class="col-md-3">
                     <div class="form-group">
                         <label for="num_interior">Numero Interior</label>
-                        <input type="text" name="num_interior" id="num_interior" value="{{old('num_interior',$user->num_interior)}}" required class="form-control" placeholder="Numero Interior" >
+                        <input type="text" name="num_interior" id="num_interior" value="{{old('num_interior',$user->num_interior)}}" required class="form-control" placeholder="Numero Interior" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5">
                         @if($errors->has('num_interior'))
                         <label style="color:red">{{$errors->first('num_interior')}}</label>
                         @endif
@@ -109,7 +147,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="num_exterior">Numero Exterior</label>
-                            <input type="text" name="num_exterior" id="num_exterior"  value="{{old('num_exterior',$user->num_exterior)}}" required class="form-control" placeholder="Numero Exterior">
+                            <input type="text" name="num_exterior" id="num_exterior"  value="{{old('num_exterior',$user->num_exterior)}}" required class="form-control" placeholder="Numero Exterior" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5">
                             @if($errors->has('num_exterior'))
                             <label style="color:red">{{$errors->first('num_exterior')}}</label>
                             @endif
@@ -118,7 +156,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="CP">Codigo Postal</label>
-                            <input type="text" name="CP" id="CP" value="{{old('CP',$user->telefono_user)}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP"> 
+                            <input type="text" name="CP" id="CP" value="{{old('CP',$user->CP)}}" required title="Introduzca su Codigo Postal" class="form-control" placeholder="CP" onkeypress="return solonumeros(event)" onpaste="return false;" maxlength="5" minlength="5"> 
                             @if($errors->has('CP'))
                             <label style="color:red">{{$errors->first('CP')}}</label>
                             @endif

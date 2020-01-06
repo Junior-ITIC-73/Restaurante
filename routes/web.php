@@ -112,7 +112,7 @@
 
 
     // ----------CRUD EMPLEADO--------------//
-        Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
+        // Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
         Route::get('empleado/create','EmpleadoController@create')->name('empleado.create');
         Route::post('empleado/alta','EmpleadoController@store')->name('empleado.alta');
         Route::get("empleado/{empleado}",'EmpleadoController@edit')->name('empleado.edit');
@@ -230,8 +230,11 @@
     // //Reportes de Empleados
     // Route::get('Empleados/reportepdf/{sexo?}/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
 
+
+
+    Route::get('empleado/', 'EmpleadoController@index')->name('empleado.index');
     //-buqueda por citerio empleados
-    Route::post('busqueda/empleado','EmpleadoController@index')->name('busqueda.empleado');
+    Route::post('empleado/','EmpleadoController@index')->name('busqueda.empleado');
     //Reportes de Empleados
     Route::get('Empleados/reportepdf/{sexo?}/{criterio?}','EmpleadoController@reportepdf')->name('pdf.empleado');
 

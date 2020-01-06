@@ -41,14 +41,13 @@ class EmpleadoController extends Controller
             //busqueda por sexo y criterio
                 $empleados = Empleado::where('sexo',$sexo)
                 ->Where('apellido_paterno', 'LIKE', '%'.$criterio.'%')
-                ->paginate(10);
+                ->paginate(2);
 
                 // return view("Empleados.index",compact("empleados"),['criterio'=>$criterio,'sexo'=>$sexo]);
 
         }elseif($sexo != null){
                 //busqueda solo por sexo
                 $empleados =  Empleado::where('sexo',$sexo)->paginate(2);
-
                 // return view("Empleados.index",compact("empleados"),['criterio'=>$criterio],['sexo'=>$sexo]);
             }elseif($criterio != null) {
                 //busqueda solo por criterio
@@ -58,12 +57,12 @@ class EmpleadoController extends Controller
                     ->orWhere('telefono_empleado', 'LIKE', '%'.$criterio.'%')
                     ->orWhere('calle', 'LIKE', '%'.$criterio.'%')
                     ->orWhere('CP', 'LIKE', '%'.$criterio.'%')
-                    ->paginate(10);
+                    ->paginate(3);
                     $sexo = $request['sexo'];
                     // return view("Empleados.index",compact("empleados"),['criterio'=>$criterio],['sexo'=>$sexo]);  
         }else{
             //busqueda todos
-            $empleados = Empleado::paginate(10);   
+            $empleados = Empleado::paginate(3);   
         }
 
         //envio de variables necesarias para la vista

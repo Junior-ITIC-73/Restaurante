@@ -78,7 +78,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" value="{{old('name',$empleado->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Empleado" class="form-control" onkeypress="return validar(event)" maxlength="20">
+                        <input type="text" name="name" id="name" value="{{old('name',$empleado->name)}}" required title="Introduce tu nombre" placeholder="Nombre de Empleado" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="20" minlength="4">
                         @if($errors->has('name'))
                         <label style="color:red">{{$errors->first('name')}}</label>
                         @endif
@@ -113,9 +113,9 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="telefono">Telefono</label>
-                        <input type="text" name="telefono_user" id="telefono" value="{{old('telefono_user',$empleado->telefono_empleado)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return validarNumeros(event)">
-                        @if($errors->has('telefono_user'))
-                        <label style="color:red">{{$errors->first('telefono_user')}}</label>
+                        <input type="text" name="telefono_empleado" id="telefono" value="{{old('telefono_empleado',$empleado->telefono_empleado)}}" required title="Ingresa los 10 digitos de tu telefono" class="form-control" placeholder="Telefono" onkeypress="return solonumeros(event)" onpaste="return false;"  minlength="10" maxlength="10">
+                        @if($errors->has('telefono_empleado'))
+                        <label style="color:red">{{$errors->first('telefono_empleado')}}</label>
                         @endif
                     </div>
                 </div><!-- fin col-md-3 -->

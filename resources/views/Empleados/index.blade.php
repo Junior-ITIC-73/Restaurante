@@ -8,7 +8,7 @@
 
 @section('content')		
 
-<a href="{{route('empleado.create')}}"><button type="button" class="btn btn-primary">Agregar</button></a>
+<center><a href="{{route('empleado.create')}}"><button type="button" class="btn btn-primary">Agregar Empleado</button></a></center>
 
 	<div class="container">
 		<div class="col-md-12 col-xs-12">
@@ -17,7 +17,7 @@
             <tr>
               <td>
               	 {{-- <a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio])}}"> --}}
-              	 	<a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio,'sexo'=>$sexo])}}">
+              	 	<a href="{{URL::action('EmpleadoController@reportepdf',['criterio'=>$criterio,'sexo'=>$sexo])}}" target="somewhere_new">
               	 	<i class="fa fa-fw fa-file-pdf-o"></i>PDF
               	 </a></td>
               <td>
@@ -53,8 +53,8 @@
                 </form> --}}
                 <form action="{{route('busqueda.empleado')}}" method="POST">
 					  	@csrf
-					  	Mujer<input type="radio" name="sexo" value="0" class="sexo">
-					    Hombre<input type="radio" name="sexo" value="1" class="sexo">
+					  	Hombre<input type="radio" name="sexo" value="0" class="sexo">
+					    Mujer<input type="radio" name="sexo" value="1" class="sexo">
 					    <input type="radio" name="sexo" value="L" class="sexo" checked style="visibility:hidden">
 
 					    <input type="search" placeholder="Buscar" aria-label="Buscar" name="criterio" placeholder="{{old('criterio')}}">
@@ -85,10 +85,10 @@
 				<td>{{$empleado->apellido_paterno}}</td>
 				<td>{{$empleado->apellido_materno}}</td>
 				@if($empleado->sexo == 1)
-				<td>Masculino</td>
+				<td>Femenino</td>
 				@endif
 				@if($empleado->sexo == 0)
-				<td>Femenino</td>
+				<td>Masculino</td>
 				@endif
 				<td>{{$empleado->telefono_empleado}}</td>
 				<td>
@@ -114,6 +114,7 @@
 			@endforeach
 		</tbody>
 		</table>
+			<center>{{$empleados->links()}}</center>
 		</div>
 		</div>
 	</div>

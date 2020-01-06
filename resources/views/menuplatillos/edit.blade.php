@@ -72,12 +72,13 @@ function solonumeros(e){
             @endif
             
             <form method="POST" action="{{route('menuplatillo.update',$menu_platillo)}}" enctype="multipart/form-data">
+               {{method_field('PUT')}}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
                 
                 <div class="row">
                   <div class="col-md-3">
                         <div class="form-group">
-                            <label for="categoria">Estado</label>
+                            <label for="categoria">Categoria</label>
                             <select name="categoria_id" id="categoria_id" class="form-control selectpicker" data-live-search="true">
                                 @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">
@@ -94,6 +95,9 @@ function solonumeros(e){
                             @if($errors->has('nombre_platillo'))
                             <label style="color:red">{{$errors->first('nombre_platillo')}}</label>
                             @endif
+                            <br>
+                            <label for="chooseFile" class="col-sm-0 col-form-label">Imagen Platillo</label>
+                            <input type="file" name="chooseFile" id="chooseFile" required>
                         </div>
                     </div><!-- fin col-md-3 -->
                     <div class="col-md-3">

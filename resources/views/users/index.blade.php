@@ -7,13 +7,13 @@
 @endsection
 
 @section('content')		
-    <a href="{{route('users.create')}}"><button type="button" class="btn btn-primary">Agregar</button></a>
+    <center><a href="{{route('users.create')}}"><button type="button" class="btn btn-primary">Agregar Usuario</button></a></center>
 	<div class="container">
 		<div class="col-md-12 col-xs-12">
 		<div class="cold-md-12">
         <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
             <tr>
-              <td><a href="{{URL::action('UserController@reportepdf',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
+              <td><a href="{{URL::action('UserController@reportepdf',['criterio'=>$criterio])}}" target="somewhere_new"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
               <td>
                 <a href="{{URL::action('UserController@reporteExcel',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-excel-o"></i>EXCEL</a>
               </td>
@@ -60,7 +60,7 @@
 			</thead>
 			<tbody>
 			@foreach($users as $user)
-			<tr align="center">
+			<tr>
 				<td>{{$user->name}}</td>
 				<td>{{$user->email}}</td>
 				<td>

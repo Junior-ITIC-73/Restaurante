@@ -7,13 +7,13 @@
 @endsection
 
 @section('content')     
-  <a href="{{route('categoriaPlatillo.create')}}"><button type="button" class="btn btn-primary">Agregar</button></a>
+  <center><a href="{{route('categoriaPlatillo.create')}}"><button type="button" class="btn btn-primary">Agregar Categoria de Platillo</button></a></center>
     <div class="container">
       <div class="col-md-12 col-xs-12">
         <div class="col-md-12">
           <table table border="4" class="table table-striped table-bordered" style="width:100%" id="a" align="center">
             <tr>
-              <td><a href="{{URL::action('CategoriaPlatilloController@reportepdf',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
+              <td><a href="{{URL::action('CategoriaPlatilloController@reportepdf',['criterio'=>$criterio])}}" target="somewhere_new"><i class="fa fa-fw fa-file-pdf-o"></i>PDF</a></td>
               <td>
                 <a href="{{URL::action('CategoriaPlatilloController@reporteExcel',['criterio'=>$criterio])}}"><i class="fa fa-fw fa-file-excel-o"></i>EXCEL</a>
               </td>

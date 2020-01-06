@@ -78,7 +78,7 @@
                 <div class="row">
                   <div class="col-md-3">
                         <div class="form-group">
-                            <label for="categoria">Estado</label>
+                            <label for="categoria">Categoria</label>
                             <select name="categoria_id" id="categoria_id" class="form-control selectpicker" data-live-search="true">
                                 @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">
@@ -95,12 +95,15 @@
                             @if($errors->has('nombre_platillo'))
                             <label style="color:red">{{$errors->first('nombre_platillo')}}</label>
                             @endif
+                            <br>
+                            <label for="chooseFile" class="col-sm-0 col-form-label">Imagen Platillo</label>
+                            <input type="file" name="chooseFile" id="chooseFile" required>
                         </div>
                     </div><!-- fin col-md-3 -->
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="precio_platillo" class="col-sm-0 col-form-label">Precio Platillo</label>
-                            <input type="text" name="precio_platillo" id="precio_platillo" value="{{old('precio_platillo')}}" required title="Ej: Ocupada" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="38" minlength="6">
+                            <input type="text" name="precio_platillo" id="precio_platillo" value="{{old('precio_platillo')}}" required title="Ej: Ocupada" class="form-control" onkeypress="return solonumeros(event)" onpaste="return false;"  minlength="2" maxlength="3">
                             @if($errors->has('precio_platillo'))
                             <label style="color:red">{{$errors->first('precio_platillo')}}</label>
                             @endif
@@ -109,7 +112,10 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="descripcion_platillo" class="col-sm-0 col-form-label">Descripcion</label>
-                            <input type="text" name="descripcion_platillo" id="descripcion_platillo" value="{{old('descripcion_platillo')}}" required title="Ej: Ocupada" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="60" minlength="6">
+                            {{-- <input type="text" name="descripcion_platillo" id="descripcion_platillo" value="{{old('descripcion_platillo')}}" required  class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="60" minlength="6"> --}}
+
+                             <textarea name="descripcion_platillo" id="descripcion_platillo" value="{{old('descripcion_platillo')}}" required  class="form-control" onkeypress="return soloLetras(event)" onpaste="return false;" maxlength="250" minlength="6"></textarea>
+
                             @if($errors->has('descripcion_platillo'))
                             <label style="color:red">{{$errors->first('descripcion_platillo')}}</label>
                             @endif
