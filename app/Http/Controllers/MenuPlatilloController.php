@@ -71,7 +71,7 @@ class MenuPlatilloController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MenuPlatillo  $menuPlatillo
+     * @param  \App\MenuPlatillo  $MenuPlatillo
      * @return \Illuminate\Http\Response
      */
     public function show($id)

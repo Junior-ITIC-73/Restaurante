@@ -61,7 +61,7 @@ class Modulo1Controller extends Controller
                 'ventas'=>$ventas, 
                 'searchText'=>$query
             ]);
-        }
+        } 
                 //return view('Modulos.carroventas',compact('ventas'));
 
     }
@@ -136,23 +136,23 @@ class Modulo1Controller extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //return $request->all();
         // $cantidad = $request->cantidad;
         // //return $total;
         // foreach ($cantidad as $cant) {
         //     $cant;
         // }
-        $pro=0;
-        $precio = $request->precio_venta;
-        foreach ($precio as $pre) {
-            $pro= $pre+$pro;
-        }
+        // $pro=0;
+        // $precio = $request->precio_venta;
+        // foreach ($precio as $pre) {
+        //     $pro= $pre+$pro;
+        // }
 
         $ordens= Orden::create([
             'user_id' => $request['user_id'],
             'mesa_id' => $request['mesa_id'],
             'folio_orden' => $request['folio_orden'],
-            'total_orden' => $pro,
+            'total_orden' => $request['total'],
         ]);
         //return $request->all();
         // $orden = new Orden($request->all());

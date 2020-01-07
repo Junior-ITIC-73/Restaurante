@@ -38,26 +38,11 @@
 								<td>{{ $vent->folio_venta }}</td>
 								<td>{{ $vent->total_venta }}</td>
 								<td>{{ $vent->propina }}</td>
-								{{-- <td>{{ $per->tipo_documento }}</td>
-								<td>{{ $per->num_documento }}</td>
-								<td>{{ $per->telefono }}</td>
-								<td>{{ $per->email }}</td>
-								<td>
-									<a href="{{ route('cliente.edit', $per->id) }}">
-										<button class="btn btn-info">Editar</button>
-									</a>
-									<a href="" data-target="#modal-delete-{{$per->id}}" data-toggle="modal">
-										<button class="btn btn-danger">Eliminar</button>
-									</a>
-								</td>
-							</tr>
-						@include('ventas.cliente.modal') --}}
 						@endforeach
 					</tbody>
 				</table>
 			</div>
-{{-- 		{{ $personas->render() }}
- --}}		</div>
-	</div>
+		</div>
+	</div> 
 
-@endsection
+@endsection 
