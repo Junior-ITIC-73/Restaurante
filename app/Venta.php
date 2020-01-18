@@ -11,6 +11,8 @@ class Venta extends Model
         'orden_id',
         'folio_venta',
         'tipo_de_pago',
+        'total_venta',
+        'propina',
     ];
 
      public function user(){

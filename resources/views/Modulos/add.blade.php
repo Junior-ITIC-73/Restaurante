@@ -24,7 +24,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 				
 				<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-2">
 					<div class="form-group">
 						<label for="proveedor">Empleado</label>
 						<select name="user_id" id="user_id" class="form-control selectpicker" data-live-search="true">
@@ -53,8 +53,8 @@
 					<div class="form-group">
 						<label for="tipo_de_pago">Tipo de Pago</label>
 						<select name="tipo_de_pago" class="form-control">
-							<option value="1">Efectivo</option>
-							<option value="2">Tarjeta</option>
+							<option value="0">Efectivo</option>
+							<option value="1">Tarjeta</option>
 						</select> 
 					</div>
 				</div><!-- fin col-md-3 -->
@@ -68,6 +68,12 @@
 							</option>
 							@endforeach
 						</select>
+					</div>
+				</div><!-- fin col-md-3 -->
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="propina">Propina</label>
+						<input type="text" name="propina" class="form-control" value="">
 					</div>
 				</div><!-- fin col-md-3 -->
 				</div><!-- fin row cabecera -->
@@ -123,7 +129,7 @@
 									<th id="to"></th>
 									<th>
 										<h4 id="total">0.00</h4>
-										Capturar total sugerido: $<input type="text" id="w" name="total">
+										Capturar total sugerido: $<input type="text" id="w" name="total_venta">
 									</th>
 								</tfoot>
 								<tbody>

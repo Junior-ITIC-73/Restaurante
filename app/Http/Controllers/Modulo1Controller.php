@@ -33,6 +33,7 @@ class Modulo1Controller extends Controller
         //venta.blade.php
          $categorias = CategoriaPlatillo::all();
          $ventas = Venta::all();
+         $ordens = Orden::all();
         // //return $categorias;
         // $menus = MenuPlatillo::all();
         // $empleados = Empleado::all();
@@ -55,7 +56,7 @@ class Modulo1Controller extends Controller
             $query = trim($request->input('searchText'));
 
             $ventas = Venta::where('folio_venta', 'LIKE', "%$query%")
-                ->paginate(5);
+                ->paginate(30);
 
             return view('Modulos.carroventas', [
                 'ventas'=>$ventas, 
@@ -152,7 +153,15 @@ class Modulo1Controller extends Controller
             'user_id' => $request['user_id'],
             'mesa_id' => $request['mesa_id'],
             'folio_orden' => $request['folio_orden'],
-            'total_orden' => $request['total'],
+            //'total_orden' => $request['total'],
+        ]);
+        $ventas= Venta::create([
+            'user_id' => $request['user_id'],
+            'orden_id' => $request['orden_id'],
+            'folio_venta' => $request['folio_venta'],
+            'tipo_de_pago' => $request['tipo_de_pago'],
+            'total_venta' => $request['total_venta'],
+            'propina' => $request['propina'],
         ]);
         //return $request->all();
         // $orden = new Orden($request->all());

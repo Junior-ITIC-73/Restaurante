@@ -19,4 +19,7 @@ class Orden extends Model
     public function detalle_ordens(){
     	return	$this->hasMany(MenuPlatillo::class);
     }
+    public function mesa(){
+        return  $this->belongsTo(Mesa::class);
+    }
 }

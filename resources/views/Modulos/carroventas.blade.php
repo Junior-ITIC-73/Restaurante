@@ -27,6 +27,7 @@
 						<th>Id</th>
 						<th>Usuario</th>
 						<th>Folio venta</th>
+						<th>Tipo de pago</th>
 						<th>Total venta</th>
 						<th>Propina</th>
 					</thead>
@@ -36,8 +37,9 @@
 								<td>{{ $vent->id }}</td>
 								<td>{{ $vent->user->name }}</td>
 								<td>{{ $vent->folio_venta }}</td>
+								<td>{{ $vent->tipo_de_pago }}</td>
 								<td>{{ $vent->total_venta }}</td>
-								<td>{{ $vent->propina }}</td>
+								<td>{{ $vent->propina}}</td>
 						@endforeach
 					</tbody>
 				</table>
