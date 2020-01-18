@@ -157,7 +157,6 @@
 			agregar();
 		});
 	});
-
 	$(document).ready(function(){
         $("#boton").click(function(){
 		    $("#total").each(function(){
@@ -168,15 +167,12 @@
         	});
 		});
 	});
-
 	var cont = 0;
 	var total = 0;
 	var subtotal = [];
-
 	//Cuando cargue el documento
 	//Ocultar el botón Guardar
 	$("#guardar").hide();
-
 	function agregar(){
 		//Obtener los valores de los inputs
 		id_platillo = $("#pid").val();
@@ -184,16 +180,12 @@
 		cantidad = $("#pcantidad").val();
 		//precio_compra = $("#pprecio_compra").val();
 		precio_venta = $("#pprecio_venta").val();
-
 		//Validar los campos
 		if(id_platillo != "" && cantidad > 0 && precio_venta != ""){
-
 			//subtotal array inicie en el indice cero
 			subtotal[cont] = (cantidad * precio_venta);
 			total = total + subtotal[cont];
-
 			var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="id_platillo[]" value="'+id_platillo+'">'+platillo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+'" onlyread></td><td>'+subtotal[cont]+'</td></tr>';
-
 			cont++;
 			limpiar();
 			$("#total").html("$" + total);
@@ -203,12 +195,10 @@
 			alert("Error al ingresar datos de venta, datos incompletos, llenar todos los campos");
 		}
 	}
-
 	function limpiar(){
 		$("#pcantidad").val("");
 		$("#pprecio_venta").val("");
 	}
-
 	//Muestra botón guardar
 	function evaluar(){
 		if(total > 0){
@@ -217,14 +207,12 @@
 			$("#guardar").hide();
 		}
 	}
-
 	function eliminar(index){
 		total = total-subtotal[index];
 		$("#total").html("$" + total);
 		$("#fila" + index).remove();
 		evaluar();
 	}
-
 </script>
 @endpush
 @endsection

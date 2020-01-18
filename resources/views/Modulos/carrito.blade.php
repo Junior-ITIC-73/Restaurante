@@ -100,14 +100,7 @@
           var id = $(this).val();
           //alert(id);
           if($.trim(id)!= '0'){
-            $.get('ajax1',{id : id},function(categorias){
-              alert(categorias);
-              //$("#answer").empty();
-              // $.each(categorias,function(categoria_id , nombre_platillo, precio_platillo){
-              //   //$("#answer").append("<option value='"+ categoria_id+"'>"+ nombre_platillo+ "</option>");
-              //   $("#answer").append("<tr><td>"+id+"</td><td>"+nombre_platillo+"</td></tr>");
-              // });
-            })
+            
           }
           else{
             $("#answer").empty();

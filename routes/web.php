@@ -237,3 +237,4 @@
 
     Route::get('Empleados/reporteExcel/{criterio?}','EmpleadoController@reporteExcel')->name('excel.empleado');
     // Route::get('Empleados/reporteWord/','EmpleadoController@reporteWord')->name('word.empleado');
+    //Route::get('/extra','ExtraController');

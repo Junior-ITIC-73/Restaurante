@@ -124,6 +124,12 @@
                 Empleado
               </a>
             </li>
+            <li>
+              <a href="/extra">
+                <i class="fa fa-circle-o"></i>
+                Examen de estraordinario
+              </a>
+            </li>
           </ul>
         </li>
 
